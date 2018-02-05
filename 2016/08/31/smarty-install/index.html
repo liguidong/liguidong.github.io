@@ -6,14 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/2 | Hexo</title>
+  <title>Smarty的安装使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/02/index.html">
+  <meta name="description" content="一、简介 一直以来，就有无数人前赴后继力求为我们创造便利，开发也是如此。 下面摘自百科： 如何使PHP脚本从设计中独立出来？这是在PHP邮件列表上所提问的最多的问题之一。虽然PHP被标榜为“HTML嵌入式语言”，在写过许多PHP和HTML混合式的工程之后，一个分离表单和内容的想法产生了。而且，在许多公司里规划设计者的角色和程序设计者是分开的。于是，这样的一个模板解决方案产生了……于是，Smarty">
+<meta name="keywords" content="PHP,Smarty">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Smarty的安装使用">
+<meta property="og:url" content="http://yoursite.com/2016/08/31/smarty-install/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、简介 一直以来，就有无数人前赴后继力求为我们创造便利，开发也是如此。 下面摘自百科： 如何使PHP脚本从设计中独立出来？这是在PHP邮件列表上所提问的最多的问题之一。虽然PHP被标榜为“HTML嵌入式语言”，在写过许多PHP和HTML混合式的工程之后，一个分离表单和内容的想法产生了。而且，在许多公司里规划设计者的角色和程序设计者是分开的。于是，这样的一个模板解决方案产生了……于是，Smarty">
+<meta property="og:image" content="http://codeart.top/wp-content/uploads/2016/08/59b50bc66aea3908d7aa45530d20e227.png">
+<meta property="og:image" content="http://codeart.top/wp-content/uploads/2016/08/c86a8528ccc313524013d789111fc8e1.png">
+<meta property="og:image" content="http://codeart.top/wp-content/uploads/2016/08/dcf37b31a865317873ba24ecb73b591c.png">
+<meta property="og:image" content="http://codeart.top/wp-content/uploads/2016/08/96c2db03a3f718422d5ed702b9ee7be3.png">
+<meta property="og:image" content="http://codeart.top/wp-content/uploads/2016/08/bbbadfc4c1421c61fda61c023795abae.png">
+<meta property="og:updated_time" content="2018-02-04T10:20:05.400Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Smarty的安装使用">
+<meta name="twitter:description" content="一、简介 一直以来，就有无数人前赴后继力求为我们创造便利，开发也是如此。 下面摘自百科： 如何使PHP脚本从设计中独立出来？这是在PHP邮件列表上所提问的最多的问题之一。虽然PHP被标榜为“HTML嵌入式语言”，在写过许多PHP和HTML混合式的工程之后，一个分离表单和内容的想法产生了。而且，在许多公司里规划设计者的角色和程序设计者是分开的。于是，这样的一个模板解决方案产生了……于是，Smarty">
+<meta name="twitter:image" content="http://codeart.top/wp-content/uploads/2016/08/59b50bc66aea3908d7aa45530d20e227.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,49 +160,253 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-smarty-install" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/04/hello-world/" class="archive-article-date">
-  	<time datetime="2018-02-04T09:46:43.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/04/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      Smarty的安装使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2016/08/31/smarty-install/" class="archive-article-date">
+  	<time datetime="2016-08-31T11:39:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一、简介</strong></p>
+<p>一直以来，就有无数人前赴后继力求为我们创造便利，开发也是如此。</p>
+<p>下面摘自百科：</p>
+<p><div class="para">如何使<a href="http://baike.baidu.com/view/99.htm" target="_blank" rel="noopener">PHP</a>脚本从设计中独立出来？这是在PHP邮件列表上所提问的最多的问题之一。虽然PHP被标榜为“HTML嵌入式语言”，在写过许多PHP和HTML混合式的工程之后，一个分离表单和内容的想法产生了。而且，在许多公司里规划设计者的角色和程序设计者是分开的。于是，这样的一个模板解决方案产生了……于是，Smarty诞生了……</div></p>
+<p><div class="para"></div><br><strong>二、下载安装</strong></p>
+<p>Smarty官网：<a href="http://www.smarty.net/" target="_blank" rel="noopener">http://www.smarty.net/</a></p>
+<p>下载地址：<a href="http://www.smarty.net/download" target="_blank" rel="noopener">http://www.smarty.net/download</a></p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/59b50bc66aea3908d7aa45530d20e227.png" alt=""></p>
+<p>下载完成后得到smarty-<em>.</em>.*.zip这样一个压缩包，解压得到</p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/c86a8528ccc313524013d789111fc8e1.png" alt=""></p>
+<p>其中：</p>
+<p>demo为Smarty官方的演示案例，我们需要使用的是libs这个核心函数文件夹。</p>
+<p>将libs文件夹放入我们的项目路径，就可以开始使用了</p>
+<p>例如我建立了一个smarty目录，将demo以及libs（这里更名为了smarty）放入其中（demo是个人以后会用，单纯使用smarty放入libs就可以）</p>
+<p>这里test为我的php代码目录</p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/dcf37b31a865317873ba24ecb73b591c.png" alt=""></p>
+<p>&nbsp;</p>
+<p><strong>三、使用Smarty</strong></p>
+<p>在使用之前我们先来看一下libs中的文件</p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/96c2db03a3f718422d5ed702b9ee7be3.png" alt=""></p>
+<p>其中我们要用到的就是 Smarty.class.php 这个文件了，Smatry也是类似于单一入口机制，所有的操作我们通过Smarty类来完成</p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/bbbadfc4c1421c61fda61c023795abae.png" alt=""></p>
+<p>SmartyBC.class.php这个文件用来处理上下兼容性，因为其经常更新，可能会导致某些方法在下个版本中失效导致问题，所有其提供了这样一个文件来处理兼容问题</p>
+<p>接下来，就该正式使用了。</p>
+<p>我先在上一级目录的test文件夹中建立一个test.php文件</p>
+<p>打开test.php，首先我来引入Smarty，并实例化</p>
+<pre>require_once('../smarty/Smarty.class.php');
+$smarty = new Smarty();</pre>
+接下来，我们对Smarty的部分参数进行一些设置
+<pre>$smarty-&gt;setLeftDelimiter('{');//左定界符
+$smarty-&gt;setRightDelimiter('}');//右定界符
+$smarty-&gt;setTemplateDir('tpl');//html模板地址
+$smarty-&gt;setCompileDir('template_c');//编译目录
+$smarty-&gt;setCacheDir('cache');//缓存</pre>
+<pre>这里注意下这几项设置，smarty3之后的版本与老版本写法有了差异（新版API中提到了很多改进，这只是微微的一部分） 
 
+//开启缓存（Smarty默认是不开启缓存的） 
+$smarty-&gt;caching = true;//开启 
+$smarty-&gt;cache_lifetime = 120; 
+
+现在我们就可以尝试来用模板引擎输出内容了，在输出内容之前我们先定义几个变量</pre>
+<pre>$smarty-&gt;assign('articletitle','文章标题');//assign这个方法就是用于在<span class="bold">**模板运行期间**</span>赋值给变量.
+//这里就是定义了一个值为’文章标题‘的articletitle变量
+
+有了变量现在我们需要一个模板来将他输出
+现在我们来到目录中，将之前定义的模板地址，编译目录，缓存文件夹建立
+![](http://codeart.top/wp-content/uploads/2016/08/76e8a79f095497c174463a6d137579d2.png)
+进入tpl目录，建立我们的模板，这里我新建一个test.html。这里后缀并无太大所谓，htm，tpl都可以。
+不过我个人建议，还是使用html的好
+![](http://www.codeart.top/wp-content/uploads/2016/09/17e5c364b61ddb7194f7e61b23a6ae7e.png)
+编辑器打开它，键入</pre>
+<pre>{$articletitle}
+//左右定界符，包裹之前在test.php中定义的变量
+
+现在回到test.php，键入以下语句
+
+</pre>
+<pre>$smarty-&gt;display('test.html');//显示模板，参数为之前建立的test.html
+
+现在运行test.php
+
+</pre>
+<pre> ![](http://codeart.top/wp-content/uploads/2016/08/3c28fdff3e72aa8a369564af5f4b68e6.png)
+成功输出定义的变量！</pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Smarty</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP//" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2016/08/31/smarty-install/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/09/02/google-fq-ss-vpn-chrome/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          如何简简单单上Google
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/06/11/hello-world-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">世界，您好！</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -214,8 +429,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

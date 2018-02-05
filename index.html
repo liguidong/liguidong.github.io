@@ -45,7 +45,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">liguidong</a></h1>
 		</hgroup>
 		
 
@@ -103,7 +103,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">liguidong</h1>
 			</hgroup>
 			
 			
@@ -222,6 +222,1095 @@
 
 
   
+    <article id="post-homesteadlaravel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/07/homesteadlaravel/">VirtualBox+vagrant+Homestead 安装laravel环境</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/07/homesteadlaravel/" class="archive-article-date">
+  	<time datetime="2018-01-07T03:09:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="VirtualBox-vagrant-Homestead-安装laravel环境"><a href="#VirtualBox-vagrant-Homestead-安装laravel环境" class="headerlink" title="VirtualBox+vagrant+Homestead 安装laravel环境"></a><span class="md-expand">VirtualBox+vagrant+Homestead 安装laravel环境</span></h3><blockquote>
+<p><span class="md-line md-end-block">win上的配置，其他平台请移步</span><br><span class="md-line md-end-block">本地安装配置laravel的环境多种多样</span></p>
+</blockquote>
+<p><span class="md-line md-end-block">常见的有win上集成环境安装使用，linux虚拟机安装使用</span></p>
+<p><span class="md-line md-end-block">而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等</span></p>
+<p><span class="md-line md-end-block">编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">作者：cikenerd</span></p>
+<p>&nbsp;</p>
+<p><span class="md-line md-end-block"><span class=""><strong>本质区别</strong></span></span><span class="md-line md-end-block"><span class="">Vagrant并不提供虚拟化技术，本质上是一个虚拟机外挂，通过虚拟机的管理接口来管理虚拟机，让用户更轻松的进行一些常用配置，比如：CPU/Memory/IP/DISK等分配。并且提供了一些其它的管理操作：比如开机运行指定命令，镜像二次打包，插件编写等等。</span></span><span class="md-line md-end-block">vagrant官方有介绍</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">To achieve its magic, Vagrant stands on the shoulders of giants. <span class=""><strong>Machines are provisioned on top of VirtualBox, VMware, AWS, or </strong></span><span class=""><a href="https://www.vagrantup.com/docs/providers/" target="_blank" rel="noopener">any other provider</a></span>. Then, industry-standard <span class=""><a href="https://www.vagrantup.com/docs/provisioning/" target="_blank" rel="noopener">provisioning tools</a></span> such as shell scripts, Chef, or Puppet, can be used to automatically install and configure software on the machine.</span></p>
+</blockquote>
+<p><span class="md-line md-end-block">而docker是一个容器引擎，每一个实例是一个<span class=""><strong>相对隔离</strong></span>的空间，<span class=""><strong>与宿主机共享操作系统内核</strong></span>，并且共享宿主机资源。相对于披着虚拟机皮的vagrant，docker更加轻量，消耗更少的资源。</span><span class="md-line md-end-block">贴一张docker官方介绍图</span></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://pic2.zhimg.com/242cabf1bb842a719ece05db473d91fd_r.jpg"><img src="https://pic2.zhimg.com/242cabf1bb842a719ece05db473d91fd_r.jpg" alt=""></span></span></p>
+<div class="md-hr md-end-block" tabindex="-1" contenteditable="false">
+
+</div></blockquote>
+<hr>
+<p></p>
+<blockquote>
+<h5 id="过程综述"><a href="#过程综述" class="headerlink" title="过程综述"></a>过程综述</h5><blockquote>
+<p><span class="md-line md-end-block">1.安装VirtualBox</span></p>
+<p><span class="md-line md-end-block">2.安装vagrant</span></p>
+<p><span class="md-line md-end-block">3.下载Homestead box</span></p>
+<p><span class="md-line md-end-block">4.下载Homestead并配置</span></p>
+<p><span class="md-line md-end-block">5.启动vagrant</span></p>
+<p><span class="md-line md-end-block">6.ssh连接并安装laravel</span></p>
+</blockquote>
+<p><span class="md-line md-end-block">ps：建议在git Bash下进行操作，cmd可能会出问题（如无git建议下载安装，全程依然傻瓜式下一步）</span></p>
+<p><span class="md-line md-end-block">下载地址：<span spellcheck="false"><a href="http://gitforwindows.org/" target="_blank" rel="noopener">http://gitforwindows.org/</a></span></span></p>
+<div class="md-hr md-end-block" tabindex="-1" contenteditable="false">
+
+</div></blockquote>
+<hr>
+<p></p>
+<h3 id="一、安装VirtualBox"><a href="#一、安装VirtualBox" class="headerlink" title="一、安装VirtualBox"></a>一、安装VirtualBox</h3><p><span class="md-line md-end-block"><span spellcheck="false"><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">https://www.virtualbox.org/</a></span> 下载安装，傻瓜式</span></p>
+<h3 id="二、安装Vagrant"><a href="#二、安装Vagrant" class="headerlink" title="二、安装Vagrant"></a>二、安装Vagrant</h3><p><span class="md-line md-end-block"><span spellcheck="false"><a href="https://www.vagrantup.com/" target="_blank" rel="noopener">https://www.vagrantup.com/</a></span> 依然傻瓜式下载安装</span></p>
+<h3 id="三、下载Homestead-box"><a href="#三、下载Homestead-box" class="headerlink" title="三、下载Homestead box"></a>三、下载Homestead box</h3><p><span class="md-line md-end-block">可在线，可离线下载进行，因天朝网络环境可能失败，上梯子无效，不过个人还是在线下载下来了</span></p>
+<blockquote>
+<p><span class="md-line md-end-block"><span spellcheck="false"><code>$ vagrant box add laravel/homestead</code></span></span><br><span class="md-line md-end-block">打开git bash 输入以上，弹出选项，选择virtualbox，即可自动开始下载</span></p>
+</blockquote>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/91467438-6393-4b0f-bb0b-c855c681acb5"><img src="https://wt-box.worktile.com/public/91467438-6393-4b0f-bb0b-c855c681acb5" alt=""></span></span></p>
+<p><span class="md-line md-end-block">如果下载进行不下去，可复制其中的链接用IDM，迅雷等工具进行下载</span></p>
+<blockquote>
+<p><span class="md-line md-end-block"><span class=""><a href="https://atlas.hashicorp.com/laravel/boxes/homestead/versions/5.0.1/providers/virtualbox.box" target="_blank" rel="noopener">https://atlas.hashicorp.com/laravel/boxes/homestead/versions/5.0.1/providers/virtualbox.box</a></span></span></p>
+<div class="md-hr md-end-block" tabindex="-1" contenteditable="false">
+
+</div></blockquote>
+<hr>
+<p><br><span class="md-line md-end-block">挖坑，如果是离线下载的box，需要做些其他的事情，因我这边未碰到，所以暂时留坑</span></p>
+<div class="md-hr md-end-block" tabindex="-1" contenteditable="false">
+
+<hr>
+<p></p></div><br><span class="md-line md-end-block">此时，C盘用户文件夹中，应该多了此文件夹 <span spellcheck="false"><code>.vagrant.d</code></span>,下载的box即在其中</span><p></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/d2be657e-22f5-4026-b6db-bf8d3aa0ebe3"><img src="https://wt-box.worktile.com/public/d2be657e-22f5-4026-b6db-bf8d3aa0ebe3" alt=""></span></span></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/54bc12b0-2a45-4809-a74e-f7063ca2f00d"><img src="https://wt-box.worktile.com/public/54bc12b0-2a45-4809-a74e-f7063ca2f00d" alt=""></span></span></p>
+<h3 id="下载Homestead并配置"><a href="#下载Homestead并配置" class="headerlink" title="下载Homestead并配置"></a>下载Homestead并配置</h3><p><span class="md-line md-end-block">在Git bash 里输入</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">$ git clone <span spellcheck="false"><a href="https://github.com/laravel/homestead.git" target="_blank" rel="noopener">https://github.com/laravel/homestead.git</a></span> ~/Homestead</span><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/ef81e40a-005c-4e38-8cf8-83c21733a503"><img src="https://wt-box.worktile.com/public/ef81e40a-005c-4e38-8cf8-83c21733a503" alt=""></span></span></p>
+</blockquote>
+<p><span class="md-line md-end-block">这里下载好后继续</span></p>
+<blockquote>
+<p><span class="md-line md-end-block"># 先cd到刚才下载的Homestead文件夹</span></p>
+<p><span class="md-line md-end-block">$ cd ~/Homestead</span></p>
+<p><span class="md-line md-end-block"># 开始初始化Homestead</span></p>
+<p><span class="md-line md-end-block">$ bash init.sh</span><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/986a7b76-ce72-4ff1-9a92-d71d87cd304e"><img src="https://wt-box.worktile.com/public/986a7b76-ce72-4ff1-9a92-d71d87cd304e" alt=""></span></span></p>
+</blockquote>
+<p><span class="md-line md-end-block">此时，在用户目录下 Homestead文件夹中，可以看到多了一个<span spellcheck="false"><code>Homestead.yaml</code></span>文件</span></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/8ab7adaf-d89c-4e00-b86a-963b1b40cf92"><img src="https://wt-box.worktile.com/public/8ab7adaf-d89c-4e00-b86a-963b1b40cf92" alt=""></span></span></p>
+<p><pre class="md-fences md-end-block" lang="ng" contenteditable="false"><span role="presentation">—</span><br><span role="presentation">ip: “192.168.10.10”</span><br><span role="presentation">memory: 2048</span><br><span role="presentation">cpus: 1</span><br><span role="presentation">provider: virtualbox</span><br><span role="presentation">​</span><br><span role="presentation">authorize: ~/.ssh/id_rsa.pub</span><br><span role="presentation">​</span><br><span role="presentation">keys:</span><br><span role="presentation">    - ~/.ssh/id_rsa</span><br><span role="presentation">​</span><br><span role="presentation">folders:</span><br><span role="presentation">    - map: ~/Code</span><br><span role="presentation">      to: /home/vagrant/Code</span><br><span role="presentation">​</span><br><span role="presentation">sites:</span><br><span role="presentation">    - map: homestead.test</span><br><span role="presentation">      to: /home/vagrant/Code/laravel/public</span><br><span role="presentation">​</span><br><span role="presentation">databases:</span><br><span role="presentation">    - homestead</span><br><span role="presentation">​</span><br><span role="presentation"># blackfire:</span><br><span role="presentation">#     - id: foo</span><br><span role="presentation">#       token: bar</span><br><span role="presentation">#       client-id: foo</span><br><span role="presentation">#       client-token: bar</span><br><span role="presentation">​</span><br><span role="presentation"># ports:</span><br><span role="presentation">#     - send: 50000</span><br><span role="presentation">#       to: 5000</span><br><span role="presentation">#     - send: 7777</span><br><span role="presentation">#       to: 777</span><br><span role="presentation">#       protocol: udp</span></pre><br><span class="md-line md-end-block">他默认应该是介个样子，其中有几条配置需要了解，处理一下（这个配置很重要，下面所做的几个操作都是围绕他进行）</span></p>
+<p><span class="md-line md-end-block">首先我们需要建立SSH Key，在Git bash中输入</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">$ ssh-keygen -t rsa</span><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/851d69ec-10f8-49f6-8d84-378a2cad66d4"><img src="https://wt-box.worktile.com/public/851d69ec-10f8-49f6-8d84-378a2cad66d4" alt=""></span></span></p>
+</blockquote>
+<p><span class="md-line md-end-block">期间一路回车就好，用户名密码都暂为空</span></p>
+<p><span class="md-line md-end-block">完事后，我们会在用户目录看到一个<span spellcheck="false"><code>.ssh</code></span>目录</span></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/8b790d08-0d3f-44f2-9acc-2e89f63175c3"><img src="https://wt-box.worktile.com/public/8b790d08-0d3f-44f2-9acc-2e89f63175c3" alt=""></span></span></p>
+<p><span class="md-line md-end-block">里面的两个文件即对应配置中的这几行</span></p>
+<p><pre class="md-fences md-end-block" lang="nginx" contenteditable="false"><span role="presentation">authorize: <span class="cm-tag">~</span>/.ssh/id_rsa.<span class="cm-tag">pub</span></span><br><span role="presentation">​</span><br><span role="presentation">keys:</span><br><span role="presentation">    <span class="cm-tag">~</span>/.ssh/<span class="cm-tag">id_rsa</span></span><br><span role="presentation">​</span></pre><br><span class="md-line md-end-block">接下来，看配置文件这里</span></p>
+<p><pre class="md-fences md-end-block" lang="nginx" contenteditable="false"><span role="presentation">folders:</span><br><span role="presentation">    <span class="cm-tag">-</span> <span class="cm-variable-2">map</span>: <span class="cm-tag">~</span>/<span class="cm-tag">Code</span></span><br><span role="presentation">      to: /home/vagrant/<span class="cm-tag">Code</span></span><br><span role="presentation">​</span><br><span role="presentation">sites:</span><br><span role="presentation">    <span class="cm-tag">-</span> <span class="cm-variable-2">map</span>: homestead.<span class="cm-tag">test</span></span><br><span role="presentation">      to: /home/vagrant/Code/laravel/<span class="cm-tag">public</span></span></pre><br><span class="md-line md-end-block">其中folders中，将map后面的文件夹（即~/Code）映射到Homestead中的/home/vagrant/Code。这就像我们常见到的和虚拟机中系统共享文件夹类似，我们把本机的~/Code文件夹分享给Homestead，所以我们可以很方便地使用自己喜欢的IDE（比如PhpStorm）进行开发，在~/Code中所进行的修改会如实反应在Homestead对应的文件夹中。</span></p>
+<p><span class="md-line md-end-block">在sites中，我们定义了homestead.test指向/home/vagrant/Code/laravel/public这个文件夹，即Laravel项目的public文件夹。这样在浏览器中输入homestead.app，我们就可以直接看到项目主页了。</span></p>
+<p><span class="md-line md-end-block">注意：以上的文件夹及映射是可以根据用户喜好更改的，比如这里我将开发文件夹叫做WebDev，里面我新建了一个叫teahouse的项目，那么以上的配置，我就可以做出相应修改：</span></p>
+<p><pre class="md-fences md-end-block" lang="nginx" contenteditable="false"><span role="presentation">folders:</span><br><span role="presentation">    <span class="cm-tag">-</span> <span class="cm-variable-2">map</span>: <span class="cm-tag">~</span>/<span class="cm-tag">code</span></span><br><span role="presentation">      to: /home/vagrant/<span class="cm-tag">Webdev</span></span><br><span role="presentation">​</span><br><span role="presentation">sites:</span><br><span role="presentation">    <span class="cm-tag">-</span> <span class="cm-variable-2">map</span>: teahouse.<span class="cm-tag">app</span></span><br><span role="presentation">      to: /home/vagrant/Webdev/teahouse/<span class="cm-tag">public</span></span></pre><br><span class="md-line md-end-block">之后，为了teahouse.app这个域名能正常的访问，我们需要在hosts中增加一行</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">192.168.10.10 homestead.app teahouse.app</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">ps:hosts位于<span spellcheck="false"><code>C:\Windows\System32\drivers\etc</code></span></span><br><span class="md-line md-end-block">再接下来我们看配置文件中</span></p>
+<p><pre class="md-fences md-end-block" lang="" contenteditable="false"><span role="presentation">databases:</span><br><span role="presentation">    - homestead</span></pre><br><span class="md-line md-end-block">在这里我们没添加一个数据库名字，Homestead就会创建一个数据库</span></p>
+</blockquote>
+</blockquote>
+<p><span class="md-line md-end-block">这里我添加了一个新的数据库</span></p>
+<p><pre class="md-fences md-end-block" lang="" contenteditable="false"><span role="presentation">databases:</span><br><span role="presentation">    - homestead</span><br><span role="presentation">    - teahouse</span></pre><br><span class="md-line md-end-block"><span class=""><strong>注意不要使用Tab来缩进，可能会报错，这里使用空格</strong></span></span></p>
+<p><span class="md-line md-end-block">接下来，我们就可以来启动Vagrant了，惊不惊喜！</span></p>
+<p><span class="md-line md-end-block">Git bash中输入</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">cd ~/Homestead</span></p>
+<p><span class="md-line md-end-block">vagrant up</span><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/e86cb964-7c7b-42d9-b039-f8abb7a7be1e"><img src="https://wt-box.worktile.com/public/e86cb964-7c7b-42d9-b039-f8abb7a7be1e" alt=""></span></span></p>
+</blockquote>
+<p><span class="md-line md-end-block">过会儿，我们就能看到Vagrant已经顺利运行了，接下来我们可以通过本地的ssh工具，mysql工具来连接环境</span></p>
+<p><span class="md-line md-end-block">默认的SSH：</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">Host：127.0.0.1</span></p>
+<p><span class="md-line md-end-block">端口：2222</span></p>
+<p><span class="md-line md-end-block">用户：vagrant</span></p>
+<p><span class="md-line md-end-block">密码：vagrant</span><br><span class="md-line md-end-block">默认MySql</span><span class="md-line md-end-block">homestead/secret</span></p>
+</blockquote>
+<p><span class="md-line md-end-block">SSH连接上后，接下来按照之前配置中的路径来新建服务器上的目录</span></p>
+<p><span class="md-line md-end-block">例如我的配置是如此这般：</span></p>
+<p><pre class="md-fences md-end-block" lang="" contenteditable="false"><span role="presentation">sites:</span><br><span role="presentation">    - map: teahouse.app</span><br><span role="presentation">      to: /home/vagrant/Webdev/teahouse/public</span></pre><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/417c49c2-ce78-4655-b52a-4f672c96c078"><img src="https://wt-box.worktile.com/public/417c49c2-ce78-4655-b52a-4f672c96c078" alt=""></span></span></p>
+<p><span class="md-line md-end-block">我于是在服务器端新建如下目录（teahouse/public 这里已经是laravel里面了）</span></p>
+<p><span class="md-line md-end-block">进入<span spellcheck="false"><code>/home/vagrant/Webdev</code></span>目录，接下来通过composer安装laravel</span></p>
+<p><span class="md-line md-end-block">出于GFW原因，我们不得不用中国镜像来安装。vagrant虚拟机中运行如下命令</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">composer config -g repo.packagist composer <span spellcheck="false"><a href="https://packagist.phpcomposer.com" target="_blank" rel="noopener">https://packagist.phpcomposer.com</a></span></span><br><span class="md-line md-end-block">接着我们通过composer来安装一个5.5版本</span><br><span class="md-line md-end-block">composer create-project laravel/laravel=5.5 –prefer-dist</span><br><span class="md-line md-end-block">下载完成后，Webdev下出现laravel目录，接着将目录名改为配置中自己的名字，这里我配置的是teahouse</span><br><span class="md-line md-end-block">mv laravel/ teahouse/</span><br><span class="md-line md-end-block">接下来本地通过配置的域名进行访问，出现laravel界面，ok，大功告成</span></p>
+</blockquote>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/b38f14ec-d0ba-4dea-a503-63d1a5556546"><img src="https://wt-box.worktile.com/public/b38f14ec-d0ba-4dea-a503-63d1a5556546" alt=""></span></span></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP//" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/07/homesteadlaravel/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-uuhostsstop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/01/uuhostsstop/">悠悠Hosts不限期停更</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/01/uuhostsstop/" class="archive-article-date">
+  	<time datetime="2018-01-01T02:54:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>新年快乐</em><img src="http://www.codeart.top/wp-content/uploads/2018/01/2042a1679ea17e6d16c7179880b0b891.png" alt=""></p>
+<p>新年快乐，自2017年2月8日第一次更新，到2017年10月17日，悠悠Hosts陪各位走过了251个日子，太过短暂，短到我一度不敢相信，记得建站初，我说希望TG下手轻一点，18年的那天，悠悠Hosts还存在，没想到如今，站点还在，但服务，无法继续下去了</p>
+<p>17年九月，GFW进行了升级，更多的站点被加入了重点照顾的名单，新的ip分分钟被干掉，甚至部分ss都开始掉速，具体不便说的太多，所以我们的服务也无法继续，最后，感谢支持朋友们，新年快乐，happy new year！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/01/uuhostsstop/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-brushmachine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/22/brushmachine/">我为什么不再刷机</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/22/brushmachine/" class="archive-article-date">
+  	<time datetime="2017-05-22T13:18:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一、前言</strong></p>
+<p>记得在某厂家ROM内测时，我填过这样一段申请</p>
+<p>从8250到8064到810再到820</p>
+<p>从四叶草到miui到flyme再到氢os</p>
+<p>从HVGA到WVGA到HD再到FHD</p>
+<p>从甜甜圈到姜饼到果冻豆再到棒棒糖</p>
+<p>从高中到大学直至工作，我眼见着这最触手可及的电子设备变化翻天，希望我的经历能帮助<em>*</em>继续成长…</p>
+<p>11年6月，第一次拥有自己的安卓设备（1.6），那一晚我兴奋到半夜，此后的两三年中，换手机不勤（穷学生），但每个月起码的几次刷机，却几乎从未间断，但时至今日，我却很难提起折腾的兴趣，坐在电脑前，看着曾经热闹，如今发帖寥寥的社区，论坛，只能感叹，环境（生态）变了，我，也变了</p>
+<p><strong>二、回顾</strong></p>
+<p>11年暑假，丝毫见不到阳光的两个月，手中托盘盛满酒肉，行走在射灯照耀的走廊中，眼见一桌桌客人推杯换盏，抽得闲暇，找个角落，掏出手机，手中的乐Phone W101 这就是两个月来坚持的意义，上班没多久就预支工资，将他拿到了手。<img src="http://www.codeart.top/wp-content/uploads/2017/05/5ffc37e1e06127448c6ca4236813123e.png" alt=""></p>
+<p>高通骁龙8250  1GHz</p>
+<p>512RAM</p>
+<p>512ROM</p>
+<p>后置500w 支持自动对焦</p>
+<p>这在11年，配置简直豪华，也是他，让我知道了lephone之家（现在已不在了），知道了机锋，知道了什么是root，体验不佳的四叶草UI也逼我知道了刷机是干嘛，也是他 让我发现原来还有miui如此良心的rom（当时rom市场环境不佳，几乎无优质本地化rom）<img src="http://www.codeart.top/wp-content/uploads/2017/05/timg.jpg" alt=""></p>
+<p>让我知道了cm，等国外rom（当时毫无好感，丑哭的界面外加丝毫没有本地化的功能）</p>
+<p>第二台机器：MOTO Defy（ME525）</p>
+<p>土豪朋友入手了当时火的一塌糊涂的戴妃，又看上了我手里的乐Phone，两厢情愿的情况下，换机<img src="http://www.codeart.top/wp-content/uploads/2017/05/timg-1.jpg" alt=""></p>
+<p>德仪3210 800mHz（ARM A8）</p>
+<p>512RAM</p>
+<p>后置500w 自动对焦</p>
+<p>纸面参数来看，似乎与我手机并无多大区别，但实质3610 采用 45nm制程，比8650的60nm不知高到哪里去了，支持720p视频录制即是铁证（需刷里程碑2移植rom），同时支持防水防尘防刮（IP57+第一代康宁大猩猩玻璃），不知道多少小伙伴垂涎三尺。</p>
+<p>正是这台机器，让我知道了超频，知道了换内核，知道了什么是移植rom，知道了BL锁，知道了同一型号也会有硬件差别（当时市售defy 按摄像头镀膜颜色分为红头，绿头，金头，按BL锁等级又分为4,5,6,7等），也同时让我体验到了变砖的刺激，请假网吧刷机的燃烧岁月。</p>
+<p>这两台机器正式开启了我折腾机器的大门，</p>
+<p>回想起来，折腾的原动力来自</p>
+<p>1.<strong>新鲜感</strong></p>
+<p>2.<strong>流畅,省电</strong>(当时抛开基于cm的rom，谈流畅都相对玄学，许多rom作者修修补补加点小功能精简一点自带app就敢说大幅优化了流畅度，省电)</p>
+<p>3.<strong>美化</strong>（为了状态栏一个图标，也会去单独下个补丁，为了某区域的颜色，能用工具调几个小时）</p>
+<p>总结起来就是，追求好用，漂亮与新鲜感</p>
+<p>此后的 lg optimus G（G2他爸，G3他爷爷），M8，一加二也都是为此</p>
+<p>但从M8开始，我的折腾之路有了些许变化<img src="http://www.codeart.top/wp-content/uploads/2017/05/timg-2.jpg" alt=""></p>
+<p>两颗boomsound扬声器，配合杜比5.1音效，外放至今难有机器超越，后置一颗400w的UltraPixel外加一颗景深镜头，这些特性导致使用第三方rom时，实力都无法展现，因为例如相机算法，音效等属于厂商的商业秘密，绝对竞争力，是绝无可能公开的，所以导致除了官改的rom，第三方rom几乎都无法发挥一部手机的全部特性，这几乎就让我对一大半rom失去了兴趣。</p>
+<p>而到了一加二，我使用官方rom的时间就开始远长于第三方rom，为了指纹，为了相机算法，为了稳定性 那些快一点，省电一点又能算得上什么。</p>
+<p>当然，第三方rom可不是玩机的全部，我们还有广阔的app，框架，插件，补丁等等资源。xposed框架几乎撑起了折腾的半边天，绿色守护，阻止运行，老牌的滑动返回，重力工具箱，甚至保证你分分钟退群的红包助手。但这个盛夏也在16年迎来寒冬，Android 7.0发布，定名为“Nougat”（牛轧糖），至此Xposed在新系统上再也没能像以往一样归来（类似于ios越狱工具，Xposed非常底层，所以每次新系统更新后其总需要一点时间来支持，但从未太久）<img src="http://www.codeart.top/wp-content/uploads/2017/05/TIM截图20170522225321.jpg" alt=""><img src="http://www.codeart.top/wp-content/uploads/2017/05/TIM截图20170522230145.jpg" alt=""></p>
+<p>Xposed相对于使用7.0的我们宣布终结。没事，你对我说，我们还有广大的app，绿色，破解，国外开发者，这些不一样美好么<img src="http://www.codeart.top/wp-content/uploads/2017/05/TIM截图20170522230432.jpg" alt=""></p>
+<p>抛开这些不谈。</p>
+<p>&nbsp;</p>
+<p>自15年左右开始，我看到了各个厂商定制安卓，促进生态和谐发展的曙光，MIUI越战越勇，功能性易用性 TOp2当之无愧，Flyme也开始摆脱了Bugme的称呼稳步成长，EMUI，FUI等此时还相对沉寂不温不火。而到了如今，连三桑的Touch WIZ都开始加入了主题商店，管理中心等等符合国情的功能，可以窥见 国内厂商的rom到了何种水平。</p>
+<p><strong>三、总结</strong></p>
+<p>为摆脱硬件软件的同质化，各家发力越来越猛，从人性化的rom到类似于双摄，虹膜，压感，握感（U11）等特有属性，都越发的使得人们难以离开，也失去理由离开官方rom。</p>
+<p>我便是这样</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/22/brushmachine/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-win10-vmware-workstation-devicecredential-guard" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/04/win10-vmware-workstation-devicecredential-guard/">Win10-VMware Workstation与Device/Credential Guard不兼容 解决方法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/04/win10-vmware-workstation-devicecredential-guard/" class="archive-article-date">
+  	<time datetime="2017-03-04T07:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://www.codeart.top/wp-content/uploads/2017/03/TIM截图20170304152718.png" alt=""></p>
+        
+          <a class="article-more-a" href="/2017/03/04/win10-vmware-workstation-devicecredential-guard/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/奇门遁甲//" class="article-tag-list-link color5">奇门遁甲</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/04/win10-vmware-workstation-devicecredential-guard/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-uuhosts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/09/uuhosts/">新站点起航——悠悠Hosts</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/09/uuhosts/" class="archive-article-date">
+  	<time datetime="2017-02-09T03:41:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>想法得以实现-笔芯</em><img src="http://www.codeart.top/wp-content/uploads/2017/02/97aa98d8449357f21be35d040f8666fa-1.png" alt=""></p>
+<p>一直以来，博主上Google都依赖Hosts，经(wan)济(quan)实(mian)惠(fei)且全局不影响国内服务的特性，深得我心，用老D所提供的Hosts我使用了近一年，在此表示感谢，谢谢！</p>
+<p>后来找到了更优质的源，速度不错，且YouTube支持良好，就想着希望能把此Hosts分享给需要的人，同时，国内也未看到专门做此类分享的站点（可能是TG限制吧），所以立马着手来做这个站点。</p>
+<p>期间页面，后台，服务器，域名，备案等等等等，出现了几次波折，但最终，顺利上线。</p>
+<p>2017年2月8日，悠悠Hosts的生日，希望2018年的这天，站点还存在，希望TG下手轻一点，希望新的一年，大家心想事成，工作顺利。[手动滑稽]</p>
+<p>&nbsp;</p>
+<p><a href="http://www.uuhosts.com" target="_blank" rel="noopener">悠悠Hosts</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/09/uuhosts/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-laravel-installer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/07/laravel-installer/">Laravel学习笔记:安装</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/07/laravel-installer/" class="archive-article-date">
+  	<time datetime="2017-02-07T06:53:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>新的一年新的开始，开始学习新的知识，加油吧</em></p>
+<ol>
+<li><strong>安装composer（<a href="https://getcomposer.org/" target="_blank" rel="noopener">https://getcomposer.org/</a>）建议在fq状态下进行</strong></li>
+</ol>
+<p>Composer 是 PHP5以上 的一个依赖管理工具。它允许你申明项目所依赖的代码库，它会在你的项目中为你安装他们。</p>
+<p>Windows：</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2017/02/b1ff0e1e72862f8b52a10b6a3880b9ab.png" alt=""></p>
+<p>安装过程中会需要验证php.exe的位置，如果使用的是与博主一样的phpStudy的话，记得手动去找出当前版本的php.exe</p>
+<p>安装完成后，cmd中键入composer回车</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2017/02/4f4442031c203b3b7144a3bdb20adac0.png" alt=""></p>
+<p>出现此画面即为安装成功</p>
+<ol>
+<li><strong>使用composer安装laravel</strong></li>
+</ol>
+<p>新建一个空项目，这里博主使用的是phpStorm，可能会有些大同小异的操作</p>
+<p>IDE的命令行中输入composer create-project laravel/laravel –prefer-dist my_laravel</p>
+<p>这句话的意思是用composer创建一个项目，使用laravel里的核心laravel，–prefer-dist指压缩的版本，后面的my_laravel为建立的目录，可改名或省略。</p>
+<p>接下来安静等待就好了，等待情况视网络情况而定，强烈建议挂梯子，或hosts，否则有可能长时间无反应，博主是通过hosts，安装了大概3,4分钟。</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2017/02/eca35d034628fa64a63a483b94b7af55.png" alt=""></p>
+<p>此即为安装完成。</p>
+<p>项目目录也随即发生了变化</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2017/02/ed15d2f7ec08d055f82815debd0b0de4.png" alt=""></p>
+<p>现在访问（项目路径）/public</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2017/02/452e1e0bd9d54c36c442bd81fff67f23.png" alt=""></p>
+<p>Laravel 5映入眼帘</p>
+<p>至此，安装大功告成</p>
+<p>Ps：如Linux上访问此页面为空白，请如下操作</p>
+<p>将vendor以及storage目录的owner改为Apache（chown –R apache:apache /var/www/my_laravel/<em>*</em>）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Laravel</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP//" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/07/laravel-installer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php-curl-doubantop250" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/31/php-curl-doubantop250/">PHP爬虫(CURL)，爬取豆瓣电影top250</a>
+    </h1>
+  
+
+        
+        <a href="/2016/12/31/php-curl-doubantop250/" class="archive-article-date">
+  	<time datetime="2016-12-31T00:57:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://www.codeart.top/wp-content/uploads/2016/12/606a5aaacbcc60b44d6cb0815d386c2e.png" alt=""></p>
+<p>前段时间花￥9.9在CSDN看了个python的爬虫入门，发现那课程中的小虫子，我大PHP也行啊，毕竟全宇宙最diao的语言 ┗|<em>｀0′</em>|┛</p>
+<p>先上代码，抽时间再写过程，估计也没啥好解释的，比较基本的小爬虫</p>
+<p>本例子使用CURL实现，也可以使用fopen，file_get_contents来读取，但根据前人的测试总结来看，CURL效率比其他几个稍高</p>
+<p><pre>&lt;?php<br>/**</pre></p>
+<ul>
+<li>Created by PhpStorm.</li>
+<li>User: Administrator</li>
+<li>Date: 2016-12-19</li>
+<li>Time: 19:58</li>
+<li><p>*/<br>//准备扒一扒豆瓣top250,跟着page爬<br>function getUrlInfo($min,$max,$url)<br>{<br> for ($i=$min;$i&lt;=$max;$i++)<br> {</p>
+<pre><code>//分析其链接知，start每页自增25
+$url2 = str_replace(&apos;P&apos;,$i*25,$url);
+
+//1.初始化，创建一个新cURL资源
+$curl=curl_init();
+//2.设置URL和相应的选项
+curl_setopt($curl, CURLOPT_URL, $url2);
+
+//参数为0代表不检查ssl证书
+curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, 0 );
+curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, 0 );
+
+curl_setopt($curl, CURLOPT_HEADER, 0);
+
+// 执行之后不直接打印出来
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+//执行并获取结果
+$resault=curl_exec($curl);
+//去除换行符（最初因为没有考虑到那些隐形的换行符，可把我坑惨了，一度以为自己智商有问题，正则都写不好，在准备辞职回家种田的时候，回头看了下正则的元字符说明，才发现了这个问题）
+$order = array(&quot;\r\n&quot;, &quot;\n&quot;, &quot;\r&quot;);
+$resault = str_replace($order,&apos;&apos;,$resault);
+
+//释放CURL
+curl_close($curl);
+</code></pre></li>
+</ul>
+<p>//        var_dump($resault);</p>
+<pre><code>    //提取title
+    preg_match_all(&quot;/&amp;lt;div class=\&quot;hd\&quot;&amp;gt;(.*?)&amp;lt;span class=\&quot;title\&quot;&amp;gt;(?P&amp;lt;title&amp;gt;.*?)&amp;lt;\/span&amp;gt;/&quot;,$resault,$title);
+    echo &quot;&amp;lt;pre&amp;gt;&quot;;print_r($title[&apos;title&apos;]);echo &quot;&amp;lt;pre&amp;gt;&quot;;
+
+    //提取图片链接
+    preg_match_all(&quot;/&amp;lt;img alt=(.*?)src=\&quot;(?P&amp;lt;image&amp;gt;http(.*?)g)\&quot; class=\&quot;\&quot;/&quot;,$resault,$image);
+    echo &quot;&amp;lt;pre&amp;gt;&quot;;print_r($image[&apos;image&apos;]);echo &quot;&amp;lt;pre&amp;gt;&quot;;
+
+    //导演daoyan,主演zhuyan，年份year，国家country，类型class
+    $str = &quot;/&amp;lt;p class=\&quot;\&quot;&amp;gt;(.*?):(?P&amp;lt;daoyan&amp;gt;.*?)&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;(?P&amp;lt;zhuyan&amp;gt;.*?)&amp;lt;br&amp;gt;(.*?)&amp;lt;\/p&amp;gt;/&quot;;
+    preg_match_all(&quot;/&amp;lt;p class=\&quot;\&quot;&amp;gt;(.*?)导演:(?P&amp;lt;daoyan&amp;gt;.*?)&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;(?P&amp;lt;zhuyan&amp;gt;.*?)&amp;lt;br&amp;gt;(.*?)(?P&amp;lt;year&amp;gt;\d{4})&amp;amp;nbsp;\/&amp;amp;nbsp;(?P&amp;lt;country&amp;gt;.*?)&amp;amp;nbsp;\/&amp;amp;nbsp;(?P&amp;lt;class&amp;gt;.*?)&amp;lt;\/p&amp;gt;/&quot;,$resault,$daoyan);
+    echo &quot;&amp;lt;pre&amp;gt;&quot;;
+    print_r($daoyan[&apos;daoyan&apos;]);
+    print_r($daoyan[&apos;zhuyan&apos;]);
+    print_r($daoyan[&apos;year&apos;]);
+    print_r($daoyan[&apos;country&apos;]);
+    print_r($daoyan[&apos;class&apos;]);
+    echo &quot;&amp;lt;pre&amp;gt;&quot;;
+
+    //评分
+    preg_match_all(&quot;/&amp;lt;span class=\&quot;rating_num\&quot;(.*?)(?P&amp;lt;score&amp;gt;[\d.]{3})&amp;lt;\/span&amp;gt;/&quot;,$resault,$score);
+    print_r($score[&apos;score&apos;]);
+
+    //评价人数
+    preg_match_all(&quot;/&amp;lt;span&amp;gt;(?P&amp;lt;num&amp;gt;\d+人评价)&amp;lt;\/span&amp;gt;/&quot;,$resault,$num);
+    print_r($num[&apos;num&apos;]);
+
+    //短评
+    preg_match_all(&quot;/&amp;lt;span class=\&quot;inq\&quot;&amp;gt;(?P&amp;lt;comment&amp;gt;.*?)&amp;lt;\/span&amp;gt;/&quot;,$resault,$comment);
+    print_r($comment[&apos;comment&apos;]);
+
+}
+</code></pre><p>}</p>
+<p>$url = ‘<a href="https://movie.douban.com/top250?start=P&amp;filter=" target="_blank" rel="noopener">https://movie.douban.com/top250?start=P&amp;filter=</a>‘;<br>//这里只取了第一页，如要全取，改参数即可<br>getUrlInfo(0,0,$url);<br><br>这里仅仅只是获取了数据，接下来存数据库还是写入文件就悉听尊便了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP//" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/31/php-curl-doubantop250/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-dns-shangwangtiyan" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/29/dns-shangwangtiyan/">改DNS，提高上网体验</a>
+    </h1>
+  
+
+        
+        <a href="/2016/12/29/dns-shangwangtiyan/" class="archive-article-date">
+  	<time datetime="2016-12-29T13:28:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://www.codeart.top/wp-content/uploads/2016/12/10c04a8a957a552b35635f112c7de49c.png" alt=""></p>
+<ol>
+<li><strong>DNS是什么</strong><br><img src="http://www.codeart.top/wp-content/uploads/2016/12/2d5d43bde717b380f70185b8ef183e5a.png" alt=""></li>
+</ol>
+<p>简单来说，我们所访问的在线资源都是服务器的内容，而服务器的地址是一串IP（例如192.168.1.1），IP地址不好记忆，所以有了域名，DNS即是将域名解析到对应IP的一个服务。</p>
+<p>就像早期接线员帮我们接入到对应的电话一样。</p>
+<p>扩展一下，早期访问互联网内容都是通过host来解析，但随着互联网的发展，在线内容越来越多，host已经完全无法满足需要，所以有了目前这个模式，全球一共有13个DNS服务器，只有一个位于亚洲（日本），目前个人，或公司的DNS服务都类似于此树状图的子节点，13个DNS服务器根为根节点。</p>
+<p>2.<strong>为何要改DNS</strong></p>
+<p>各地运营商均有自己的DNS服务器，小运营商会为了利益，劫持用户DNS，以达到域名劫持，修改注册信息，劫持解析结果来获利。最简单的例子，你输错网址的时候会弹出一堆小广告，</p>
+<p>以及宽度快到期时，网页会弹出提醒缴费的页面等等。</p>
+<p>而使用靠谱的第三方的DNS服务可以达到：高速，稳定，无广告等作用。</p>
+<p>&nbsp;</p>
+<p><strong>3.如何更改DNS</strong></p>
+<p>找到你目前所使用的连接，博主目前使用的是wifi，所以从WLAN的熟悉中改，如果是有线网，可能需要从本地连接属性中来改</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/12/8fc080c5619a39cdb9676d70a250066b.png" alt=""></p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/12/74e383369bf184d396ef598a368be43e.png" alt=""></p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/12/a1697c6fd0acf346e7315df506b11746.png" alt=""></p>
+<p>改这里，然后一路确认就好。</p>
+<p>&nbsp;</p>
+<p>这里推荐几个DNS</p>
+<ul>
+<li><p><a href="https://www.114dns.com/" target="_blank" rel="noopener">114dns</a>，就是博主目前所使用的，114.114.114.114，以及115<br>使用它无非就是图方便省事儿，好记，口碑也还行，但前段时间看有人爆出114DNS嵌入广告牟利，因为我目前还未看到广告，所以不太好下结论</p>
+</li>
+<li><p><a href="http://www.onedns.net/" target="_blank" rel="noopener">oneDNS</a></p>
+</li>
+<li><a href="http://www.alidns.com/" target="_blank" rel="noopener">阿里DNS</a><br>&nbsp;</li>
+</ul>
+<p>使用何种DNS这事儿，按需来，多试用几个，用心去感受(๑•̀ㅂ•́)و✧</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/奇门遁甲//" class="article-tag-list-link color5">奇门遁甲</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/29/dns-shangwangtiyan/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-php-setting-zifuji" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/25/php-setting-zifuji/">PHP操作本地中文文件注意事项（字符编码）</a>
+    </h1>
+  
+
+        
+        <a href="/2016/12/25/php-setting-zifuji/" class="archive-article-date">
+  	<time datetime="2016-12-25T13:13:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://www.codeart.top/wp-content/uploads/2016/12/862c0dea43584a5d4ac4f134267ba85d.png" alt=""></p>
+<p>&nbsp;</p>
+<p>公司，某位其他部门的同事问，有几千个文件夹，里面都有个同名的文件，想要把这几千个同名文件改为与文件夹一样的名字，是否有快速解决的工具。</p>
+<p>等会不忙了帮你写个，我信心满满的答应下来。</p>
+<p>但在此中操作中文文件时，遇到了点小问题，遂记录下来与大家分享</p>
+<p>问题出现在遍历目录，操作中文名文件的过程中。</p>
+<p>其类似于此种结构：</p>
+<pre>$dir = 'wj';
+//打开目录存入句柄
+if($dh = opendir($dir))
+{
+    //循环遍历
+    while (($file = readdir($dh)) !== false)
+    {
+        //匹配则进入操作
+        var_dump($file);
+        if ($file == '二维码.jpg')
+        {
+            //操作
+            echo '操作';
+        }
+    }
+}</pre>
+但我发现始终无法进入if
+
+![](http://www.codeart.top/wp-content/uploads/2016/12/3be39ee07f6832558cb6e236528077e2.png)
+
+即使打印出的string 与文件名一毛一样，这就很尴尬啊。
+
+我再把if条件改为
+<pre>$file == '1.txt'
+
+![](http://www.codeart.top/wp-content/uploads/2016/12/7e097021ac3f89a4f7b3990e9d8f924a.png)
+瞬间就进来了，这说明写法没问题，难道是字符编码？
+再改改编码看看效果</pre>
+<pre>$dir = 'wj';
+//打开目录存入句柄
+if($dh = opendir($dir))
+{
+    //循环遍历
+    while (($file = readdir($dh)) !== false)
+    {
+        var_dump($file);
+        //查询字符编码
+        $encode = mb_detect_encoding($file, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+        //显示读取的file的字符编码
+        echo "file的字符集为：{$encode} &lt;/br&gt;";
+        //转换字符编码
+        $file = mb_convert_encoding($file,'UTF-8',$encode);
+        //匹配则进入操作
+        if ($file == '二维码.jpg')
+        {
+            //操作
+            echo '6666666666666';
+        }
+    }
+}</pre>
+这里我查询了file的字符编码，再将其转换为utf-8，看起来妥妥的，我咋这么聪明
+
+结果...
+
+![](http://www.codeart.top/wp-content/uploads/2016/12/462c16154bf44d4435d482d6bdf54296.png)
+
+这就很尴尬了，还进不去，居然读不出来，这破PHP
+
+一定是PHP本身设计的太烂，我这样安慰自己
+
+既然是读取系统文件，查查系统是什么字符集吧，说干就干
+
+![](http://www.codeart.top/wp-content/uploads/2016/12/9776878bcc883ee8b87ba7c36da781c1.png)
+
+soga，GBK是也。ps：cmd框体右击属性可查
+
+继续改改代码
+<pre>$dir = 'wj';
+//打开目录存入句柄
+if($dh = opendir($dir))
+{
+    //循环遍历
+    while (($file = readdir($dh)) !== false)
+    {
+        var_dump($file);
+        //转换字符编码
+        $file = mb_convert_encoding($file,'UTF-8','GBK');
+        //显示读取的file的字符编码
+        $encode = mb_detect_encoding($file, array("ASCII",'UTF-8',"GB2312","GBK",'BIG5'));
+        echo "file的字符集为：{$encode} &lt;/br&gt;";
+        //匹配则进入操作
+        if ($file == '二维码.jpg')
+        {
+            //操作
+            echo '6666666666666';
+        }
+    }
+}</pre>
+![](http://www.codeart.top/wp-content/uploads/2016/12/72124d72f75cdcd3522ec1fb3de5406e.png)
+
+成功进去，妥妥的。
+
+至此，此小问题解决
+
+操作中文文件定要注意字符编码问题（windows默认GBK）
+
+另：此段代码后期操作了系统中的文件，在操作过程中，也定要记得转换字符编码
+
+例如：
+<pre>rename(iconv('UTF-8','GBK',$oldname), iconv('UTF-8','GBK',$newname));</pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP//" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/25/php-setting-zifuji/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -232,7 +1321,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 John Doe
+    		&copy; 2018 liguidong
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -313,6 +1402,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Google</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hosts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Smarty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">thinkPHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WordPress</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

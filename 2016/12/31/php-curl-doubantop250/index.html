@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/2 | Hexo</title>
+  <title>PHP爬虫(CURL)，爬取豆瓣电影top250 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/02/index.html">
+  <meta name="description" content="前段时间花￥9.9在CSDN看了个python的爬虫入门，发现那课程中的小虫子，我大PHP也行啊，毕竟全宇宙最diao的语言 ┗|｀0′|┛ 先上代码，抽时间再写过程，估计也没啥好解释的，比较基本的小爬虫 本例子使用CURL实现，也可以使用fopen，file_get_contents来读取，但根据前人的测试总结来看，CURL效率比其他几个稍高 &amp;lt;?php/**  Created by P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP爬虫(CURL)，爬取豆瓣电影top250">
+<meta property="og:url" content="http://yoursite.com/2016/12/31/php-curl-doubantop250/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前段时间花￥9.9在CSDN看了个python的爬虫入门，发现那课程中的小虫子，我大PHP也行啊，毕竟全宇宙最diao的语言 ┗|｀0′|┛ 先上代码，抽时间再写过程，估计也没啥好解释的，比较基本的小爬虫 本例子使用CURL实现，也可以使用fopen，file_get_contents来读取，但根据前人的测试总结来看，CURL效率比其他几个稍高 &amp;lt;?php/**  Created by P">
+<meta property="og:image" content="http://www.codeart.top/wp-content/uploads/2016/12/606a5aaacbcc60b44d6cb0815d386c2e.png">
+<meta property="og:updated_time" content="2018-02-04T10:20:05.400Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="PHP爬虫(CURL)，爬取豆瓣电影top250">
+<meta name="twitter:description" content="前段时间花￥9.9在CSDN看了个python的爬虫入门，发现那课程中的小虫子，我大PHP也行啊，毕竟全宇宙最diao的语言 ┗|｀0′|┛ 先上代码，抽时间再写过程，估计也没啥好解释的，比较基本的小爬虫 本例子使用CURL实现，也可以使用fopen，file_get_contents来读取，但根据前人的测试总结来看，CURL效率比其他几个稍高 &amp;lt;?php/**  Created by P">
+<meta name="twitter:image" content="http://www.codeart.top/wp-content/uploads/2016/12/606a5aaacbcc60b44d6cb0815d386c2e.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,49 +155,248 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-php-curl-doubantop250" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/04/hello-world/" class="archive-article-date">
-  	<time datetime="2018-02-04T09:46:43.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/04/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      PHP爬虫(CURL)，爬取豆瓣电影top250
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2016/12/31/php-curl-doubantop250/" class="archive-article-date">
+  	<time datetime="2016-12-31T00:57:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://www.codeart.top/wp-content/uploads/2016/12/606a5aaacbcc60b44d6cb0815d386c2e.png" alt=""></p>
+<p>前段时间花￥9.9在CSDN看了个python的爬虫入门，发现那课程中的小虫子，我大PHP也行啊，毕竟全宇宙最diao的语言 ┗|<em>｀0′</em>|┛</p>
+<p>先上代码，抽时间再写过程，估计也没啥好解释的，比较基本的小爬虫</p>
+<p>本例子使用CURL实现，也可以使用fopen，file_get_contents来读取，但根据前人的测试总结来看，CURL效率比其他几个稍高</p>
+<p><pre>&lt;?php<br>/**</pre></p>
+<ul>
+<li>Created by PhpStorm.</li>
+<li>User: Administrator</li>
+<li>Date: 2016-12-19</li>
+<li>Time: 19:58</li>
+<li><p>*/<br>//准备扒一扒豆瓣top250,跟着page爬<br>function getUrlInfo($min,$max,$url)<br>{<br> for ($i=$min;$i&lt;=$max;$i++)<br> {</p>
+<pre><code>//分析其链接知，start每页自增25
+$url2 = str_replace(&apos;P&apos;,$i*25,$url);
 
+//1.初始化，创建一个新cURL资源
+$curl=curl_init();
+//2.设置URL和相应的选项
+curl_setopt($curl, CURLOPT_URL, $url2);
+
+//参数为0代表不检查ssl证书
+curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, 0 );
+curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, 0 );
+
+curl_setopt($curl, CURLOPT_HEADER, 0);
+
+// 执行之后不直接打印出来
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+//执行并获取结果
+$resault=curl_exec($curl);
+//去除换行符（最初因为没有考虑到那些隐形的换行符，可把我坑惨了，一度以为自己智商有问题，正则都写不好，在准备辞职回家种田的时候，回头看了下正则的元字符说明，才发现了这个问题）
+$order = array(&quot;\r\n&quot;, &quot;\n&quot;, &quot;\r&quot;);
+$resault = str_replace($order,&apos;&apos;,$resault);
+
+//释放CURL
+curl_close($curl);
+</code></pre></li>
+</ul>
+<p>//        var_dump($resault);</p>
+<pre><code>    //提取title
+    preg_match_all(&quot;/&amp;lt;div class=\&quot;hd\&quot;&amp;gt;(.*?)&amp;lt;span class=\&quot;title\&quot;&amp;gt;(?P&amp;lt;title&amp;gt;.*?)&amp;lt;\/span&amp;gt;/&quot;,$resault,$title);
+    echo &quot;&amp;lt;pre&amp;gt;&quot;;print_r($title[&apos;title&apos;]);echo &quot;&amp;lt;pre&amp;gt;&quot;;
+
+    //提取图片链接
+    preg_match_all(&quot;/&amp;lt;img alt=(.*?)src=\&quot;(?P&amp;lt;image&amp;gt;http(.*?)g)\&quot; class=\&quot;\&quot;/&quot;,$resault,$image);
+    echo &quot;&amp;lt;pre&amp;gt;&quot;;print_r($image[&apos;image&apos;]);echo &quot;&amp;lt;pre&amp;gt;&quot;;
+
+    //导演daoyan,主演zhuyan，年份year，国家country，类型class
+    $str = &quot;/&amp;lt;p class=\&quot;\&quot;&amp;gt;(.*?):(?P&amp;lt;daoyan&amp;gt;.*?)&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;(?P&amp;lt;zhuyan&amp;gt;.*?)&amp;lt;br&amp;gt;(.*?)&amp;lt;\/p&amp;gt;/&quot;;
+    preg_match_all(&quot;/&amp;lt;p class=\&quot;\&quot;&amp;gt;(.*?)导演:(?P&amp;lt;daoyan&amp;gt;.*?)&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;(?P&amp;lt;zhuyan&amp;gt;.*?)&amp;lt;br&amp;gt;(.*?)(?P&amp;lt;year&amp;gt;\d{4})&amp;amp;nbsp;\/&amp;amp;nbsp;(?P&amp;lt;country&amp;gt;.*?)&amp;amp;nbsp;\/&amp;amp;nbsp;(?P&amp;lt;class&amp;gt;.*?)&amp;lt;\/p&amp;gt;/&quot;,$resault,$daoyan);
+    echo &quot;&amp;lt;pre&amp;gt;&quot;;
+    print_r($daoyan[&apos;daoyan&apos;]);
+    print_r($daoyan[&apos;zhuyan&apos;]);
+    print_r($daoyan[&apos;year&apos;]);
+    print_r($daoyan[&apos;country&apos;]);
+    print_r($daoyan[&apos;class&apos;]);
+    echo &quot;&amp;lt;pre&amp;gt;&quot;;
+
+    //评分
+    preg_match_all(&quot;/&amp;lt;span class=\&quot;rating_num\&quot;(.*?)(?P&amp;lt;score&amp;gt;[\d.]{3})&amp;lt;\/span&amp;gt;/&quot;,$resault,$score);
+    print_r($score[&apos;score&apos;]);
+
+    //评价人数
+    preg_match_all(&quot;/&amp;lt;span&amp;gt;(?P&amp;lt;num&amp;gt;\d+人评价)&amp;lt;\/span&amp;gt;/&quot;,$resault,$num);
+    print_r($num[&apos;num&apos;]);
+
+    //短评
+    preg_match_all(&quot;/&amp;lt;span class=\&quot;inq\&quot;&amp;gt;(?P&amp;lt;comment&amp;gt;.*?)&amp;lt;\/span&amp;gt;/&quot;,$resault,$comment);
+    print_r($comment[&apos;comment&apos;]);
+
+}
+</code></pre><p>}</p>
+<p>$url = ‘<a href="https://movie.douban.com/top250?start=P&amp;filter=" target="_blank" rel="noopener">https://movie.douban.com/top250?start=P&amp;filter=</a>‘;<br>//这里只取了第一页，如要全取，改参数即可<br>getUrlInfo(0,0,$url);<br><br>这里仅仅只是获取了数据，接下来存数据库还是写入文件就悉听尊便了</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP//" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2016/12/31/php-curl-doubantop250/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/02/07/laravel-installer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Laravel学习笔记:安装
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/12/29/dns-shangwangtiyan/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">改DNS，提高上网体验</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -214,8 +419,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

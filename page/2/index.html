@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/2 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/02/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
@@ -151,47 +151,629 @@
           <div id="js-content" class="content-ll">
             
   
-  
+    <article id="post-mysql-huigu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/04/hello-world/" class="archive-article-date">
-  	<time datetime="2018-02-04T09:46:43.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/04/hello-world/">Hello World</a>
+      <a class="article-title" href="/2016/11/22/mysql-huigu/">从今天开始回顾一下MySQL吧</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2016/11/22/mysql-huigu/" class="archive-article-date">
+  	<time datetime="2016-11-22T07:32:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://www.codeart.top/wp-content/uploads/2016/11/62a7f88220013cb109aecde9855cd068.png" alt=""></p>
+<ol>
+<li>基本curd</li>
+<li>复杂查询（函数，排序，分类）</li>
+<li>多表查询</li>
+<li>join</li>
+<li>数据库优化<br>暂时先挖下这些坑，等填</li>
+</ol>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/22/mysql-huigu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
+    <article id="post-thinkphp-uploads-shangchuan" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    </div></section>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/31/thinkphp-uploads-shangchuan/">【ThinkPHP】上传根目录不存在！请尝试手动创建:./Uploads/</a>
+    </h1>
   
 
+        
+        <a href="/2016/10/31/thinkphp-uploads-shangchuan/" class="archive-article-date">
+  	<time datetime="2016-10-31T07:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-31</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>碰到这个问题，解决的时候发现是个小坑，遂写出来给自己长记性。</p>
+<p><strong>问题：上传文件，提示上传根目录不存在！请尝试手动创建:./Uploads/。</strong></p>
+<p><strong>尝试处理：完全copy手册的代码也会提示此错误</strong></p>
+<p>以下为手册内容（3.2.2）</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/10/cc16c3a98a4c63e64baee7fab38d5021.png" alt=""></p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/10/8195cf50f06bd608a34270f2620e059c.png" alt=""></p>
+<p>依旧提示此错误</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/10/0e305fccbffceba917e62b97c9c0bbc8.png" alt=""></p>
+<p>后来百度出来了结果<br>原因如下，看此tp配置文件（upload.php）</p>
+<p><pre>class Upload {<br>    /**</pre></p>
+<pre><code> * 默认上传配置
+ * @var array
+ */
+private $config = array(
+    &apos;mimes&apos;         =&amp;gt;  array(), //允许上传的文件MiMe类型
+    &apos;maxSize&apos;       =&amp;gt;  0, //上传的文件大小限制 (0-不做限制)
+    &apos;exts&apos;          =&amp;gt;  array(), //允许上传的文件后缀
+    &apos;autoSub&apos;       =&amp;gt;  true, //自动子目录保存文件
+    &apos;subName&apos;       =&amp;gt;  array(&apos;date&apos;, &apos;Y-m-d&apos;), //子目录创建方式，[0]-函数名，[1]-参数，多个参数使用数组
+    &apos;rootPath&apos;      =&amp;gt;  &apos;./Uploads/&apos;, //保存根路径
+    &apos;savePath&apos;      =&amp;gt;  &apos;&apos;, //保存路径
+    &apos;saveName&apos;      =&amp;gt;  array(&apos;uniqid&apos;, &apos;&apos;), //上传文件命名规则，[0]-函数名，[1]-参数，多个参数使用数组
+    &apos;saveExt&apos;       =&amp;gt;  &apos;&apos;, //文件保存后缀，空则使用原后缀
+    &apos;replace&apos;       =&amp;gt;  false, //存在同名是否覆盖
+    &apos;hash&apos;          =&amp;gt;  true, //是否生成hash编码
+    &apos;callback&apos;      =&amp;gt;  false, //检测文件是否存在回调，如果存在返回文件信息数组
+    &apos;driver&apos;        =&amp;gt;  &apos;&apos;, // 文件上传驱动
+    &apos;driverConfig&apos;  =&amp;gt;  array(), // 上传驱动配置
+);&lt;/pre&gt;
+</code></pre><p>关于路径有这两个设置<br>‘rootPath’ =&gt; ‘./Uploads/‘, //保存根路径<br>‘savePath’ =&gt; ‘’, //保存路径<br>所以，在项目中不止要初始化savePath，还要初始化rootPath（我是直接去配置文件中修改了此项参数将其改为了”./“,savaPath就在实例化上传类时设置就好，例如”</p>
+<p><pre>./Public/image/“）</pre></p>
+<p> 这样就可以了<br><img src="http://www.codeart.top/wp-content/uploads/2016/10/167eb59ce2bf8da979171d89e1b02827.png" alt=""></p>
+<p>笑脸真亲切</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">thinkPHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP//" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/10/31/thinkphp-uploads-shangchuan/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-es-app-chuanshu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/05/es-app-chuanshu/">ES解决qq传输文件大小限制</a>
+    </h1>
+  
+
+        
+        <a href="/2016/09/05/es-app-chuanshu/" class="archive-article-date">
+  	<time datetime="2016-09-05T02:03:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>其实这篇还可以叫《es文件管理器ftp使用指南》</p>
+<p>平时大家从PC传输文件到手机，想必很多人会选择用QQ来传输，但其却有个对于文件大小的限制，并且，传输的路径默认为sd卡/tencent/QQfile_recv/,这对于后期管理并不是很方便</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/09/4d090b72e37cb2dae4b40aa5ad28c2a5.png" alt=""></p>
+<p>我个人一般选择使用ES管理器的ftp功能来达到这一目的。（针对Android，ios退散）</p>
+<p>这里模拟一个场景：</p>
+<p>公司，趁网速好下载部HD的电影（我好像暴漏了什么），传输到同一网络中的手机中（电脑手机都用公司网就可以啦）</p>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/09/fec9e1ef0b55964679699fa2975fb490.png" alt=""></p>
+<p>下载好后打开手机上的ES管理器（给出我自用的修改版链接，不建议升级:<a href="http://pan.baidu.com/s/1o8D6FQq" target="_blank" rel="noopener"> http://pan.baidu.com/s/1o8D6FQq</a> 密码: 3w2h）</p>
+<ol>
+<li><strong>点击侧边栏中的远程管理器</strong></li>
+<li><strong>选择打开</strong></li>
+<li><strong>看到ftp地址后，打开计算机（我的电脑），地址栏中输入它，接下来找到文件夹把电影拷贝进去就可以啦！</strong>ps：如果提示只读无法打开，请重启资源管理器，再重试<br><img src="http://www.codeart.top/wp-content/uploads/2016/09/678854d4f54d20c23a8af1476300cb42.png" alt=""></li>
+</ol>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/09/2d1b46414ebc1f92950bd76c1d42e806.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/奇门遁甲//" class="article-tag-list-link color5">奇门遁甲</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/09/05/es-app-chuanshu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-google-fq-ss-vpn-chrome" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/02/google-fq-ss-vpn-chrome/">如何简简单单上Google</a>
+    </h1>
+  
+
+        
+        <a href="/2016/09/02/google-fq-ss-vpn-chrome/" class="archive-article-date">
+  	<time datetime="2016-09-02T08:27:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>市面上各种梯子数不胜数，但很多时候，我们只是想单纯的用用google及其服务，能不能有个简单的方法达到这个要求，并且还稳定迅速呢？</p>
+<p>当然是有</p>
+<p>今天我们就来通过两步，达到这个目的</p>
+<p><strong>1.下载并替换hosts</strong></p>
+<p>这里我建议使用<a href="http://www.uuhosts.com" target="_blank" rel="noopener">悠悠Hosts</a></p>
+<p>下载对应版本hosts</p>
+<p>手动替换至：C:\Windows\System32\drivers\etc\hosts</p>
+<p><strong>2.强制google系列使用https协议</strong></p>
+<p>在 Chrome 浏览器上打开次链接： <a href="chrome://net-internals/#hsts" target="_blank" rel="noopener"><strong>chrome://net-internals/#hsts</strong></a></p>
+<p><strong> <img src="http://www.codeart.top/wp-content/uploads/2016/09/80117992df1b0d4d230357faa4a38456.png" alt=""></strong></p>
+<p>Domain中输入google.com，勾选下方两个复选框，选择Add</p>
+<p>再次输入google.com.hk，重复上次操作。</p>
+<p>&nbsp;</p>
+<p><strong>OK，大功告成，现在访问 <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com </a>试试</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Google</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hosts</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/奇门遁甲//" class="article-tag-list-link color5">奇门遁甲</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/09/02/google-fq-ss-vpn-chrome/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-smarty-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/31/smarty-install/">Smarty的安装使用</a>
+    </h1>
+  
+
+        
+        <a href="/2016/08/31/smarty-install/" class="archive-article-date">
+  	<time datetime="2016-08-31T11:39:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>一、简介</strong></p>
+<p>一直以来，就有无数人前赴后继力求为我们创造便利，开发也是如此。</p>
+<p>下面摘自百科：</p>
+<p><div class="para">如何使<a href="http://baike.baidu.com/view/99.htm" target="_blank" rel="noopener">PHP</a>脚本从设计中独立出来？这是在PHP邮件列表上所提问的最多的问题之一。虽然PHP被标榜为“HTML嵌入式语言”，在写过许多PHP和HTML混合式的工程之后，一个分离表单和内容的想法产生了。而且，在许多公司里规划设计者的角色和程序设计者是分开的。于是，这样的一个模板解决方案产生了……于是，Smarty诞生了……</div></p>
+<p><div class="para"></div><br><strong>二、下载安装</strong></p>
+<p>Smarty官网：<a href="http://www.smarty.net/" target="_blank" rel="noopener">http://www.smarty.net/</a></p>
+<p>下载地址：<a href="http://www.smarty.net/download" target="_blank" rel="noopener">http://www.smarty.net/download</a></p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/59b50bc66aea3908d7aa45530d20e227.png" alt=""></p>
+<p>下载完成后得到smarty-<em>.</em>.*.zip这样一个压缩包，解压得到</p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/c86a8528ccc313524013d789111fc8e1.png" alt=""></p>
+<p>其中：</p>
+<p>demo为Smarty官方的演示案例，我们需要使用的是libs这个核心函数文件夹。</p>
+<p>将libs文件夹放入我们的项目路径，就可以开始使用了</p>
+<p>例如我建立了一个smarty目录，将demo以及libs（这里更名为了smarty）放入其中（demo是个人以后会用，单纯使用smarty放入libs就可以）</p>
+<p>这里test为我的php代码目录</p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/dcf37b31a865317873ba24ecb73b591c.png" alt=""></p>
+<p>&nbsp;</p>
+<p><strong>三、使用Smarty</strong></p>
+<p>在使用之前我们先来看一下libs中的文件</p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/96c2db03a3f718422d5ed702b9ee7be3.png" alt=""></p>
+<p>其中我们要用到的就是 Smarty.class.php 这个文件了，Smatry也是类似于单一入口机制，所有的操作我们通过Smarty类来完成</p>
+<p><img src="http://codeart.top/wp-content/uploads/2016/08/bbbadfc4c1421c61fda61c023795abae.png" alt=""></p>
+<p>SmartyBC.class.php这个文件用来处理上下兼容性，因为其经常更新，可能会导致某些方法在下个版本中失效导致问题，所有其提供了这样一个文件来处理兼容问题</p>
+<p>接下来，就该正式使用了。</p>
+<p>我先在上一级目录的test文件夹中建立一个test.php文件</p>
+<p>打开test.php，首先我来引入Smarty，并实例化</p>
+<pre>require_once('../smarty/Smarty.class.php');
+$smarty = new Smarty();</pre>
+接下来，我们对Smarty的部分参数进行一些设置
+<pre>$smarty-&gt;setLeftDelimiter('{');//左定界符
+$smarty-&gt;setRightDelimiter('}');//右定界符
+$smarty-&gt;setTemplateDir('tpl');//html模板地址
+$smarty-&gt;setCompileDir('template_c');//编译目录
+$smarty-&gt;setCacheDir('cache');//缓存</pre>
+<pre>这里注意下这几项设置，smarty3之后的版本与老版本写法有了差异（新版API中提到了很多改进，这只是微微的一部分） 
+
+//开启缓存（Smarty默认是不开启缓存的） 
+$smarty-&gt;caching = true;//开启 
+$smarty-&gt;cache_lifetime = 120; 
+
+现在我们就可以尝试来用模板引擎输出内容了，在输出内容之前我们先定义几个变量</pre>
+<pre>$smarty-&gt;assign('articletitle','文章标题');//assign这个方法就是用于在<span class="bold">**模板运行期间**</span>赋值给变量.
+//这里就是定义了一个值为’文章标题‘的articletitle变量
+
+有了变量现在我们需要一个模板来将他输出
+现在我们来到目录中，将之前定义的模板地址，编译目录，缓存文件夹建立
+![](http://codeart.top/wp-content/uploads/2016/08/76e8a79f095497c174463a6d137579d2.png)
+进入tpl目录，建立我们的模板，这里我新建一个test.html。这里后缀并无太大所谓，htm，tpl都可以。
+不过我个人建议，还是使用html的好
+![](http://www.codeart.top/wp-content/uploads/2016/09/17e5c364b61ddb7194f7e61b23a6ae7e.png)
+编辑器打开它，键入</pre>
+<pre>{$articletitle}
+//左右定界符，包裹之前在test.php中定义的变量
+
+现在回到test.php，键入以下语句
+
+</pre>
+<pre>$smarty-&gt;display('test.html');//显示模板，参数为之前建立的test.html
+
+现在运行test.php
+
+</pre>
+<pre> ![](http://codeart.top/wp-content/uploads/2016/08/3c28fdff3e72aa8a369564af5f4b68e6.png)
+成功输出定义的变量！</pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Smarty</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP//" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/31/smarty-install/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-world-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/11/hello-world-1/">世界，您好！</a>
+    </h1>
+  
+
+        
+        <a href="/2016/06/11/hello-world-1/" class="archive-article-date">
+  	<time datetime="2016-06-11T15:01:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://codeart.top/wp-content/uploads/2016/08/screenshot.jpg" alt="screenshot"></p>
+<p>Hello world!</p>
+<p>这是我的第一篇博文，以后努力、尽量，恩对，尽量多更新。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/06/11/hello-world-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -213,9 +795,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,14 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/2 | Hexo</title>
+  <title>VirtualBox+vagrant+Homestead 安装laravel环境 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/02/index.html">
+  <meta name="description" content="VirtualBox+vagrant+Homestead 安装laravel环境 win上的配置，其他平台请移步本地安装配置laravel的环境多种多样  常见的有win上集成环境安装使用，linux虚拟机安装使用 而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等 编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明  作者：ciken">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VirtualBox+vagrant+Homestead 安装laravel环境">
+<meta property="og:url" content="http://yoursite.com/2018/01/07/homesteadlaravel/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="VirtualBox+vagrant+Homestead 安装laravel环境 win上的配置，其他平台请移步本地安装配置laravel的环境多种多样  常见的有win上集成环境安装使用，linux虚拟机安装使用 而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等 编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明  作者：ciken">
+<meta property="og:image" content="https://pic2.zhimg.com/242cabf1bb842a719ece05db473d91fd_r.jpg">
+<meta property="og:image" content="https://wt-box.worktile.com/public/91467438-6393-4b0f-bb0b-c855c681acb5">
+<meta property="og:image" content="https://wt-box.worktile.com/public/d2be657e-22f5-4026-b6db-bf8d3aa0ebe3">
+<meta property="og:image" content="https://wt-box.worktile.com/public/54bc12b0-2a45-4809-a74e-f7063ca2f00d">
+<meta property="og:image" content="https://wt-box.worktile.com/public/ef81e40a-005c-4e38-8cf8-83c21733a503">
+<meta property="og:image" content="https://wt-box.worktile.com/public/986a7b76-ce72-4ff1-9a92-d71d87cd304e">
+<meta property="og:image" content="https://wt-box.worktile.com/public/8ab7adaf-d89c-4e00-b86a-963b1b40cf92">
+<meta property="og:image" content="https://wt-box.worktile.com/public/851d69ec-10f8-49f6-8d84-378a2cad66d4">
+<meta property="og:image" content="https://wt-box.worktile.com/public/8b790d08-0d3f-44f2-9acc-2e89f63175c3">
+<meta property="og:image" content="https://wt-box.worktile.com/public/e86cb964-7c7b-42d9-b039-f8abb7a7be1e">
+<meta property="og:image" content="https://wt-box.worktile.com/public/417c49c2-ce78-4655-b52a-4f672c96c078">
+<meta property="og:image" content="https://wt-box.worktile.com/public/b38f14ec-d0ba-4dea-a503-63d1a5556546">
+<meta property="og:updated_time" content="2018-02-04T10:20:05.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="VirtualBox+vagrant+Homestead 安装laravel环境">
+<meta name="twitter:description" content="VirtualBox+vagrant+Homestead 安装laravel环境 win上的配置，其他平台请移步本地安装配置laravel的环境多种多样  常见的有win上集成环境安装使用，linux虚拟机安装使用 而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等 编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明  作者：ciken">
+<meta name="twitter:image" content="https://pic2.zhimg.com/242cabf1bb842a719ece05db473d91fd_r.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,49 +166,292 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-homesteadlaravel" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/04/hello-world/" class="archive-article-date">
-  	<time datetime="2018-02-04T09:46:43.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/04/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      VirtualBox+vagrant+Homestead 安装laravel环境
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2018/01/07/homesteadlaravel/" class="archive-article-date">
+  	<time datetime="2018-01-07T03:09:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="VirtualBox-vagrant-Homestead-安装laravel环境"><a href="#VirtualBox-vagrant-Homestead-安装laravel环境" class="headerlink" title="VirtualBox+vagrant+Homestead 安装laravel环境"></a><span class="md-expand">VirtualBox+vagrant+Homestead 安装laravel环境</span></h3><blockquote>
+<p><span class="md-line md-end-block">win上的配置，其他平台请移步</span><br><span class="md-line md-end-block">本地安装配置laravel的环境多种多样</span></p>
+</blockquote>
+<p><span class="md-line md-end-block">常见的有win上集成环境安装使用，linux虚拟机安装使用</span></p>
+<p><span class="md-line md-end-block">而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等</span></p>
+<p><span class="md-line md-end-block">编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">作者：cikenerd</span></p>
+<p>&nbsp;</p>
+<p><span class="md-line md-end-block"><span class=""><strong>本质区别</strong></span></span><span class="md-line md-end-block"><span class="">Vagrant并不提供虚拟化技术，本质上是一个虚拟机外挂，通过虚拟机的管理接口来管理虚拟机，让用户更轻松的进行一些常用配置，比如：CPU/Memory/IP/DISK等分配。并且提供了一些其它的管理操作：比如开机运行指定命令，镜像二次打包，插件编写等等。</span></span><span class="md-line md-end-block">vagrant官方有介绍</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">To achieve its magic, Vagrant stands on the shoulders of giants. <span class=""><strong>Machines are provisioned on top of VirtualBox, VMware, AWS, or </strong></span><span class=""><a href="https://www.vagrantup.com/docs/providers/" target="_blank" rel="noopener">any other provider</a></span>. Then, industry-standard <span class=""><a href="https://www.vagrantup.com/docs/provisioning/" target="_blank" rel="noopener">provisioning tools</a></span> such as shell scripts, Chef, or Puppet, can be used to automatically install and configure software on the machine.</span></p>
+</blockquote>
+<p><span class="md-line md-end-block">而docker是一个容器引擎，每一个实例是一个<span class=""><strong>相对隔离</strong></span>的空间，<span class=""><strong>与宿主机共享操作系统内核</strong></span>，并且共享宿主机资源。相对于披着虚拟机皮的vagrant，docker更加轻量，消耗更少的资源。</span><span class="md-line md-end-block">贴一张docker官方介绍图</span></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://pic2.zhimg.com/242cabf1bb842a719ece05db473d91fd_r.jpg"><img src="https://pic2.zhimg.com/242cabf1bb842a719ece05db473d91fd_r.jpg" alt=""></span></span></p>
+<div class="md-hr md-end-block" tabindex="-1" contenteditable="false">
 
+</div></blockquote>
+<hr>
+<p></p>
+<blockquote>
+<h5 id="过程综述"><a href="#过程综述" class="headerlink" title="过程综述"></a>过程综述</h5><blockquote>
+<p><span class="md-line md-end-block">1.安装VirtualBox</span></p>
+<p><span class="md-line md-end-block">2.安装vagrant</span></p>
+<p><span class="md-line md-end-block">3.下载Homestead box</span></p>
+<p><span class="md-line md-end-block">4.下载Homestead并配置</span></p>
+<p><span class="md-line md-end-block">5.启动vagrant</span></p>
+<p><span class="md-line md-end-block">6.ssh连接并安装laravel</span></p>
+</blockquote>
+<p><span class="md-line md-end-block">ps：建议在git Bash下进行操作，cmd可能会出问题（如无git建议下载安装，全程依然傻瓜式下一步）</span></p>
+<p><span class="md-line md-end-block">下载地址：<span spellcheck="false"><a href="http://gitforwindows.org/" target="_blank" rel="noopener">http://gitforwindows.org/</a></span></span></p>
+<div class="md-hr md-end-block" tabindex="-1" contenteditable="false">
+
+</div></blockquote>
+<hr>
+<p></p>
+<h3 id="一、安装VirtualBox"><a href="#一、安装VirtualBox" class="headerlink" title="一、安装VirtualBox"></a>一、安装VirtualBox</h3><p><span class="md-line md-end-block"><span spellcheck="false"><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">https://www.virtualbox.org/</a></span> 下载安装，傻瓜式</span></p>
+<h3 id="二、安装Vagrant"><a href="#二、安装Vagrant" class="headerlink" title="二、安装Vagrant"></a>二、安装Vagrant</h3><p><span class="md-line md-end-block"><span spellcheck="false"><a href="https://www.vagrantup.com/" target="_blank" rel="noopener">https://www.vagrantup.com/</a></span> 依然傻瓜式下载安装</span></p>
+<h3 id="三、下载Homestead-box"><a href="#三、下载Homestead-box" class="headerlink" title="三、下载Homestead box"></a>三、下载Homestead box</h3><p><span class="md-line md-end-block">可在线，可离线下载进行，因天朝网络环境可能失败，上梯子无效，不过个人还是在线下载下来了</span></p>
+<blockquote>
+<p><span class="md-line md-end-block"><span spellcheck="false"><code>$ vagrant box add laravel/homestead</code></span></span><br><span class="md-line md-end-block">打开git bash 输入以上，弹出选项，选择virtualbox，即可自动开始下载</span></p>
+</blockquote>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/91467438-6393-4b0f-bb0b-c855c681acb5"><img src="https://wt-box.worktile.com/public/91467438-6393-4b0f-bb0b-c855c681acb5" alt=""></span></span></p>
+<p><span class="md-line md-end-block">如果下载进行不下去，可复制其中的链接用IDM，迅雷等工具进行下载</span></p>
+<blockquote>
+<p><span class="md-line md-end-block"><span class=""><a href="https://atlas.hashicorp.com/laravel/boxes/homestead/versions/5.0.1/providers/virtualbox.box" target="_blank" rel="noopener">https://atlas.hashicorp.com/laravel/boxes/homestead/versions/5.0.1/providers/virtualbox.box</a></span></span></p>
+<div class="md-hr md-end-block" tabindex="-1" contenteditable="false">
+
+</div></blockquote>
+<hr>
+<p><br><span class="md-line md-end-block">挖坑，如果是离线下载的box，需要做些其他的事情，因我这边未碰到，所以暂时留坑</span></p>
+<div class="md-hr md-end-block" tabindex="-1" contenteditable="false">
+
+<hr>
+<p></p></div><br><span class="md-line md-end-block">此时，C盘用户文件夹中，应该多了此文件夹 <span spellcheck="false"><code>.vagrant.d</code></span>,下载的box即在其中</span><p></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/d2be657e-22f5-4026-b6db-bf8d3aa0ebe3"><img src="https://wt-box.worktile.com/public/d2be657e-22f5-4026-b6db-bf8d3aa0ebe3" alt=""></span></span></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/54bc12b0-2a45-4809-a74e-f7063ca2f00d"><img src="https://wt-box.worktile.com/public/54bc12b0-2a45-4809-a74e-f7063ca2f00d" alt=""></span></span></p>
+<h3 id="下载Homestead并配置"><a href="#下载Homestead并配置" class="headerlink" title="下载Homestead并配置"></a>下载Homestead并配置</h3><p><span class="md-line md-end-block">在Git bash 里输入</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">$ git clone <span spellcheck="false"><a href="https://github.com/laravel/homestead.git" target="_blank" rel="noopener">https://github.com/laravel/homestead.git</a></span> ~/Homestead</span><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/ef81e40a-005c-4e38-8cf8-83c21733a503"><img src="https://wt-box.worktile.com/public/ef81e40a-005c-4e38-8cf8-83c21733a503" alt=""></span></span></p>
+</blockquote>
+<p><span class="md-line md-end-block">这里下载好后继续</span></p>
+<blockquote>
+<p><span class="md-line md-end-block"># 先cd到刚才下载的Homestead文件夹</span></p>
+<p><span class="md-line md-end-block">$ cd ~/Homestead</span></p>
+<p><span class="md-line md-end-block"># 开始初始化Homestead</span></p>
+<p><span class="md-line md-end-block">$ bash init.sh</span><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/986a7b76-ce72-4ff1-9a92-d71d87cd304e"><img src="https://wt-box.worktile.com/public/986a7b76-ce72-4ff1-9a92-d71d87cd304e" alt=""></span></span></p>
+</blockquote>
+<p><span class="md-line md-end-block">此时，在用户目录下 Homestead文件夹中，可以看到多了一个<span spellcheck="false"><code>Homestead.yaml</code></span>文件</span></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/8ab7adaf-d89c-4e00-b86a-963b1b40cf92"><img src="https://wt-box.worktile.com/public/8ab7adaf-d89c-4e00-b86a-963b1b40cf92" alt=""></span></span></p>
+<p><pre class="md-fences md-end-block" lang="ng" contenteditable="false"><span role="presentation">—</span><br><span role="presentation">ip: “192.168.10.10”</span><br><span role="presentation">memory: 2048</span><br><span role="presentation">cpus: 1</span><br><span role="presentation">provider: virtualbox</span><br><span role="presentation">​</span><br><span role="presentation">authorize: ~/.ssh/id_rsa.pub</span><br><span role="presentation">​</span><br><span role="presentation">keys:</span><br><span role="presentation">    - ~/.ssh/id_rsa</span><br><span role="presentation">​</span><br><span role="presentation">folders:</span><br><span role="presentation">    - map: ~/Code</span><br><span role="presentation">      to: /home/vagrant/Code</span><br><span role="presentation">​</span><br><span role="presentation">sites:</span><br><span role="presentation">    - map: homestead.test</span><br><span role="presentation">      to: /home/vagrant/Code/laravel/public</span><br><span role="presentation">​</span><br><span role="presentation">databases:</span><br><span role="presentation">    - homestead</span><br><span role="presentation">​</span><br><span role="presentation"># blackfire:</span><br><span role="presentation">#     - id: foo</span><br><span role="presentation">#       token: bar</span><br><span role="presentation">#       client-id: foo</span><br><span role="presentation">#       client-token: bar</span><br><span role="presentation">​</span><br><span role="presentation"># ports:</span><br><span role="presentation">#     - send: 50000</span><br><span role="presentation">#       to: 5000</span><br><span role="presentation">#     - send: 7777</span><br><span role="presentation">#       to: 777</span><br><span role="presentation">#       protocol: udp</span></pre><br><span class="md-line md-end-block">他默认应该是介个样子，其中有几条配置需要了解，处理一下（这个配置很重要，下面所做的几个操作都是围绕他进行）</span></p>
+<p><span class="md-line md-end-block">首先我们需要建立SSH Key，在Git bash中输入</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">$ ssh-keygen -t rsa</span><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/851d69ec-10f8-49f6-8d84-378a2cad66d4"><img src="https://wt-box.worktile.com/public/851d69ec-10f8-49f6-8d84-378a2cad66d4" alt=""></span></span></p>
+</blockquote>
+<p><span class="md-line md-end-block">期间一路回车就好，用户名密码都暂为空</span></p>
+<p><span class="md-line md-end-block">完事后，我们会在用户目录看到一个<span spellcheck="false"><code>.ssh</code></span>目录</span></p>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/8b790d08-0d3f-44f2-9acc-2e89f63175c3"><img src="https://wt-box.worktile.com/public/8b790d08-0d3f-44f2-9acc-2e89f63175c3" alt=""></span></span></p>
+<p><span class="md-line md-end-block">里面的两个文件即对应配置中的这几行</span></p>
+<p><pre class="md-fences md-end-block" lang="nginx" contenteditable="false"><span role="presentation">authorize: <span class="cm-tag">~</span>/.ssh/id_rsa.<span class="cm-tag">pub</span></span><br><span role="presentation">​</span><br><span role="presentation">keys:</span><br><span role="presentation">    <span class="cm-tag">~</span>/.ssh/<span class="cm-tag">id_rsa</span></span><br><span role="presentation">​</span></pre><br><span class="md-line md-end-block">接下来，看配置文件这里</span></p>
+<p><pre class="md-fences md-end-block" lang="nginx" contenteditable="false"><span role="presentation">folders:</span><br><span role="presentation">    <span class="cm-tag">-</span> <span class="cm-variable-2">map</span>: <span class="cm-tag">~</span>/<span class="cm-tag">Code</span></span><br><span role="presentation">      to: /home/vagrant/<span class="cm-tag">Code</span></span><br><span role="presentation">​</span><br><span role="presentation">sites:</span><br><span role="presentation">    <span class="cm-tag">-</span> <span class="cm-variable-2">map</span>: homestead.<span class="cm-tag">test</span></span><br><span role="presentation">      to: /home/vagrant/Code/laravel/<span class="cm-tag">public</span></span></pre><br><span class="md-line md-end-block">其中folders中，将map后面的文件夹（即~/Code）映射到Homestead中的/home/vagrant/Code。这就像我们常见到的和虚拟机中系统共享文件夹类似，我们把本机的~/Code文件夹分享给Homestead，所以我们可以很方便地使用自己喜欢的IDE（比如PhpStorm）进行开发，在~/Code中所进行的修改会如实反应在Homestead对应的文件夹中。</span></p>
+<p><span class="md-line md-end-block">在sites中，我们定义了homestead.test指向/home/vagrant/Code/laravel/public这个文件夹，即Laravel项目的public文件夹。这样在浏览器中输入homestead.app，我们就可以直接看到项目主页了。</span></p>
+<p><span class="md-line md-end-block">注意：以上的文件夹及映射是可以根据用户喜好更改的，比如这里我将开发文件夹叫做WebDev，里面我新建了一个叫teahouse的项目，那么以上的配置，我就可以做出相应修改：</span></p>
+<p><pre class="md-fences md-end-block" lang="nginx" contenteditable="false"><span role="presentation">folders:</span><br><span role="presentation">    <span class="cm-tag">-</span> <span class="cm-variable-2">map</span>: <span class="cm-tag">~</span>/<span class="cm-tag">code</span></span><br><span role="presentation">      to: /home/vagrant/<span class="cm-tag">Webdev</span></span><br><span role="presentation">​</span><br><span role="presentation">sites:</span><br><span role="presentation">    <span class="cm-tag">-</span> <span class="cm-variable-2">map</span>: teahouse.<span class="cm-tag">app</span></span><br><span role="presentation">      to: /home/vagrant/Webdev/teahouse/<span class="cm-tag">public</span></span></pre><br><span class="md-line md-end-block">之后，为了teahouse.app这个域名能正常的访问，我们需要在hosts中增加一行</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">192.168.10.10 homestead.app teahouse.app</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">ps:hosts位于<span spellcheck="false"><code>C:\Windows\System32\drivers\etc</code></span></span><br><span class="md-line md-end-block">再接下来我们看配置文件中</span></p>
+<p><pre class="md-fences md-end-block" lang="" contenteditable="false"><span role="presentation">databases:</span><br><span role="presentation">    - homestead</span></pre><br><span class="md-line md-end-block">在这里我们没添加一个数据库名字，Homestead就会创建一个数据库</span></p>
+</blockquote>
+</blockquote>
+<p><span class="md-line md-end-block">这里我添加了一个新的数据库</span></p>
+<p><pre class="md-fences md-end-block" lang="" contenteditable="false"><span role="presentation">databases:</span><br><span role="presentation">    - homestead</span><br><span role="presentation">    - teahouse</span></pre><br><span class="md-line md-end-block"><span class=""><strong>注意不要使用Tab来缩进，可能会报错，这里使用空格</strong></span></span></p>
+<p><span class="md-line md-end-block">接下来，我们就可以来启动Vagrant了，惊不惊喜！</span></p>
+<p><span class="md-line md-end-block">Git bash中输入</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">cd ~/Homestead</span></p>
+<p><span class="md-line md-end-block">vagrant up</span><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/e86cb964-7c7b-42d9-b039-f8abb7a7be1e"><img src="https://wt-box.worktile.com/public/e86cb964-7c7b-42d9-b039-f8abb7a7be1e" alt=""></span></span></p>
+</blockquote>
+<p><span class="md-line md-end-block">过会儿，我们就能看到Vagrant已经顺利运行了，接下来我们可以通过本地的ssh工具，mysql工具来连接环境</span></p>
+<p><span class="md-line md-end-block">默认的SSH：</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">Host：127.0.0.1</span></p>
+<p><span class="md-line md-end-block">端口：2222</span></p>
+<p><span class="md-line md-end-block">用户：vagrant</span></p>
+<p><span class="md-line md-end-block">密码：vagrant</span><br><span class="md-line md-end-block">默认MySql</span><span class="md-line md-end-block">homestead/secret</span></p>
+</blockquote>
+<p><span class="md-line md-end-block">SSH连接上后，接下来按照之前配置中的路径来新建服务器上的目录</span></p>
+<p><span class="md-line md-end-block">例如我的配置是如此这般：</span></p>
+<p><pre class="md-fences md-end-block" lang="" contenteditable="false"><span role="presentation">sites:</span><br><span role="presentation">    - map: teahouse.app</span><br><span role="presentation">      to: /home/vagrant/Webdev/teahouse/public</span></pre><br><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/417c49c2-ce78-4655-b52a-4f672c96c078"><img src="https://wt-box.worktile.com/public/417c49c2-ce78-4655-b52a-4f672c96c078" alt=""></span></span></p>
+<p><span class="md-line md-end-block">我于是在服务器端新建如下目录（teahouse/public 这里已经是laravel里面了）</span></p>
+<p><span class="md-line md-end-block">进入<span spellcheck="false"><code>/home/vagrant/Webdev</code></span>目录，接下来通过composer安装laravel</span></p>
+<p><span class="md-line md-end-block">出于GFW原因，我们不得不用中国镜像来安装。vagrant虚拟机中运行如下命令</span></p>
+<blockquote>
+<p><span class="md-line md-end-block">composer config -g repo.packagist composer <span spellcheck="false"><a href="https://packagist.phpcomposer.com" target="_blank" rel="noopener">https://packagist.phpcomposer.com</a></span></span><br><span class="md-line md-end-block">接着我们通过composer来安装一个5.5版本</span><br><span class="md-line md-end-block">composer create-project laravel/laravel=5.5 –prefer-dist</span><br><span class="md-line md-end-block">下载完成后，Webdev下出现laravel目录，接着将目录名改为配置中自己的名字，这里我配置的是teahouse</span><br><span class="md-line md-end-block">mv laravel/ teahouse/</span><br><span class="md-line md-end-block">接下来本地通过配置的域名进行访问，出现laravel界面，ok，大功告成</span></p>
+</blockquote>
+<p><span class="md-line md-end-block"><span class="md-image md-img-loaded" contenteditable="false" data-src="https://wt-box.worktile.com/public/b38f14ec-d0ba-4dea-a503-63d1a5556546"><img src="https://wt-box.worktile.com/public/b38f14ec-d0ba-4dea-a503-63d1a5556546" alt=""></span></span></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/PHP//" class="article-tag-list-link color4">PHP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/01/07/homesteadlaravel/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/02/04/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/01/01/uuhostsstop/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">悠悠Hosts不限期停更</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -214,8 +474,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

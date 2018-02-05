@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/2 | Hexo</title>
+  <title>Win10-VMware Workstation与Device/Credential Guard不兼容 解决方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/02/index.html">
+  <meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win10-VMware Workstation与Device&#x2F;Credential Guard不兼容 解决方法">
+<meta property="og:url" content="http://yoursite.com/2017/03/04/win10-vmware-workstation-devicecredential-guard/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:image" content="http://www.codeart.top/wp-content/uploads/2017/03/TIM截图20170304152718.png">
+<meta property="og:updated_time" content="2018-02-04T10:20:05.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Win10-VMware Workstation与Device&#x2F;Credential Guard不兼容 解决方法">
+<meta name="twitter:image" content="http://www.codeart.top/wp-content/uploads/2017/03/TIM截图20170304152718.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,49 +153,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-win10-vmware-workstation-devicecredential-guard" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/04/hello-world/" class="archive-article-date">
-  	<time datetime="2018-02-04T09:46:43.432Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/04/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      Win10-VMware Workstation与Device/Credential Guard不兼容 解决方法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/03/04/win10-vmware-workstation-devicecredential-guard/" class="archive-article-date">
+  	<time datetime="2017-03-04T07:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://www.codeart.top/wp-content/uploads/2017/03/TIM截图20170304152718.png" alt=""></p>
+<a id="more"></a>
+<p>背景：之前使用Hyper-v配置的CentOS，但出了些乱七八糟的问题，于是一气之下换到了VMware，在手动关闭Hyper-v后，使用VMware安装CentOS7居然弹出了此窗口，后折腾很久解决，特记录下过程</p>
+<p>VM弹窗提示</p>
+<p>VMware Workstation与Device/Credential Guard不兼容</p>
+<p>这时我们需要在基于 Itanium 的计算机上禁用 Device Guard 或 Credential Guard，执行以下操作：</p>
+<div><br><br>&nbsp;<br><div><br><br>1.  禁用用于启用 Credential Guard 的组策略设置。<br><br>    1.  在主机操作系统上，单击<strong>启动</strong>&gt;<strong>运行</strong>，键入gpedit.msc,，然后单击<strong>确定</strong>。将打开本地组策略编辑器。<br>    2.  转到<strong>本地计算机策略</strong>&gt;<strong>计算机配置</strong>&gt;<strong>管理模板 &gt; 系统</strong>&gt;<strong>Device Guard</strong>&gt;打开基于虚拟化的安全。<br>    3.  选择<strong>禁用</strong>。<br><br>2.  转到<strong>控制面板</strong>&gt;<strong>卸载程序</strong>&gt;<strong>打开或关闭 Windows 功能以关闭 Hyper-V</strong>。<br>3.  选择<strong>不重新启动</strong>。<br>4.  通过使用管理员帐户在主机上启动命令提示符来删除相关的 EFI 变量并运行以下命令：<br></div><br><span style="font-family: 'Courier New'; font-size: small;"><br>mountvol X: /s<br>copy %WINDIR%\System32\SecConfig.efi X:\EFI\Microsoft\Boot\SecConfig.efi /Y<br>bcdedit /create {0cb3b571-2f2e-4343-a879-d86a476d7215} /d “DebugTool” /application osloader<br>bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} path “\EFI\Microsoft\Boot\SecConfig.efi”<br>bcdedit /set {bootmgr} bootsequence {0cb3b571-2f2e-4343-a879-d86a476d7215}<br>bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} loadoptions DISABLE-LSA-ISO,DISABLE-VBS<br>bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} device partition=X:<br>mountvol X: /d<br></span><br><strong>注意</strong>：确保  <span style="font-family: 'Courier New'; font-size: small;">X</span>  是未使用的驱动器，否则更改为另一个驱动器。<br><br>5.关机，再手动开启机器（建议不要点击重启，笔者的机器点重启及会恢复之前的设置，正常关机开机便没了问题）。<br><br><div><br><div></div><br><div>如果计算机有传统BIOS启动：</div><br><div><br><br>1.  在主机上以管理员身份打开命令提示符。<br>2.  运行此命令：<span style="font-family: 'Courier New'; font-size: small;">bcdedit / set hypervisorlaunchtype </span><span style="font-family: 'Courier New'; font-size: small;">off</span><br>3.  回到上步5。<br></div><br><div></div><br></div><br></div>
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/奇门遁甲//" class="article-tag-list-link color5">奇门遁甲</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/03/04/win10-vmware-workstation-devicecredential-guard/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/22/brushmachine/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          我为什么不再刷机
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/02/09/uuhosts/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">新站点起航——悠悠Hosts</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -214,8 +361,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
