@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>VirtualBox+vagrant+Homestead 安装laravel环境 · CodeArt-编码艺术</title>
+    <title>Chrome-extensions-share · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >CodeArt-编码艺术</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">VirtualBox+vagrant+Homestead 安装laravel环境</a>
+                <a href="#" class="post-name">Chrome-extensions-share</a>
             </div>
     </div>
     
@@ -242,7 +242,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            VirtualBox+vagrant+Homestead 安装laravel环境
+            Chrome-extensions-share
             <!-- 404 -->
             
         </h1>
@@ -259,24 +259,14 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "laravel">laravel</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "vagrant">vagrant</a>
-    
-</div>
-                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">1,643</span> / Reading time: <span class="post-count">7 min</span></span>
+                        <span>Word count: <span class="post-count">831</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/02/04</span>
+                    <span class="post-intro-time">2019/01/22</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -400,123 +390,71 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="VirtualBox-vagrant-Homestead-安装laravel环境"><a href="#VirtualBox-vagrant-Homestead-安装laravel环境" class="headerlink" title="VirtualBox+vagrant+Homestead 安装laravel环境"></a>VirtualBox+vagrant+Homestead 安装laravel环境</h3><blockquote>
-<p>win上的配置，其他平台请移步<br>本地安装配置laravel的环境多种多样</p>
-</blockquote>
-<p>常见的有win上集成环境安装使用，linux虚拟机安装使用</p>
-<p>而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等</p>
-<p>编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明</p>
-<blockquote>
-<p>作者：cikenerd</p>
-<p><strong>本质区别</strong>Vagrant并不提供虚拟化技术，本质上是一个虚拟机外挂，通过虚拟机的管理接口来管理虚拟机，让用户更轻松的进行一些常用配置，比如：CPU/Memory/IP/DISK等分配。并且提供了一些其它的管理操作：比如开机运行指定命令，镜像二次打包，插件编写等等。vagrant官方有介绍</p>
-<blockquote>
-<p>To achieve its magic, Vagrant stands on the shoulders of giants. <strong>Machines are provisioned on top of VirtualBox, VMware, AWS, or</strong> <a href="https://www.vagrantup.com/docs/providers/" target="_blank" rel="noopener">any other provider</a>. Then, industry-standard <a href="https://www.vagrantup.com/docs/provisioning/" target="_blank" rel="noopener">provisioning tools</a> such as shell scripts, Chef, or Puppet, can be used to automatically install and configure software on the machine.</p>
-</blockquote>
-<p>而docker是一个容器引擎，每一个实例是一个<strong>相对隔离</strong>的空间，<strong>与宿主机共享操作系统内核</strong>，并且共享宿主机资源。相对于披着虚拟机皮的vagrant，docker更加轻量，消耗更少的资源。贴一张docker官方介绍图</p>
-<p><img src="https://pic2.zhimg.com/242cabf1bb842a719ece05db473d91fd_r.jpg" alt="img"></p>
+        <h3 id="自用Chrome扩展推荐"><a href="#自用Chrome扩展推荐" class="headerlink" title="自用Chrome扩展推荐"></a>自用Chrome扩展推荐</h3><blockquote>
+<p>上不去Google商店也是可以下扩展的，推荐个镜像站</p>
+<p><a href="https://www.crx4chrome.com/" target="_blank" rel="noopener">https://www.crx4chrome.com/</a></p>
 </blockquote>
 <hr>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fyi7v4hyy6j31j40u07f8.jpg" alt="image-20181224224411733"></p>
 <blockquote>
-<h5 id="过程综述"><a href="#过程综述" class="headerlink" title="过程综述"></a>过程综述</h5><blockquote>
-<p>1.安装VirtualBox</p>
-<p>2.安装vagrant</p>
-<p>3.下载Homestead box</p>
-<p>4.下载Homestead并配置</p>
-<p>5.启动vagrant</p>
-<p>6.ssh连接并安装laravel</p>
+<p>在浏览过各式Chrome插件推荐文章后，精选下来的最适合自己的一部分，是否适合于你，需要你自己的斟酌</p>
 </blockquote>
-<p>ps：建议在git Bash下进行操作，cmd可能会出问题（如无git建议下载安装，全程依然傻瓜式下一步）</p>
-<p>下载地址：<a href="http://gitforwindows.org/" target="_blank" rel="noopener">http://gitforwindows.org/</a></p>
+<h4 id="1-JSON-handle——JSON格式化-开发者必备"><a href="#1-JSON-handle——JSON格式化-开发者必备" class="headerlink" title="1.JSON-handle——JSON格式化-开发者必备"></a>1.JSON-handle——JSON格式化-开发者必备</h4><blockquote>
+<p>无须过多解释</p>
 </blockquote>
-<hr>
-<h3 id="一、安装VirtualBox"><a href="#一、安装VirtualBox" class="headerlink" title="一、安装VirtualBox"></a>一、安装VirtualBox</h3><p><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">https://www.virtualbox.org/</a> 下载安装，傻瓜式</p>
-<h3 id="二、安装Vagrant"><a href="#二、安装Vagrant" class="headerlink" title="二、安装Vagrant"></a>二、安装Vagrant</h3><p><a href="https://www.vagrantup.com/" target="_blank" rel="noopener">https://www.vagrantup.com/</a> 依然傻瓜式下载安装</p>
-<h3 id="三、下载Homestead-box"><a href="#三、下载Homestead-box" class="headerlink" title="三、下载Homestead box"></a>三、下载Homestead box</h3><p>可在线，可离线下载进行，因天朝网络环境可能失败，上梯子无效，不过个人还是在线下载下来了</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fyi81ybuodj311t0u0qgq.jpg" alt="image-20181224225045296"></p>
+<h4 id="2-油猴-Tamermonkey"><a href="#2-油猴-Tamermonkey" class="headerlink" title="2.油猴-Tamermonkey"></a>2.油猴-Tamermonkey</h4><blockquote>
+<p>常年霸占Chrome神级插件列表，简而言之一个管理各类脚本的工具，通过这些脚本我们不仅可以定制各个网站的样式，还可以定制其功能</p>
+</blockquote>
+<p>它可以且不限于：（搬一段少数派文章的话语）</p>
+<ul>
+<li>直接下载百度网盘文件</li>
+<li>重新定制繁杂的微博页面</li>
+<li>去掉视频播放广告</li>
+<li>将网站默认的「二维码登录」改回「账号密码登录」</li>
+<li>绕过搜索引擎的跳转提示</li>
+<li>还原清新的小说阅读模式</li>
+<li>豆瓣和 IMDb 互相显示评分</li>
+<li>……</li>
+</ul>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fyi89knk10j327m0u04aq.jpg" alt="image-20181224225804720"></p>
+<p>奉上个人使用的脚本列表，接下来展示下它所能达到的效果，例如这是我的百度：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fyi8ba8qxvj319w0u04g8.jpg" alt="image-20181224225940338"></p>
+<p>我的微博：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fyjfn2g9a2j31dt0u07lo.jpg" alt="image-20181225235848363"></p>
+<p>选词搜索：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fyjflj0m8pj311w0f0k1a.jpg" alt="image-20181225235717183"></p>
+<p>更多的操作，如此这般查找其他脚本即可</p>
+<p><img src="https://i.loli.net/2018/12/24/5c20fadfa53cf.gif" alt="youhou2.gif"></p>
+<h4 id="3-Toby-新标签页"><a href="#3-Toby-新标签页" class="headerlink" title="3.Toby-新标签页"></a>3.Toby-新标签页</h4><p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fyi8u0ae0jj31l60u07j5.jpg" alt="image-20181224231740381"></p>
+<p>​    论颜值Toby不是最高的，论功能性他也不是最丰富的，但它却抓住了我的痛点——<strong>极为便捷</strong>的添加Session（书签）并分组排序</p>
+<p>​    大学时使用的标签页为微度，几年后开发者停止了维护，我也就停止了使用，转而使用Infinity 新标签页(Pro)</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fyjfpqq88qj31h60u0kjm.jpg" alt="image-20181226000122314"></p>
+<p>​    不得不说，Infinity 新标签页(Pro)是个优秀的标签页扩展</p>
+<p>优点：</p>
+<ul>
+<li>界面美观（网站图标重绘）</li>
+<li>功能强大（书签管理，天气，便签等）</li>
+</ul>
+<p>缺点：</p>
+<p>​    在收藏网页的整理与分类上，效率不算高，而我又习惯了高频率使用收藏与整理的，所以使用1年左右转投toby</p>
+<h4 id="4-uBlock-去广告扩展"><a href="#4-uBlock-去广告扩展" class="headerlink" title="4.uBlock-去广告扩展"></a>4.uBlock-去广告扩展</h4><p>及其轻量且效果棒呆的去广告插件，此前长期使用过广告终结者，Adblock Plus等几款扩展，从去广告能力上来说，各个扩展差别不大，唯一影响我的就是内存占用以及是否有其他情况影响页面加载及响应速度，经过我的肉眼识别大法最终选择了这款占用相对较低的去广告扩展——uBlock</p>
+<h4 id="5-书签侧边栏"><a href="#5-书签侧边栏" class="headerlink" title="5.书签侧边栏"></a>5.书签侧边栏</h4><blockquote>
+<p>便捷打开书签</p>
+</blockquote>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzfgic0sraj31h80srahs.jpg" alt="image-20190122164656093"></p>
+<h4 id="6-有道云笔记"><a href="#6-有道云笔记" class="headerlink" title="6.有道云笔记"></a>6.有道云笔记</h4><p>​    两大笔记软件印象与有道，我都试用了一段时间，功能上两者不相上下，无论是拍照识图，各种便捷的分享保存方式，两者皆做的非常全面，但个人使用的终端有点多，印象在不购买会员的情况下只能登陆两台设备，而有道没有这个限制，所以我便理所当然转投有道了😂</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzfgkj5mt9j31e10s24cg.jpg" alt="image-20190122164902633"></p>
+<h4 id="7-百度网盘助手"><a href="#7-百度网盘助手" class="headerlink" title="7.百度网盘助手"></a>7.百度网盘助手</h4><blockquote>
+<p>配合Aria2 导出下载，速度嗖嗖的</p>
+</blockquote>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fyjftw2684j31ss0n4di2.jpg" alt="image-20181226000521853"></p>
+<h4 id="8-网页截图"><a href="#8-网页截图" class="headerlink" title="8.网页截图"></a>8.网页截图</h4><p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fyi9krgxbkj30g00js0uo.jpg" alt="image-20181224234322934"></p>
+<p>最后：</p>
+<p>各类型插件千千万，适合自己的最好。</p>
 <blockquote>
-<p><code>$ vagrant box add laravel/homestead</code><br>打开git bash 输入以上，弹出选项，选择virtualbox，即可自动开始下载</p>
+<p>tips：实在无梯子可用可以使用谷歌访问助手，这个扩展会霸占你的浏览器首页，但使用新标签页扩展后，也就见不到他了，所以无妨。</p>
 </blockquote>
-<p><img src="https://wt-box.worktile.com/public/91467438-6393-4b0f-bb0b-c855c681acb5" alt="img"></p>
-<p>如果下载进行不下去，可复制其中的链接用IDM，迅雷等工具进行下载</p>
-<blockquote>
-<p><a href="https://atlas.hashicorp.com/laravel/boxes/homestead/versions/5.0.1/providers/virtualbox.box" target="_blank" rel="noopener">https://atlas.hashicorp.com/laravel/boxes/homestead/versions/5.0.1/providers/virtualbox.box</a></p>
-</blockquote>
-<hr>
-<p>挖坑，如果是离线下载的box，需要做些其他的事情，因我这边未碰到，所以暂时留坑</p>
-<hr>
-<p>此时，C盘用户文件夹中，应该多了此文件夹 <code>.vagrant.d</code>,下载的box即在其中</p>
-<p><img src="https://wt-box.worktile.com/public/d2be657e-22f5-4026-b6db-bf8d3aa0ebe3" alt="img"></p>
-<p><img src="https://wt-box.worktile.com/public/54bc12b0-2a45-4809-a74e-f7063ca2f00d" alt="img"></p>
-<h3 id="下载Homestead并配置"><a href="#下载Homestead并配置" class="headerlink" title="下载Homestead并配置"></a>下载Homestead并配置</h3><p>在Git bash 里输入</p>
-<blockquote>
-<p>$ git clone <a href="https://github.com/laravel/homestead.git" target="_blank" rel="noopener">https://github.com/laravel/homestead.git</a> ~/Homestead<br><img src="https://wt-box.worktile.com/public/ef81e40a-005c-4e38-8cf8-83c21733a503" alt="img"></p>
-</blockquote>
-<p>这里下载好后继续</p>
-<blockquote>
-<p># 先cd到刚才下载的Homestead文件夹</p>
-<p>$ cd ~/Homestead</p>
-<p># 开始初始化Homestead</p>
-<p>$ bash init.sh<br><img src="https://wt-box.worktile.com/public/986a7b76-ce72-4ff1-9a92-d71d87cd304e" alt="img"></p>
-</blockquote>
-<p>此时，在用户目录下 Homestead文件夹中，可以看到多了一个<code>Homestead.yaml</code>文件</p>
-<p><img src="https://wt-box.worktile.com/public/8ab7adaf-d89c-4e00-b86a-963b1b40cf92" alt="img"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">—</span><br><span class="line">ip: “192.168.10.10”</span><br><span class="line">memory: 2048</span><br><span class="line">cpus: 1</span><br><span class="line">provider: virtualbox</span><br><span class="line"></span><br><span class="line">authorize: ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br><span class="line">keys:</span><br><span class="line">    - ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">folders:</span><br><span class="line">    - map: ~/Code</span><br><span class="line">      to: /home/vagrant/Code</span><br><span class="line"></span><br><span class="line">sites:</span><br><span class="line">    - map: homestead.test</span><br><span class="line">      to: /home/vagrant/Code/laravel/public</span><br><span class="line"></span><br><span class="line">databases:</span><br><span class="line">    - homestead</span><br><span class="line"></span><br><span class="line"># blackfire:</span><br><span class="line">#     - id: foo</span><br><span class="line">#       token: bar</span><br><span class="line">#       client-id: foo</span><br><span class="line">#       client-token: bar</span><br><span class="line"></span><br><span class="line"># ports:</span><br><span class="line">#     - send: 50000</span><br><span class="line">#       to: 5000</span><br><span class="line">#     - send: 7777</span><br><span class="line">#       to: 777</span><br><span class="line">#       protocol: udp</span><br></pre></td></tr></table></figure>
-<p>他默认应该是介个样子，其中有几条配置需要了解，处理一下（这个配置很重要，下面所做的几个操作都是围绕他进行）</p>
-<p>首先我们需要建立SSH Key，在Git bash中输入</p>
-<blockquote>
-<p>$ ssh-keygen -t rsa<br><img src="https://wt-box.worktile.com/public/851d69ec-10f8-49f6-8d84-378a2cad66d4" alt="img"></p>
-</blockquote>
-<p>期间一路回车就好，用户名密码都暂为空</p>
-<p>完事后，我们会在用户目录看到一个<code>.ssh</code>目录</p>
-<p><img src="https://wt-box.worktile.com/public/8b790d08-0d3f-44f2-9acc-2e89f63175c3" alt="img"></p>
-<p>里面的两个文件即对应配置中的这几行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">authorize: ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br><span class="line">keys:</span><br><span class="line">    ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-<p>接下来，看配置文件这里</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">folders:</span><br><span class="line">    - map: ~/Code</span><br><span class="line">      to: /home/vagrant/Code</span><br><span class="line"></span><br><span class="line">sites:</span><br><span class="line">    - map: homestead.test</span><br><span class="line">      to: /home/vagrant/Code/laravel/public</span><br></pre></td></tr></table></figure>
-<p>其中folders中，将map后面的文件夹（即~/Code）映射到Homestead中的/home/vagrant/Code。这就像我们常见到的和虚拟机中系统共享文件夹类似，我们把本机的~/Code文件夹分享给Homestead，所以我们可以很方便地使用自己喜欢的IDE（比如PhpStorm）进行开发，在~/Code中所进行的修改会如实反应在Homestead对应的文件夹中。</p>
-<p>在sites中，我们定义了homestead.test指向/home/vagrant/Code/laravel/public这个文件夹，即Laravel项目的public文件夹。这样在浏览器中输入homestead.app，我们就可以直接看到项目主页了。</p>
-<p>注意：以上的文件夹及映射是可以根据用户喜好更改的，比如这里我将开发文件夹叫做WebDev，里面我新建了一个叫teahouse的项目，那么以上的配置，我就可以做出相应修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">folders:</span><br><span class="line">    - map: ~/code</span><br><span class="line">      to: /home/vagrant/Webdev</span><br><span class="line"></span><br><span class="line">sites:</span><br><span class="line">    - map: teahouse.app</span><br><span class="line">      to: /home/vagrant/Webdev/teahouse/public</span><br></pre></td></tr></table></figure>
-<p>之后，为了teahouse.app这个域名能正常的访问，我们需要在hosts中增加一行</p>
-<blockquote>
-<p>192.168.10.10 homestead.app teahouse.app</p>
-<blockquote>
-<p>ps:hosts位于<code>C:\Windows\System32\drivers\etc</code><br>再接下来我们看配置文件中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; databases:</span><br><span class="line">&gt; &gt;     - homestead</span><br><span class="line">&gt; &gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>在这里我们没添加一个数据库名字，Homestead就会创建一个数据库</p>
-</blockquote>
-</blockquote>
-<p>这里我添加了一个新的数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">databases:</span><br><span class="line">    - homestead</span><br><span class="line">    - teahouse</span><br></pre></td></tr></table></figure>
-<p><strong>注意不要使用Tab来缩进，可能会报错，这里使用空格</strong></p>
-<p>接下来，我们就可以来启动Vagrant了，惊不惊喜！</p>
-<p>Git bash中输入</p>
-<blockquote>
-<p>cd ~/Homestead</p>
-<p>vagrant up<br><img src="https://wt-box.worktile.com/public/e86cb964-7c7b-42d9-b039-f8abb7a7be1e" alt="img"></p>
-</blockquote>
-<p>过会儿，我们就能看到Vagrant已经顺利运行了，接下来我们可以通过本地的ssh工具，mysql工具来连接环境</p>
-<p>默认的SSH：</p>
-<blockquote>
-<p>Host：127.0.0.1</p>
-<p>端口：2222</p>
-<p>用户：vagrant</p>
-<p>密码：vagrant<br>默认MySqlhomestead/secret</p>
-</blockquote>
-<p>SSH连接上后，接下来按照之前配置中的路径来新建服务器上的目录</p>
-<p>例如我的配置是如此这般：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sites:</span><br><span class="line">    - map: teahouse.app</span><br><span class="line">      to: /home/vagrant/Webdev/teahouse/public</span><br></pre></td></tr></table></figure>
-<p><img src="https://wt-box.worktile.com/public/417c49c2-ce78-4655-b52a-4f672c96c078" alt="img"></p>
-<p>我于是在服务器端新建如下目录（teahouse/public 这里已经是laravel里面了）</p>
-<p>进入<code>/home/vagrant/Webdev</code>目录，接下来通过composer安装laravel</p>
-<p>出于GFW原因，我们不得不用中国镜像来安装。vagrant虚拟机中运行如下命令</p>
-<blockquote>
-<p>composer config -g repo.packagist composer <a href="https://packagist.phpcomposer.com/" target="_blank" rel="noopener">https://packagist.phpcomposer.com</a><br>接着我们通过composer来安装一个5.5版本<br>composer create-project laravel/laravel=5.5 –prefer-dist<br>下载完成后，Webdev下出现laravel目录，接着将目录名改为配置中自己的名字，这里我配置的是teahouse<br>mv laravel/ teahouse/<br>接下来本地通过配置的域名进行访问，出现laravel界面，ok，大功告成</p>
-</blockquote>
-<p><img src="https://wt-box.worktile.com/public/b38f14ec-d0ba-4dea-a503-63d1a5556546" alt="img"></p>
 
     </article>
     <!-- license  -->
@@ -525,17 +463,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/0304/Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法/" title= Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法 >
-                    <div class="nextTitle">Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/0101/悠悠Hosts不限期停更/" title= 悠悠Hosts不限期停更 >
-                    <div class="prevTitle">悠悠Hosts不限期停更</div>
+                <a href= "/2018/0919/vagrant-xdebug/" title= Vagrant配置Xdebug >
+                    <div class="prevTitle">Vagrant配置Xdebug</div>
                 </a>
             
         </li>
@@ -663,7 +596,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#VirtualBox-vagrant-Homestead-安装laravel环境"><span class="toc-number">1.</span> <span class="toc-text">VirtualBox+vagrant+Homestead 安装laravel环境</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#过程综述"><span class="toc-number">1.0.1.</span> <span class="toc-text">过程综述</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、安装VirtualBox"><span class="toc-number">2.</span> <span class="toc-text">一、安装VirtualBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、安装Vagrant"><span class="toc-number">3.</span> <span class="toc-text">二、安装Vagrant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、下载Homestead-box"><span class="toc-number">4.</span> <span class="toc-text">三、下载Homestead box</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载Homestead并配置"><span class="toc-number">5.</span> <span class="toc-text">下载Homestead并配置</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#自用Chrome扩展推荐"><span class="toc-number">1.</span> <span class="toc-text">自用Chrome扩展推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-JSON-handle——JSON格式化-开发者必备"><span class="toc-number">1.1.</span> <span class="toc-text">1.JSON-handle——JSON格式化-开发者必备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-油猴-Tamermonkey"><span class="toc-number">1.2.</span> <span class="toc-text">2.油猴-Tamermonkey</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Toby-新标签页"><span class="toc-number">1.3.</span> <span class="toc-text">3.Toby-新标签页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-uBlock-去广告扩展"><span class="toc-number">1.4.</span> <span class="toc-text">4.uBlock-去广告扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-书签侧边栏"><span class="toc-number">1.5.</span> <span class="toc-text">5.书签侧边栏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-有道云笔记"><span class="toc-number">1.6.</span> <span class="toc-text">6.有道云笔记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-百度网盘助手"><span class="toc-number">1.7.</span> <span class="toc-text">7.百度网盘助手</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-网页截图"><span class="toc-number">1.8.</span> <span class="toc-text">8.网页截图</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
