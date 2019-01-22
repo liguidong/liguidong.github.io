@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Vagrant配置Xdebug · CodeArt-编码艺术</title>
+    <title>Chrome-extensions-share · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >CodeArt-编码艺术</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Vagrant配置Xdebug</a>
+                <a href="#" class="post-name">Chrome-extensions-share</a>
             </div>
     </div>
     
@@ -242,7 +242,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Vagrant配置Xdebug
+            Chrome-extensions-share
             <!-- 404 -->
             
         </h1>
@@ -261,12 +261,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">717</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">831</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/09/19</span>
+                    <span class="post-intro-time">2019/01/22</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -390,48 +390,71 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="Vagrant环境配置Xdebug"><a href="#Vagrant环境配置Xdebug" class="headerlink" title="Vagrant环境配置Xdebug"></a>Vagrant环境配置Xdebug</h3><p>相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为</p>
-<ol>
-<li>php安装xdebug扩展，php.ini配置</li>
-<li>phpstorm监听，共享目录等设置</li>
-<li>浏览器xdebug扩展安装</li>
-</ol>
-<h4 id="一、-根据php版本wget对应的xdebug包"><a href="#一、-根据php版本wget对应的xdebug包" class="headerlink" title="一、 根据php版本wget对应的xdebug包"></a>一、 根据php版本wget对应的xdebug包</h4><blockquote>
-<p>这里提供php5.4对应的包地址</p>
+        <h3 id="自用Chrome扩展推荐"><a href="#自用Chrome扩展推荐" class="headerlink" title="自用Chrome扩展推荐"></a>自用Chrome扩展推荐</h3><blockquote>
+<p>上不去Google商店也是可以下扩展的，推荐个镜像站</p>
+<p><a href="https://www.crx4chrome.com/" target="_blank" rel="noopener">https://www.crx4chrome.com/</a></p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载</span><br></pre></td></tr></table></figure>
-<h4 id="二、使用phpize安装扩展"><a href="#二、使用phpize安装扩展" class="headerlink" title="二、使用phpize安装扩展"></a>二、使用phpize安装扩展</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载</span><br><span class="line">tar xvzf xdebug-2.4.1.tgz//解压</span><br><span class="line"><span class="built_in">cd</span> xdebug-2.4.1</span><br><span class="line">phpize</span><br><span class="line">./configure --<span class="built_in">enable</span>-xdebug --with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-<p>此时应能在php扩展目录看到xdebug.so</p>
-<h4 id="三、-phpinfo查看xdebug安装是否正常"><a href="#三、-phpinfo查看xdebug安装是否正常" class="headerlink" title="三、 phpinfo查看xdebug安装是否正常"></a>三、 phpinfo查看xdebug安装是否正常</h4><blockquote>
-<p>部分环境因为安全需要禁用了phpinfo，需要修改php.ini开启</p>
+<hr>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fyi7v4hyy6j31j40u07f8.jpg" alt="image-20181224224411733"></p>
+<blockquote>
+<p>在浏览过各式Chrome插件推荐文章后，精选下来的最适合自己的一部分，是否适合于你，需要你自己的斟酌</p>
 </blockquote>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fuwdsh0popj30o90fs409.jpg" alt="image"></p>
-<h4 id="四、-修改php-ini-添加xdebug相关配置"><a href="#四、-修改php-ini-添加xdebug相关配置" class="headerlink" title="四、 修改php.ini 添加xdebug相关配置"></a>四、 修改php.ini 添加xdebug相关配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Xdebug]</span><br><span class="line">zend_extension = /usr/local/server/php/lib/php/extensions/no-debug-non-zts-20100525/xdebug.so</span><br><span class="line">xdebug.remote_enable =1</span><br><span class="line">xdebug.remote_handler = dbgp</span><br><span class="line">xdebug.remote_host = 10.0.2.2 </span><br><span class="line">xdebug.remote_mode = req</span><br><span class="line">xdebug.remote_port = 9001</span><br><span class="line">xdebug.idekey = PHPSTORM</span><br><span class="line">xdebug.remote_autostart = 1</span><br><span class="line">xdebug.remote_log = /tmp/xdebug.log</span><br></pre></td></tr></table></figure>
-<p>xdebug.remote_host 为<strong>客户端ip</strong>，此处客户端的概念指phpstorm所在的机器</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fuwdx9b7qsj30ft05rwex.jpg" alt="image"></p>
-<p>一般多数服务是我们本机通过对应的端口去请求它，xdebug却相反，是服务器端来请求客户端，phpstorm配置对应的端口来进行监听，phpstorm所在的机器即为客户端，所以此处xdebug.remote_host 所填的地址可通过<code>$_SERVER[&#39;REMOTE_ADDR&#39;]</code>来获取，这里划重点，网上众说纷纭，此处<strong>请填客户端ip</strong>，勿填成了虚拟机ip</p>
-<p>xdebug.remote_port 为约定的端口，默认为9000，有人说fastcgi会占用这个端口，所以我换成了9001</p>
-<p>xdebug.remote_log 为日志选项，调试正常，可以使用之后，可以将其去掉</p>
-<p>此处再提一点：<strong>约定的端口（9001）不用转发</strong>，本人便吃了自作聪明的亏</p>
-<h4 id="五、修改phpstorm相关配置"><a href="#五、修改phpstorm相关配置" class="headerlink" title="五、修改phpstorm相关配置"></a>五、修改phpstorm相关配置</h4><h5 id="5-1-解释器修改为远程解释器"><a href="#5-1-解释器修改为远程解释器" class="headerlink" title="5.1 解释器修改为远程解释器"></a>5.1 解释器修改为远程解释器</h5><p>例如配置为vagrant 虚拟机中的php</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuweb7l98uj31kw0y1453.jpg" alt="image"></p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuwecykg58j319s11kwjb.jpg" alt="image"></p>
-<h5 id="5-2-修改为约定的端口"><a href="#5-2-修改为约定的端口" class="headerlink" title="5.2 修改为约定的端口"></a>5.2 修改为约定的端口</h5><p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuwedwawk0j316g0rgq9j.jpg" alt="image"></p>
-<h5 id="5-3-配置DBGp"><a href="#5-3-配置DBGp" class="headerlink" title="5.3 配置DBGp"></a>5.3 配置DBGp</h5><p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuweffj694j316o0mu77i.jpg" alt="image"></p>
-<p>按理来说，配置到此处PHPStorm的配置就告一段落了，但网上很多文章提到需要配置这个</p>
-<p><img src="/var/folders/gn/f1q1mvl10gl4xlwtgcsljzs80000gn/T/abnerworks.Typora/image-20180903155316261.png" alt="image"></p>
-<p>个人实测，是不用配置的，当开始调试，服务端与客户端正常通信后会自动创建（你看着办吧）</p>
-<p>配置好后，开启phpstorm的监听</p>
-<p><img src="/var/folders/gn/f1q1mvl10gl4xlwtgcsljzs80000gn/T/abnerworks.Typora/image-20180903160415573.png" alt="image"></p>
-<h4 id="六、-chrome安装对应扩展"><a href="#六、-chrome安装对应扩展" class="headerlink" title="六、 chrome安装对应扩展"></a>六、 chrome安装对应扩展</h4><p><a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc" target="_blank" rel="noopener">https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc</a></p>
-<p>当然如果你没梯子，就这里下吧</p>
-<p><a href="https://www.crx4chrome.com/extensions/eadndfjplgieldjbigjakmdgkmoaaaoc/" target="_blank" rel="noopener">https://www.crx4chrome.com/extensions/eadndfjplgieldjbigjakmdgkmoaaaoc/</a></p>
-<p>装好后，右击-&gt;选项，配置key</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuwety8estj30fq03a74d.jpg" alt="image"></p>
-<p>接着在需要调试的页面，将他点成原谅色即启用啦</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuweuoxofgj308502x0st.jpg" alt="image"></p>
-<p>接下来ide中打断点，刷新页面测试吧</p>
-<h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>大体上就是这样，有问题就根据xdebug.log来google一下，或留言交流</p>
+<h4 id="1-JSON-handle——JSON格式化-开发者必备"><a href="#1-JSON-handle——JSON格式化-开发者必备" class="headerlink" title="1.JSON-handle——JSON格式化-开发者必备"></a>1.JSON-handle——JSON格式化-开发者必备</h4><blockquote>
+<p>无须过多解释</p>
+</blockquote>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fyi81ybuodj311t0u0qgq.jpg" alt="image-20181224225045296"></p>
+<h4 id="2-油猴-Tamermonkey"><a href="#2-油猴-Tamermonkey" class="headerlink" title="2.油猴-Tamermonkey"></a>2.油猴-Tamermonkey</h4><blockquote>
+<p>常年霸占Chrome神级插件列表，简而言之一个管理各类脚本的工具，通过这些脚本我们不仅可以定制各个网站的样式，还可以定制其功能</p>
+</blockquote>
+<p>它可以且不限于：（搬一段少数派文章的话语）</p>
+<ul>
+<li>直接下载百度网盘文件</li>
+<li>重新定制繁杂的微博页面</li>
+<li>去掉视频播放广告</li>
+<li>将网站默认的「二维码登录」改回「账号密码登录」</li>
+<li>绕过搜索引擎的跳转提示</li>
+<li>还原清新的小说阅读模式</li>
+<li>豆瓣和 IMDb 互相显示评分</li>
+<li>……</li>
+</ul>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fyi89knk10j327m0u04aq.jpg" alt="image-20181224225804720"></p>
+<p>奉上个人使用的脚本列表，接下来展示下它所能达到的效果，例如这是我的百度：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fyi8ba8qxvj319w0u04g8.jpg" alt="image-20181224225940338"></p>
+<p>我的微博：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fyjfn2g9a2j31dt0u07lo.jpg" alt="image-20181225235848363"></p>
+<p>选词搜索：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fyjflj0m8pj311w0f0k1a.jpg" alt="image-20181225235717183"></p>
+<p>更多的操作，如此这般查找其他脚本即可</p>
+<p><img src="https://i.loli.net/2018/12/24/5c20fadfa53cf.gif" alt="youhou2.gif"></p>
+<h4 id="3-Toby-新标签页"><a href="#3-Toby-新标签页" class="headerlink" title="3.Toby-新标签页"></a>3.Toby-新标签页</h4><p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fyi8u0ae0jj31l60u07j5.jpg" alt="image-20181224231740381"></p>
+<p>​    论颜值Toby不是最高的，论功能性他也不是最丰富的，但它却抓住了我的痛点——<strong>极为便捷</strong>的添加Session（书签）并分组排序</p>
+<p>​    大学时使用的标签页为微度，几年后开发者停止了维护，我也就停止了使用，转而使用Infinity 新标签页(Pro)</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fyjfpqq88qj31h60u0kjm.jpg" alt="image-20181226000122314"></p>
+<p>​    不得不说，Infinity 新标签页(Pro)是个优秀的标签页扩展</p>
+<p>优点：</p>
+<ul>
+<li>界面美观（网站图标重绘）</li>
+<li>功能强大（书签管理，天气，便签等）</li>
+</ul>
+<p>缺点：</p>
+<p>​    在收藏网页的整理与分类上，效率不算高，而我又习惯了高频率使用收藏与整理的，所以使用1年左右转投toby</p>
+<h4 id="4-uBlock-去广告扩展"><a href="#4-uBlock-去广告扩展" class="headerlink" title="4.uBlock-去广告扩展"></a>4.uBlock-去广告扩展</h4><p>及其轻量且效果棒呆的去广告插件，此前长期使用过广告终结者，Adblock Plus等几款扩展，从去广告能力上来说，各个扩展差别不大，唯一影响我的就是内存占用以及是否有其他情况影响页面加载及响应速度，经过我的肉眼识别大法最终选择了这款占用相对较低的去广告扩展——uBlock</p>
+<h4 id="5-书签侧边栏"><a href="#5-书签侧边栏" class="headerlink" title="5.书签侧边栏"></a>5.书签侧边栏</h4><blockquote>
+<p>便捷打开书签</p>
+</blockquote>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzfgic0sraj31h80srahs.jpg" alt="image-20190122164656093"></p>
+<h4 id="6-有道云笔记"><a href="#6-有道云笔记" class="headerlink" title="6.有道云笔记"></a>6.有道云笔记</h4><p>​    两大笔记软件印象与有道，我都试用了一段时间，功能上两者不相上下，无论是拍照识图，各种便捷的分享保存方式，两者皆做的非常全面，但个人使用的终端有点多，印象在不购买会员的情况下只能登陆两台设备，而有道没有这个限制，所以我便理所当然转投有道了😂</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzfgkj5mt9j31e10s24cg.jpg" alt="image-20190122164902633"></p>
+<h4 id="7-百度网盘助手"><a href="#7-百度网盘助手" class="headerlink" title="7.百度网盘助手"></a>7.百度网盘助手</h4><blockquote>
+<p>配合Aria2 导出下载，速度嗖嗖的</p>
+</blockquote>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fyjftw2684j31ss0n4di2.jpg" alt="image-20181226000521853"></p>
+<h4 id="8-网页截图"><a href="#8-网页截图" class="headerlink" title="8.网页截图"></a>8.网页截图</h4><p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fyi9krgxbkj30g00js0uo.jpg" alt="image-20181224234322934"></p>
+<p>最后：</p>
+<p>各类型插件千千万，适合自己的最好。</p>
+<blockquote>
+<p>tips：实在无梯子可用可以使用谷歌访问助手，这个扩展会霸占你的浏览器首页，但使用新标签页扩展后，也就见不到他了，所以无妨。</p>
+</blockquote>
 
     </article>
     <!-- license  -->
@@ -440,17 +463,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/cjr7jjzl5000068662ycqbgmt.html" title= Chrome-extensions-share >
-                    <div class="nextTitle">Chrome-extensions-share</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/cjr7ivlre000cyj66jfv3rpgy.html" title= VirtualBox直接搭建laravel开发环境可能遇到的坑 >
-                    <div class="prevTitle">VirtualBox直接搭建laravel开发环境可能遇到的坑</div>
+                <a href= "/2018/cjr7ivlr30004yj668v4womf9.html" title= Vagrant配置Xdebug >
+                    <div class="prevTitle">Vagrant配置Xdebug</div>
                 </a>
             
         </li>
@@ -578,7 +596,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vagrant环境配置Xdebug"><span class="toc-number">1.</span> <span class="toc-text">Vagrant环境配置Xdebug</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、-根据php版本wget对应的xdebug包"><span class="toc-number">1.1.</span> <span class="toc-text">一、 根据php版本wget对应的xdebug包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、使用phpize安装扩展"><span class="toc-number">1.2.</span> <span class="toc-text">二、使用phpize安装扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、-phpinfo查看xdebug安装是否正常"><span class="toc-number">1.3.</span> <span class="toc-text">三、 phpinfo查看xdebug安装是否正常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、-修改php-ini-添加xdebug相关配置"><span class="toc-number">1.4.</span> <span class="toc-text">四、 修改php.ini 添加xdebug相关配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、修改phpstorm相关配置"><span class="toc-number">1.5.</span> <span class="toc-text">五、修改phpstorm相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1-解释器修改为远程解释器"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1 解释器修改为远程解释器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-修改为约定的端口"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2 修改为约定的端口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-配置DBGp"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3 配置DBGp</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、-chrome安装对应扩展"><span class="toc-number">1.6.</span> <span class="toc-text">六、 chrome安装对应扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写在最后"><span class="toc-number">1.7.</span> <span class="toc-text">写在最后</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#自用Chrome扩展推荐"><span class="toc-number">1.</span> <span class="toc-text">自用Chrome扩展推荐</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-JSON-handle——JSON格式化-开发者必备"><span class="toc-number">1.1.</span> <span class="toc-text">1.JSON-handle——JSON格式化-开发者必备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-油猴-Tamermonkey"><span class="toc-number">1.2.</span> <span class="toc-text">2.油猴-Tamermonkey</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Toby-新标签页"><span class="toc-number">1.3.</span> <span class="toc-text">3.Toby-新标签页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-uBlock-去广告扩展"><span class="toc-number">1.4.</span> <span class="toc-text">4.uBlock-去广告扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-书签侧边栏"><span class="toc-number">1.5.</span> <span class="toc-text">5.书签侧边栏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-有道云笔记"><span class="toc-number">1.6.</span> <span class="toc-text">6.有道云笔记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-百度网盘助手"><span class="toc-number">1.7.</span> <span class="toc-text">7.百度网盘助手</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-网页截图"><span class="toc-number">1.8.</span> <span class="toc-text">8.网页截图</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
