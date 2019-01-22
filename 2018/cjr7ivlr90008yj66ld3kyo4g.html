@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>PHP操作本地中文文件注意事项 · CodeArt-编码艺术</title>
+    <title>悠悠Hosts不限期停更 · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >CodeArt-编码艺术</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">PHP操作本地中文文件注意事项</a>
+                <a href="#" class="post-name">悠悠Hosts不限期停更</a>
             </div>
     </div>
     
@@ -242,7 +242,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            PHP操作本地中文文件注意事项
+            悠悠Hosts不限期停更
             <!-- 404 -->
             
         </h1>
@@ -261,18 +261,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "随笔">随笔</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">697</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">174</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2016/12/25</span>
+                    <span class="post-intro-time">2018/01/01</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -396,19 +396,10 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>公司，某位其他部门的同事问，有几千个文件夹，里面都有个同名的文件，想要把这几千个同名文件改为与文件夹一样的名字，是否有快速解决的工具。</p>
-<p>等会不忙了帮你写个，我信心满满的答应下来。</p>
-<p>但在此中操作中文文件时，遇到了点小问题，遂记录下来与大家分享</p>
-<p>问题出现在遍历目录，操作中文名文件的过程中。</p>
-<p>其类似于此种结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$dir = &apos;wj&apos;;</span><br><span class="line">//打开目录存入句柄</span><br><span class="line">if($dh = opendir($dir))</span><br><span class="line">&#123;</span><br><span class="line">    //循环遍历</span><br><span class="line">    while (($file = readdir($dh)) !== false)</span><br><span class="line">    &#123;</span><br><span class="line">        //匹配则进入操作</span><br><span class="line">        var_dump($file);</span><br><span class="line">        if ($file == &apos;二维码.jpg&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            //操作</span><br><span class="line">            echo &apos;操作&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但我发现始终无法进入if <img src="http://www.codeart.top/wp-content/uploads/2016/12/3be39ee07f6832558cb6e236528077e2.png" alt=""> 即使打印出的string 与文件名一毛一样，这就很尴尬啊。 我再把if条件改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$file == &apos;1.txt&apos;</span><br><span class="line"></span><br><span class="line">![](http://www.codeart.top/wp-content/uploads/2016/12/7e097021ac3f89a4f7b3990e9d8f924a.png)</span><br><span class="line">瞬间就进来了，这说明写法没问题，难道是字符编码？</span><br><span class="line">再改改编码看看效果</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$dir = &apos;wj&apos;;</span><br><span class="line">//打开目录存入句柄</span><br><span class="line">if($dh = opendir($dir))</span><br><span class="line">&#123;</span><br><span class="line">    //循环遍历</span><br><span class="line">    while (($file = readdir($dh)) !== false)</span><br><span class="line">    &#123;</span><br><span class="line">        var_dump($file);</span><br><span class="line">        //查询字符编码</span><br><span class="line">        $encode = mb_detect_encoding($file, array(&quot;ASCII&quot;,&apos;UTF-8&apos;,&quot;GB2312&quot;,&quot;GBK&quot;,&apos;BIG5&apos;));</span><br><span class="line">        //显示读取的file的字符编码</span><br><span class="line">        echo &quot;file的字符集为：&#123;$encode&#125; &lt;/br&gt;&quot;;</span><br><span class="line">        //转换字符编码</span><br><span class="line">        $file = mb_convert_encoding($file,&apos;UTF-8&apos;,$encode);</span><br><span class="line">        //匹配则进入操作</span><br><span class="line">        if ($file == &apos;二维码.jpg&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            //操作</span><br><span class="line">            echo &apos;6666666666666&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里我查询了file的字符编码，再将其转换为utf-8，看起来妥妥的，我咋这么聪明 结果… <img src="http://www.codeart.top/wp-content/uploads/2016/12/462c16154bf44d4435d482d6bdf54296.png" alt=""> 这就很尴尬了，还进不去，居然读不出来，这破PHP 一定是PHP本身设计的太烂，我这样安慰自己 既然是读取系统文件，查查系统是什么字符集吧，说干就干 <img src="http://www.codeart.top/wp-content/uploads/2016/12/9776878bcc883ee8b87ba7c36da781c1.png" alt=""> soga，GBK是也。ps：cmd框体右击属性可查 继续改改代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$dir = &apos;wj&apos;;</span><br><span class="line">//打开目录存入句柄</span><br><span class="line">if($dh = opendir($dir))</span><br><span class="line">&#123;</span><br><span class="line">    //循环遍历</span><br><span class="line">    while (($file = readdir($dh)) !== false)</span><br><span class="line">    &#123;</span><br><span class="line">        var_dump($file);</span><br><span class="line">        //转换字符编码</span><br><span class="line">        $file = mb_convert_encoding($file,&apos;UTF-8&apos;,&apos;GBK&apos;);</span><br><span class="line">        //显示读取的file的字符编码</span><br><span class="line">        $encode = mb_detect_encoding($file, array(&quot;ASCII&quot;,&apos;UTF-8&apos;,&quot;GB2312&quot;,&quot;GBK&quot;,&apos;BIG5&apos;));</span><br><span class="line">        echo &quot;file的字符集为：&#123;$encode&#125; &lt;/br&gt;&quot;;</span><br><span class="line">        //匹配则进入操作</span><br><span class="line">        if ($file == &apos;二维码.jpg&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            //操作</span><br><span class="line">            echo &apos;6666666666666&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://www.codeart.top/wp-content/uploads/2016/12/72124d72f75cdcd3522ec1fb3de5406e.png" alt=""> 成功进去，妥妥的。 至此，此小问题解决 操作中文文件定要注意字符编码问题（windows默认GBK） 另：此段代码后期操作了系统中的文件，在操作过程中，也定要记得转换字符编码 例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename(iconv(&apos;UTF-8&apos;,&apos;GBK&apos;,$oldname), iconv(&apos;UTF-8&apos;,&apos;GBK&apos;,$newname));</span><br></pre></td></tr></table></figure>
+        <p><em>新年快乐</em><img src="http://www.codeart.top/wp-content/uploads/2018/01/2042a1679ea17e6d16c7179880b0b891.png" alt="img"></p>
+<p>新年快乐，自2017年2月8日第一次更新，到2017年10月17日，悠悠Hosts陪各位走过了251个日子，太过短暂，短到我一度不敢相信，记得建站初，我说希望TG下手轻一点，18年的那天，悠悠Hosts还存在，没想到如今，站点还在，但服务，无法继续下去了</p>
+<p>17年九月，GFW进行了升级，更多的站点被加入了重点照顾的名单，新的ip分分钟被干掉，甚至部分ss都开始掉速，具体不便说的太多，所以我们的服务也无法继续，最后，感谢支持朋友们，新年快乐，happy new year！</p>
+
     </article>
     <!-- license  -->
     
@@ -417,12 +408,17 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2017/20170209.html" title= 新站点起航——悠悠Hosts >
-                    <div class="nextTitle">新站点起航——悠悠Hosts</div>
+                <a href= "/2018/cjr7ivlr60006yj66wc6pj65y.html" title= VirtualBox+vagrant+Homestead 安装laravel环境 >
+                    <div class="nextTitle">VirtualBox+vagrant+Homestead 安装laravel环境</div>
                 </a>
             
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2017/cjr7ivlr80007yj66a27g0uou.html" title= 我为什么不再刷机 >
+                    <div class="prevTitle">我为什么不再刷机</div>
+                </a>
             
         </li>
     </ul>
@@ -690,7 +686,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2019/20190122.html" >Chrome-extensions-share</a>
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2019/cjr7ivlqw0001yj66kk1afzjv.html" >Chrome-extensions-share</a>
         </li>
     
     
@@ -704,32 +700,32 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/2018/20180919.html" >Vagrant配置Xdebug</a>
+            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/2018/cjr7ivlr30004yj668v4womf9.html" >Vagrant配置Xdebug</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/20180909.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/cjr7ivlre000cyj66jfv3rpgy.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/20180706.html" >Hello World</a>
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/cjr7ivlrd000byj666h5g7dh2.html" >Hello World</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2018/20180304.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2018/cjr7ivlr00002yj66019778fx.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/20180204.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/cjr7ivlr60006yj66wc6pj65y.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2018/20180101.html" >悠悠Hosts不限期停更</a>
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2018/cjr7ivlr90008yj66ld3kyo4g.html" >悠悠Hosts不限期停更</a>
         </li>
     
     
@@ -743,12 +739,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2017/20170522.html" >我为什么不再刷机</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2017/cjr7ivlr80007yj66a27g0uou.html" >我为什么不再刷机</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/2017/20170209.html" >新站点起航——悠悠Hosts</a>
+            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/2017/cjr7ivlrg000eyj669ln2fxkt.html" >新站点起航——悠悠Hosts</a>
         </li>
     
     
@@ -762,7 +758,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2016/20161225.html" >PHP操作本地中文文件注意事项</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2016/cjr7ivlr20003yj66vmcoq1zp.html" >PHP操作本地中文文件注意事项</a>
         </li>
     
     </div>

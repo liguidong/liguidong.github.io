@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>我为什么不再刷机 · CodeArt-编码艺术</title>
+    <title>VirtualBox直接搭建laravel开发环境可能遇到的坑 · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >CodeArt-编码艺术</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">我为什么不再刷机</a>
+                <a href="#" class="post-name">VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
             </div>
     </div>
     
@@ -242,7 +242,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            我为什么不再刷机
+            VirtualBox直接搭建laravel开发环境可能遇到的坑
             <!-- 404 -->
             
         </h1>
@@ -259,20 +259,14 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "随笔">随笔</a>
-    
-</div>
-                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">1,491</span> / Reading time: <span class="post-count">5 min</span></span>
+                        <span>Word count: <span class="post-count">502</span> / Reading time: <span class="post-count">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2017/05/22</span>
+                    <span class="post-intro-time">2018/09/09</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -396,46 +390,34 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p><strong>一、前言</strong></p>
-<p>记得在某厂家ROM内测时，我填过这样一段申请</p>
-<p>从8250到8064到810再到820</p>
-<p>从四叶草到miui到flyme再到氢os</p>
-<p>从HVGA到WVGA到HD再到FHD</p>
-<p>从甜甜圈到姜饼到果冻豆再到棒棒糖</p>
-<p>从高中到大学直至工作，我眼见着这最触手可及的电子设备变化翻天，希望我的经历能帮助***继续成长…</p>
-<p>11年6月，第一次拥有自己的安卓设备（1.6），那一晚我兴奋到半夜，此后的两三年中，换手机不勤（穷学生），但每个月起码的几次刷机，却几乎从未间断，但时至今日，我却很难提起折腾的兴趣，坐在电脑前，看着曾经热闹，如今发帖寥寥的社区，论坛，只能感叹，环境（生态）变了，我，也变了</p>
-<p><strong>二、回顾</strong></p>
-<p>11年暑假，丝毫见不到阳光的两个月，手中托盘盛满酒肉，行走在射灯照耀的走廊中，眼见一桌桌客人推杯换盏，抽得闲暇，找个角落，掏出手机，手中的乐Phone W101 这就是两个月来坚持的意义，上班没多久就预支工资，将他拿到了手。<img src="http://www.codeart.top/wp-content/uploads/2017/05/5ffc37e1e06127448c6ca4236813123e.png" alt="img"></p>
-<p>高通骁龙8250 1GHz</p>
-<p>512RAM</p>
-<p>512ROM</p>
-<p>后置500w 支持自动对焦</p>
-<p>这在11年，配置简直豪华，也是他，让我知道了lephone之家（现在已不在了），知道了机锋，知道了什么是root，体验不佳的四叶草UI也逼我知道了刷机是干嘛，也是他 让我发现原来还有miui如此良心的rom（当时rom市场环境不佳，几乎无优质本地化rom）<img src="http://www.codeart.top/wp-content/uploads/2017/05/timg.jpg" alt="img"></p>
-<p>让我知道了cm，等国外rom（当时毫无好感，丑哭的界面外加丝毫没有本地化的功能）</p>
-<p>第二台机器：MOTO Defy（ME525）</p>
-<p>土豪朋友入手了当时火的一塌糊涂的戴妃，又看上了我手里的乐Phone，两厢情愿的情况下，换机<img src="http://www.codeart.top/wp-content/uploads/2017/05/timg-1.jpg" alt="img"></p>
-<p>德仪3210 800mHz（ARM A8）</p>
-<p>512RAM</p>
-<p>后置500w 自动对焦</p>
-<p>纸面参数来看，似乎与我手机并无多大区别，但实质3610 采用 45nm制程，比8650的60nm不知高到哪里去了，支持720p视频录制即是铁证（需刷里程碑2移植rom），同时支持防水防尘防刮（IP57+第一代康宁大猩猩玻璃），不知道多少小伙伴垂涎三尺。</p>
-<p>正是这台机器，让我知道了超频，知道了换内核，知道了什么是移植rom，知道了BL锁，知道了同一型号也会有硬件差别（当时市售defy 按摄像头镀膜颜色分为红头，绿头，金头，按BL锁等级又分为4,5,6,7等），也同时让我体验到了变砖的刺激，请假网吧刷机的燃烧岁月。</p>
-<p>这两台机器正式开启了我折腾机器的大门，</p>
-<p>回想起来，折腾的原动力来自</p>
-<p>1.<strong>新鲜感</strong></p>
-<p>2.<strong>流畅,省电</strong>(当时抛开基于cm的rom，谈流畅都相对玄学，许多rom作者修修补补加点小功能精简一点自带app就敢说大幅优化了流畅度，省电)</p>
-<p>3.<strong>美化</strong>（为了状态栏一个图标，也会去单独下个补丁，为了某区域的颜色，能用工具调几个小时）</p>
-<p>总结起来就是，追求好用，漂亮与新鲜感</p>
-<p>此后的 lg optimus G（G2他爸，G3他爷爷），M8，一加二也都是为此</p>
-<p>但从M8开始，我的折腾之路有了些许变化<img src="http://www.codeart.top/wp-content/uploads/2017/05/timg-2.jpg" alt="img"></p>
-<p>两颗boomsound扬声器，配合杜比5.1音效，外放至今难有机器超越，后置一颗400w的UltraPixel外加一颗景深镜头，这些特性导致使用第三方rom时，实力都无法展现，因为例如相机算法，音效等属于厂商的商业秘密，绝对竞争力，是绝无可能公开的，所以导致除了官改的rom，第三方rom几乎都无法发挥一部手机的全部特性，这几乎就让我对一大半rom失去了兴趣。</p>
-<p>而到了一加二，我使用官方rom的时间就开始远长于第三方rom，为了指纹，为了相机算法，为了稳定性 那些快一点，省电一点又能算得上什么。</p>
-<p>当然，第三方rom可不是玩机的全部，我们还有广阔的app，框架，插件，补丁等等资源。xposed框架几乎撑起了折腾的半边天，绿色守护，阻止运行，老牌的滑动返回，重力工具箱，甚至保证你分分钟退群的红包助手。但这个盛夏也在16年迎来寒冬，Android 7.0发布，定名为“Nougat”（牛轧糖），至此Xposed在新系统上再也没能像以往一样归来（类似于ios越狱工具，Xposed非常底层，所以每次新系统更新后其总需要一点时间来支持，但从未太久）<img src="http://www.codeart.top/wp-content/uploads/2017/05/TIM%E6%88%AA%E5%9B%BE20170522225321.jpg" alt="img"><img src="http://www.codeart.top/wp-content/uploads/2017/05/TIM%E6%88%AA%E5%9B%BE20170522230145.jpg" alt="img"></p>
-<p>Xposed相对于使用7.0的我们宣布终结。没事，你对我说，我们还有广大的app，绿色，破解，国外开发者，这些不一样美好么<img src="http://www.codeart.top/wp-content/uploads/2017/05/TIM%E6%88%AA%E5%9B%BE20170522230432.jpg" alt="img"></p>
-<p>抛开这些不谈。</p>
-<p>自15年左右开始，我看到了各个厂商定制安卓，促进生态和谐发展的曙光，MIUI越战越勇，功能性易用性 TOp2当之无愧，Flyme也开始摆脱了Bugme的称呼稳步成长，EMUI，FUI等此时还相对沉寂不温不火。而到了如今，连三桑的Touch WIZ都开始加入了主题商店，管理中心等等符合国情的功能，可以窥见 国内厂商的rom到了何种水平。</p>
-<p><strong>三、总结</strong></p>
-<p>为摆脱硬件软件的同质化，各家发力越来越猛，从人性化的rom到类似于双摄，虹膜，压感，握感（U11）等特有属性，都越发的使得人们难以离开，也失去理由离开官方rom。</p>
-<p>我便是这样</p>
+        <blockquote>
+<p>另外一个产品使用的VirtualBox+Vagrant搭建的环境，未开启nfs的情况下，速度实在感人，遂此次环境未使用Vagrant，直接VirtualBox，谁知道坑爹的事情不断</p>
+</blockquote>
+<h4 id="VirtualBox直接搭建laravel开发环境可能遇到的坑："><a href="#VirtualBox直接搭建laravel开发环境可能遇到的坑：" class="headerlink" title="VirtualBox直接搭建laravel开发环境可能遇到的坑："></a>VirtualBox直接搭建laravel开发环境可能遇到的坑：</h4><h5 id="一、共享目录的挂载与访问"><a href="#一、共享目录的挂载与访问" class="headerlink" title="一、共享目录的挂载与访问"></a>一、共享目录的挂载与访问</h5><p>VirtualBox开启目录共享需要安装增强插件，一般来说都会安装失败，参考：</p>
+<p><a href="https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device" target="_blank" rel="noopener">https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device</a></p>
+<p>整到安装上此增强插件后，就可以通过mount来管理挂载了，假设开启了VirtualBox的自动挂载，其会将目录自动挂载到media/下</p>
+<h5 id="二、共享目录php的修改权限"><a href="#二、共享目录php的修改权限" class="headerlink" title="二、共享目录php的修改权限"></a>二、共享目录php的修改权限</h5><blockquote>
+<p>建议不要尝试手动去挂载，手动挂载后的目录，所属用户和用户组都是root，且无法更改，会导致php因为权限无法修改其中的文件（无论你怎么尝试，此问题耗费4H+的人奉劝）</p>
+</blockquote>
+<p>自动挂载上的目录用户和所属组为 root:vboxsf，此时我们去修改php的启动用户和用户组</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/server/php/etc/php-fpm.d/www.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#默认</span></span><br><span class="line">user = nginx</span><br><span class="line">group = nginx</span><br><span class="line"><span class="comment">#修改为</span></span><br><span class="line">user = nginx</span><br><span class="line">group = vboxsf</span><br></pre></td></tr></table></figure>
+<p>此处我还将nginx用户加入了vboxsf组，当然不知道起没起到决定性的作用，但建议你这样做</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -a -G vboxsf nginx</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：修改用户及用户组相关配置后，重启生效</p>
+</blockquote>
+<h5 id="三、laravel-cache-配置"><a href="#三、laravel-cache-配置" class="headerlink" title="三、laravel cache 配置"></a>三、laravel cache 配置</h5><blockquote>
+<p>清除缓存常常能解决很多问题</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">php artisan config:clear</span><br><span class="line">php artisan cache:clear</span><br><span class="line">php artisan config:cache</span><br></pre></td></tr></table></figure>
+<h5 id="四、npm-i"><a href="#四、npm-i" class="headerlink" title="四、npm i"></a>四、npm i</h5><blockquote>
+<p>假如你需要使用node.js ，那么NPM i 安装模块的过程中可能会遇到报软连接无法使用之类的错误</p>
+</blockquote>
+<p>VirtualBox的共享文件夹不支持软连接，所以要么</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --no-bin-links</span><br></pre></td></tr></table></figure>
+<p>告诉NPM 我用不了软连接，你给我换种玩法，或者</p>
+<p>在本机npm i来安装模块（本机装node）</p>
 
     </article>
     <!-- license  -->
@@ -445,16 +427,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/20180101.html" title= 悠悠Hosts不限期停更 >
-                    <div class="nextTitle">悠悠Hosts不限期停更</div>
+                <a href= "/2018/cjr7ivlr30004yj668v4womf9.html" title= Vagrant配置Xdebug >
+                    <div class="nextTitle">Vagrant配置Xdebug</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2017/20170209.html" title= 新站点起航——悠悠Hosts >
-                    <div class="prevTitle">新站点起航——悠悠Hosts</div>
+                <a href= "/2018/cjr7ivlrd000byj666h5g7dh2.html" title= Hello World >
+                    <div class="prevTitle">Hello World</div>
                 </a>
             
         </li>
@@ -582,7 +564,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#VirtualBox直接搭建laravel开发环境可能遇到的坑："><span class="toc-number">1.</span> <span class="toc-text">VirtualBox直接搭建laravel开发环境可能遇到的坑：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、共享目录的挂载与访问"><span class="toc-number">1.1.</span> <span class="toc-text">一、共享目录的挂载与访问</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、共享目录php的修改权限"><span class="toc-number">1.2.</span> <span class="toc-text">二、共享目录php的修改权限</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、laravel-cache-配置"><span class="toc-number">1.3.</span> <span class="toc-text">三、laravel cache 配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四、npm-i"><span class="toc-number">1.4.</span> <span class="toc-text">四、npm i</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -723,7 +705,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2019/20190122.html" >Chrome-extensions-share</a>
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2019/cjr7ivlqw0001yj66kk1afzjv.html" >Chrome-extensions-share</a>
         </li>
     
     
@@ -737,32 +719,32 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/2018/20180919.html" >Vagrant配置Xdebug</a>
+            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/2018/cjr7ivlr30004yj668v4womf9.html" >Vagrant配置Xdebug</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/20180909.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/cjr7ivlre000cyj66jfv3rpgy.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/20180706.html" >Hello World</a>
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/cjr7ivlrd000byj666h5g7dh2.html" >Hello World</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2018/20180304.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2018/cjr7ivlr00002yj66019778fx.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/20180204.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/cjr7ivlr60006yj66wc6pj65y.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2018/20180101.html" >悠悠Hosts不限期停更</a>
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2018/cjr7ivlr90008yj66ld3kyo4g.html" >悠悠Hosts不限期停更</a>
         </li>
     
     
@@ -776,12 +758,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2017/20170522.html" >我为什么不再刷机</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2017/cjr7ivlr80007yj66a27g0uou.html" >我为什么不再刷机</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/2017/20170209.html" >新站点起航——悠悠Hosts</a>
+            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/2017/cjr7ivlrg000eyj669ln2fxkt.html" >新站点起航——悠悠Hosts</a>
         </li>
     
     
@@ -795,7 +777,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2016/20161225.html" >PHP操作本地中文文件注意事项</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2016/cjr7ivlr20003yj66vmcoq1zp.html" >PHP操作本地中文文件注意事项</a>
         </li>
     
     </div>
