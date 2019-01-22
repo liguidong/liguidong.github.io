@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法 · CodeArt-编码艺术</title>
+    <title>悠悠Hosts不限期停更 · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -210,7 +210,7 @@
                 <a href="/" >CodeArt-编码艺术</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
+                <a href="#" class="post-name">悠悠Hosts不限期停更</a>
             </div>
     </div>
     
@@ -242,7 +242,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法
+            悠悠Hosts不限期停更
             <!-- 404 -->
             
         </h1>
@@ -259,14 +259,20 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "随笔">随笔</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">387</span> / Reading time: <span class="post-count">2 min</span></span>
+                        <span>Word count: <span class="post-count">174</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/03/04</span>
+                    <span class="post-intro-time">2018/01/01</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -390,18 +396,9 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <blockquote>
-<p>背景：之前使用Hyper-v配置的CentOS，但出了些乱七八糟的问题，于是一气之下换到了VMware，在手动关闭Hyper-v后，使用VMware安装CentOS7居然弹出了此窗口，后折腾很久解决，特记录下过程</p>
-</blockquote>
-<p>VM弹窗提示</p>
-<p>VMware Workstation与Device/Credential Guard不兼容</p>
-<p>这时我们需要在基于 Itanium 的计算机上禁用 Device Guard 或 Credential Guard，执行以下操作：</p>
-<p>\1. 禁用用于启用 Credential Guard 的组策略设置。<br>\1. 在主机操作系统上，单击<strong>启动</strong>&gt;<strong>运行</strong>，键入gpedit.msc,，然后单击<strong>确定</strong>。将打开本地组策略编辑器。<br>\2. 转到<strong>本地计算机策略</strong>&gt;<strong>计算机配置</strong>&gt;<strong>管理模板 &gt; 系统</strong>&gt;<strong>Device Guard</strong>&gt;打开基于虚拟化的安全。<br>\3. 选择<strong>禁用</strong>。<br>\2. 转到<strong>控制面板</strong>&gt;<strong>卸载程序</strong>&gt;<strong>打开或关闭 Windows 功能以关闭 Hyper-V</strong>。<br>\3. 选择<strong>不重新启动</strong>。<br>\4. 通过使用管理员帐户在主机上启动命令提示符来删除相关的 EFI 变量并运行以下命令：</p>
-<p>mountvol X: /s<br>copy %WINDIR%\System32\SecConfig.efi X:\EFI\Microsoft\Boot\SecConfig.efi /Y<br>bcdedit /create {0cb3b571-2f2e-4343-a879-d86a476d7215} /d “DebugTool” /application osloader<br>bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} path “\EFI\Microsoft\Boot\SecConfig.efi”<br>bcdedit /set {bootmgr} bootsequence {0cb3b571-2f2e-4343-a879-d86a476d7215}<br>bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} loadoptions DISABLE-LSA-ISO,DISABLE-VBS<br>bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} device partition=X:<br>mountvol X: /d</p>
-<p>注意</p>
-<p>X</p>
-<p>如果计算机有传统BIOS启动：</p>
-<p>\1. 在主机上以管理员身份打开命令提示符。<br>\2. 运行此命令：bcdedit / set hypervisorlaunchtype off<br>\3. 回到上步5。</p>
+        <p><em>新年快乐</em><img src="http://www.codeart.top/wp-content/uploads/2018/01/2042a1679ea17e6d16c7179880b0b891.png" alt="img"></p>
+<p>新年快乐，自2017年2月8日第一次更新，到2017年10月17日，悠悠Hosts陪各位走过了251个日子，太过短暂，短到我一度不敢相信，记得建站初，我说希望TG下手轻一点，18年的那天，悠悠Hosts还存在，没想到如今，站点还在，但服务，无法继续下去了</p>
+<p>17年九月，GFW进行了升级，更多的站点被加入了重点照顾的名单，新的ip分分钟被干掉，甚至部分ss都开始掉速，具体不便说的太多，所以我们的服务也无法继续，最后，感谢支持朋友们，新年快乐，happy new year！</p>
 
     </article>
     <!-- license  -->
@@ -411,16 +408,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/0706/hello-world/" title= Hello World >
-                    <div class="nextTitle">Hello World</div>
+                <a href= "/2018/20180204.html" title= VirtualBox+vagrant+Homestead 安装laravel环境 >
+                    <div class="nextTitle">VirtualBox+vagrant+Homestead 安装laravel环境</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/0204/VirtualBox+vagrant+Homestead 安装laravel环境/" title= VirtualBox+vagrant+Homestead 安装laravel环境 >
-                    <div class="prevTitle">VirtualBox+vagrant+Homestead 安装laravel环境</div>
+                <a href= "/2017/20170522.html" title= 我为什么不再刷机 >
+                    <div class="prevTitle">我为什么不再刷机</div>
                 </a>
             
         </li>
@@ -689,7 +686,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2019/0122/Chrome-extensions-share/" >Chrome-extensions-share</a>
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2019/20190122.html" >Chrome-extensions-share</a>
         </li>
     
     
@@ -703,32 +700,32 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/2018/0919/vagrant-xdebug/" >Vagrant配置Xdebug</a>
+            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/2018/20180919.html" >Vagrant配置Xdebug</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/0909/virtualbox-laravel/" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/20180909.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/0706/hello-world/" >Hello World</a>
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/20180706.html" >Hello World</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2018/0304/Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法/" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2018/20180304.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/0204/VirtualBox+vagrant+Homestead 安装laravel环境/" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/20180204.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2018/0101/悠悠Hosts不限期停更/" >悠悠Hosts不限期停更</a>
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2018/20180101.html" >悠悠Hosts不限期停更</a>
         </li>
     
     
@@ -742,12 +739,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2017/0522/我为什么不再刷机/" >我为什么不再刷机</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2017/20170522.html" >我为什么不再刷机</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/2017/0209/新站点起航——悠悠Hosts/" >新站点起航——悠悠Hosts</a>
+            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/2017/20170209.html" >新站点起航——悠悠Hosts</a>
         </li>
     
     
@@ -761,7 +758,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2016/1225/PHP操作本地中文文件注意事项（字符编码）/" >PHP操作本地中文文件注意事项</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2016/20161225.html" >PHP操作本地中文文件注意事项</a>
         </li>
     
     </div>
