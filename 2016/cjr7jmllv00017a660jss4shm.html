@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>CodeArt-编码艺术</title>
+    <title>PHP操作本地中文文件注意事项 · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180630 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180630 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >CodeArt-编码艺术</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">PHP操作本地中文文件注意事项</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>CodeArt-编码艺术</a>
 </header>
@@ -213,24 +226,74 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            PHP操作本地中文文件注意事项
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">697</span> / Reading time: <span class="post-count">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2016/12/25</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -331,45 +394,69 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/cjr7jmlm6000a7a66ceo9yh88.html" >
-            
-                <span>新站点起航——悠悠Hosts</span>
-        </a>
-        <div class="abstract-content">
-            想法得以实现-笔芯
-一直以来，博主上Google都依赖Hosts，经(wan)济(quan)实(mian)惠(fei)且全局不影响国内服务的特性，深得我心，用老D所提供的Hosts我使用了近一年，在此表示感谢，谢谢！
-后来找到了更优质的源，速度不错，且YouTube支持良好，就想着希望能把此Hosts分享给需要的人，同时，国内也未看到专门做此类分享的站点（可能是TG限制吧），所以立马着手来做这个站点。
-期间页面，后台，服务器，域名，备案等等等等，出现了几次波折，但最终，顺利上线。
-2017年2月8日，悠悠Hosts的生日，希望2018年的这天，站点还存在，希望TG下手轻一点，希望新的一年...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/02/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "随笔">随笔</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "uuhosts">uuhosts</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>公司，某位其他部门的同事问，有几千个文件夹，里面都有个同名的文件，想要把这几千个同名文件改为与文件夹一样的名字，是否有快速解决的工具。</p>
+<p>等会不忙了帮你写个，我信心满满的答应下来。</p>
+<p>但在此中操作中文文件时，遇到了点小问题，遂记录下来与大家分享</p>
+<p>问题出现在遍历目录，操作中文名文件的过程中。</p>
+<p>其类似于此种结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$dir = &apos;wj&apos;;</span><br><span class="line">//打开目录存入句柄</span><br><span class="line">if($dh = opendir($dir))</span><br><span class="line">&#123;</span><br><span class="line">    //循环遍历</span><br><span class="line">    while (($file = readdir($dh)) !== false)</span><br><span class="line">    &#123;</span><br><span class="line">        //匹配则进入操作</span><br><span class="line">        var_dump($file);</span><br><span class="line">        if ($file == &apos;二维码.jpg&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            //操作</span><br><span class="line">            echo &apos;操作&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但我发现始终无法进入if <img src="http://www.codeart.top/wp-content/uploads/2016/12/3be39ee07f6832558cb6e236528077e2.png" alt=""> 即使打印出的string 与文件名一毛一样，这就很尴尬啊。 我再把if条件改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$file == &apos;1.txt&apos;</span><br><span class="line"></span><br><span class="line">![](http://www.codeart.top/wp-content/uploads/2016/12/7e097021ac3f89a4f7b3990e9d8f924a.png)</span><br><span class="line">瞬间就进来了，这说明写法没问题，难道是字符编码？</span><br><span class="line">再改改编码看看效果</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$dir = &apos;wj&apos;;</span><br><span class="line">//打开目录存入句柄</span><br><span class="line">if($dh = opendir($dir))</span><br><span class="line">&#123;</span><br><span class="line">    //循环遍历</span><br><span class="line">    while (($file = readdir($dh)) !== false)</span><br><span class="line">    &#123;</span><br><span class="line">        var_dump($file);</span><br><span class="line">        //查询字符编码</span><br><span class="line">        $encode = mb_detect_encoding($file, array(&quot;ASCII&quot;,&apos;UTF-8&apos;,&quot;GB2312&quot;,&quot;GBK&quot;,&apos;BIG5&apos;));</span><br><span class="line">        //显示读取的file的字符编码</span><br><span class="line">        echo &quot;file的字符集为：&#123;$encode&#125; &lt;/br&gt;&quot;;</span><br><span class="line">        //转换字符编码</span><br><span class="line">        $file = mb_convert_encoding($file,&apos;UTF-8&apos;,$encode);</span><br><span class="line">        //匹配则进入操作</span><br><span class="line">        if ($file == &apos;二维码.jpg&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            //操作</span><br><span class="line">            echo &apos;6666666666666&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里我查询了file的字符编码，再将其转换为utf-8，看起来妥妥的，我咋这么聪明 结果… <img src="http://www.codeart.top/wp-content/uploads/2016/12/462c16154bf44d4435d482d6bdf54296.png" alt=""> 这就很尴尬了，还进不去，居然读不出来，这破PHP 一定是PHP本身设计的太烂，我这样安慰自己 既然是读取系统文件，查查系统是什么字符集吧，说干就干 <img src="http://www.codeart.top/wp-content/uploads/2016/12/9776878bcc883ee8b87ba7c36da781c1.png" alt=""> soga，GBK是也。ps：cmd框体右击属性可查 继续改改代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$dir = &apos;wj&apos;;</span><br><span class="line">//打开目录存入句柄</span><br><span class="line">if($dh = opendir($dir))</span><br><span class="line">&#123;</span><br><span class="line">    //循环遍历</span><br><span class="line">    while (($file = readdir($dh)) !== false)</span><br><span class="line">    &#123;</span><br><span class="line">        var_dump($file);</span><br><span class="line">        //转换字符编码</span><br><span class="line">        $file = mb_convert_encoding($file,&apos;UTF-8&apos;,&apos;GBK&apos;);</span><br><span class="line">        //显示读取的file的字符编码</span><br><span class="line">        $encode = mb_detect_encoding($file, array(&quot;ASCII&quot;,&apos;UTF-8&apos;,&quot;GB2312&quot;,&quot;GBK&quot;,&apos;BIG5&apos;));</span><br><span class="line">        echo &quot;file的字符集为：&#123;$encode&#125; &lt;/br&gt;&quot;;</span><br><span class="line">        //匹配则进入操作</span><br><span class="line">        if ($file == &apos;二维码.jpg&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            //操作</span><br><span class="line">            echo &apos;6666666666666&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/12/72124d72f75cdcd3522ec1fb3de5406e.png" alt=""> 成功进去，妥妥的。 至此，此小问题解决 操作中文文件定要注意字符编码问题（windows默认GBK） 另：此段代码后期操作了系统中的文件，在操作过程中，也定要记得转换字符编码 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename(iconv(&apos;UTF-8&apos;,&apos;GBK&apos;,$oldname), iconv(&apos;UTF-8&apos;,&apos;GBK&apos;,$newname));</span><br></pre></td></tr></table></figure>
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2017/cjr7jmlm6000a7a66ceo9yh88.html" title= 新站点起航——悠悠Hosts >
+                    <div class="nextTitle">新站点起航——悠悠Hosts</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "qcu186wrtHxBBJwgeM9TRfVC-gzGzoHsz",
+        appKey: "mnHKY5vrvHxqrmxUzwAJ7AGy",
+        placeholder: "",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -446,6 +533,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -746,6 +851,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

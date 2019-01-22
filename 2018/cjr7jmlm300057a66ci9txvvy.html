@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="李不知">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="李不知">
+    <meta name="keywords" content="Hexo | 李不知">
+    <meta name="description" content="">
+    <meta name="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>VirtualBox+vagrant+Homestead 安装laravel环境 · CodeArt-编码艺术</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180630 as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= /css/mobile.css?v=20180630 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >CodeArt-编码艺术</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">VirtualBox+vagrant+Homestead 安装laravel环境</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>CodeArt-编码艺术</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+height:50vh;
+
+>
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            VirtualBox+vagrant+Homestead 安装laravel环境
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "laravel">laravel</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "vagrant">vagrant</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">1,643</span> / Reading time: <span class="post-count">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/02/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="VirtualBox-vagrant-Homestead-安装laravel环境"><a href="#VirtualBox-vagrant-Homestead-安装laravel环境" class="headerlink" title="VirtualBox+vagrant+Homestead 安装laravel环境"></a>VirtualBox+vagrant+Homestead 安装laravel环境</h3><blockquote>
+<p>win上的配置，其他平台请移步<br>本地安装配置laravel的环境多种多样</p>
+</blockquote>
+<p>常见的有win上集成环境安装使用，linux虚拟机安装使用</p>
+<p>而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等</p>
+<p>编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明</p>
+<blockquote>
+<p>作者：cikenerd</p>
+<p><strong>本质区别</strong>Vagrant并不提供虚拟化技术，本质上是一个虚拟机外挂，通过虚拟机的管理接口来管理虚拟机，让用户更轻松的进行一些常用配置，比如：CPU/Memory/IP/DISK等分配。并且提供了一些其它的管理操作：比如开机运行指定命令，镜像二次打包，插件编写等等。vagrant官方有介绍</p>
+<blockquote>
+<p>To achieve its magic, Vagrant stands on the shoulders of giants. <strong>Machines are provisioned on top of VirtualBox, VMware, AWS, or</strong> <a href="https://www.vagrantup.com/docs/providers/" target="_blank" rel="noopener">any other provider</a>. Then, industry-standard <a href="https://www.vagrantup.com/docs/provisioning/" target="_blank" rel="noopener">provisioning tools</a> such as shell scripts, Chef, or Puppet, can be used to automatically install and configure software on the machine.</p>
+</blockquote>
+<p>而docker是一个容器引擎，每一个实例是一个<strong>相对隔离</strong>的空间，<strong>与宿主机共享操作系统内核</strong>，并且共享宿主机资源。相对于披着虚拟机皮的vagrant，docker更加轻量，消耗更少的资源。贴一张docker官方介绍图</p>
+<p><img src="https://pic2.zhimg.com/242cabf1bb842a719ece05db473d91fd_r.jpg" alt="img"></p>
+</blockquote>
+<hr>
+<blockquote>
+<h5 id="过程综述"><a href="#过程综述" class="headerlink" title="过程综述"></a>过程综述</h5><blockquote>
+<p>1.安装VirtualBox</p>
+<p>2.安装vagrant</p>
+<p>3.下载Homestead box</p>
+<p>4.下载Homestead并配置</p>
+<p>5.启动vagrant</p>
+<p>6.ssh连接并安装laravel</p>
+</blockquote>
+<p>ps：建议在git Bash下进行操作，cmd可能会出问题（如无git建议下载安装，全程依然傻瓜式下一步）</p>
+<p>下载地址：<a href="http://gitforwindows.org/" target="_blank" rel="noopener">http://gitforwindows.org/</a></p>
+</blockquote>
+<hr>
+<h3 id="一、安装VirtualBox"><a href="#一、安装VirtualBox" class="headerlink" title="一、安装VirtualBox"></a>一、安装VirtualBox</h3><p><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">https://www.virtualbox.org/</a> 下载安装，傻瓜式</p>
+<h3 id="二、安装Vagrant"><a href="#二、安装Vagrant" class="headerlink" title="二、安装Vagrant"></a>二、安装Vagrant</h3><p><a href="https://www.vagrantup.com/" target="_blank" rel="noopener">https://www.vagrantup.com/</a> 依然傻瓜式下载安装</p>
+<h3 id="三、下载Homestead-box"><a href="#三、下载Homestead-box" class="headerlink" title="三、下载Homestead box"></a>三、下载Homestead box</h3><p>可在线，可离线下载进行，因天朝网络环境可能失败，上梯子无效，不过个人还是在线下载下来了</p>
+<blockquote>
+<p><code>$ vagrant box add laravel/homestead</code><br>打开git bash 输入以上，弹出选项，选择virtualbox，即可自动开始下载</p>
+</blockquote>
+<p><img src="https://wt-box.worktile.com/public/91467438-6393-4b0f-bb0b-c855c681acb5" alt="img"></p>
+<p>如果下载进行不下去，可复制其中的链接用IDM，迅雷等工具进行下载</p>
+<blockquote>
+<p><a href="https://atlas.hashicorp.com/laravel/boxes/homestead/versions/5.0.1/providers/virtualbox.box" target="_blank" rel="noopener">https://atlas.hashicorp.com/laravel/boxes/homestead/versions/5.0.1/providers/virtualbox.box</a></p>
+</blockquote>
+<hr>
+<p>挖坑，如果是离线下载的box，需要做些其他的事情，因我这边未碰到，所以暂时留坑</p>
+<hr>
+<p>此时，C盘用户文件夹中，应该多了此文件夹 <code>.vagrant.d</code>,下载的box即在其中</p>
+<p><img src="https://wt-box.worktile.com/public/d2be657e-22f5-4026-b6db-bf8d3aa0ebe3" alt="img"></p>
+<p><img src="https://wt-box.worktile.com/public/54bc12b0-2a45-4809-a74e-f7063ca2f00d" alt="img"></p>
+<h3 id="下载Homestead并配置"><a href="#下载Homestead并配置" class="headerlink" title="下载Homestead并配置"></a>下载Homestead并配置</h3><p>在Git bash 里输入</p>
+<blockquote>
+<p>$ git clone <a href="https://github.com/laravel/homestead.git" target="_blank" rel="noopener">https://github.com/laravel/homestead.git</a> ~/Homestead<br><img src="https://wt-box.worktile.com/public/ef81e40a-005c-4e38-8cf8-83c21733a503" alt="img"></p>
+</blockquote>
+<p>这里下载好后继续</p>
+<blockquote>
+<p># 先cd到刚才下载的Homestead文件夹</p>
+<p>$ cd ~/Homestead</p>
+<p># 开始初始化Homestead</p>
+<p>$ bash init.sh<br><img src="https://wt-box.worktile.com/public/986a7b76-ce72-4ff1-9a92-d71d87cd304e" alt="img"></p>
+</blockquote>
+<p>此时，在用户目录下 Homestead文件夹中，可以看到多了一个<code>Homestead.yaml</code>文件</p>
+<p><img src="https://wt-box.worktile.com/public/8ab7adaf-d89c-4e00-b86a-963b1b40cf92" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">—</span><br><span class="line">ip: “192.168.10.10”</span><br><span class="line">memory: 2048</span><br><span class="line">cpus: 1</span><br><span class="line">provider: virtualbox</span><br><span class="line"></span><br><span class="line">authorize: ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br><span class="line">keys:</span><br><span class="line">    - ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">folders:</span><br><span class="line">    - map: ~/Code</span><br><span class="line">      to: /home/vagrant/Code</span><br><span class="line"></span><br><span class="line">sites:</span><br><span class="line">    - map: homestead.test</span><br><span class="line">      to: /home/vagrant/Code/laravel/public</span><br><span class="line"></span><br><span class="line">databases:</span><br><span class="line">    - homestead</span><br><span class="line"></span><br><span class="line"># blackfire:</span><br><span class="line">#     - id: foo</span><br><span class="line">#       token: bar</span><br><span class="line">#       client-id: foo</span><br><span class="line">#       client-token: bar</span><br><span class="line"></span><br><span class="line"># ports:</span><br><span class="line">#     - send: 50000</span><br><span class="line">#       to: 5000</span><br><span class="line">#     - send: 7777</span><br><span class="line">#       to: 777</span><br><span class="line">#       protocol: udp</span><br></pre></td></tr></table></figure>
+<p>他默认应该是介个样子，其中有几条配置需要了解，处理一下（这个配置很重要，下面所做的几个操作都是围绕他进行）</p>
+<p>首先我们需要建立SSH Key，在Git bash中输入</p>
+<blockquote>
+<p>$ ssh-keygen -t rsa<br><img src="https://wt-box.worktile.com/public/851d69ec-10f8-49f6-8d84-378a2cad66d4" alt="img"></p>
+</blockquote>
+<p>期间一路回车就好，用户名密码都暂为空</p>
+<p>完事后，我们会在用户目录看到一个<code>.ssh</code>目录</p>
+<p><img src="https://wt-box.worktile.com/public/8b790d08-0d3f-44f2-9acc-2e89f63175c3" alt="img"></p>
+<p>里面的两个文件即对应配置中的这几行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">authorize: ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br><span class="line">keys:</span><br><span class="line">    ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p>接下来，看配置文件这里</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">folders:</span><br><span class="line">    - map: ~/Code</span><br><span class="line">      to: /home/vagrant/Code</span><br><span class="line"></span><br><span class="line">sites:</span><br><span class="line">    - map: homestead.test</span><br><span class="line">      to: /home/vagrant/Code/laravel/public</span><br></pre></td></tr></table></figure>
+<p>其中folders中，将map后面的文件夹（即~/Code）映射到Homestead中的/home/vagrant/Code。这就像我们常见到的和虚拟机中系统共享文件夹类似，我们把本机的~/Code文件夹分享给Homestead，所以我们可以很方便地使用自己喜欢的IDE（比如PhpStorm）进行开发，在~/Code中所进行的修改会如实反应在Homestead对应的文件夹中。</p>
+<p>在sites中，我们定义了homestead.test指向/home/vagrant/Code/laravel/public这个文件夹，即Laravel项目的public文件夹。这样在浏览器中输入homestead.app，我们就可以直接看到项目主页了。</p>
+<p>注意：以上的文件夹及映射是可以根据用户喜好更改的，比如这里我将开发文件夹叫做WebDev，里面我新建了一个叫teahouse的项目，那么以上的配置，我就可以做出相应修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">folders:</span><br><span class="line">    - map: ~/code</span><br><span class="line">      to: /home/vagrant/Webdev</span><br><span class="line"></span><br><span class="line">sites:</span><br><span class="line">    - map: teahouse.app</span><br><span class="line">      to: /home/vagrant/Webdev/teahouse/public</span><br></pre></td></tr></table></figure>
+<p>之后，为了teahouse.app这个域名能正常的访问，我们需要在hosts中增加一行</p>
+<blockquote>
+<p>192.168.10.10 homestead.app teahouse.app</p>
+<blockquote>
+<p>ps:hosts位于<code>C:\Windows\System32\drivers\etc</code><br>再接下来我们看配置文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; databases:</span><br><span class="line">&gt; &gt;     - homestead</span><br><span class="line">&gt; &gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>在这里我们没添加一个数据库名字，Homestead就会创建一个数据库</p>
+</blockquote>
+</blockquote>
+<p>这里我添加了一个新的数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">databases:</span><br><span class="line">    - homestead</span><br><span class="line">    - teahouse</span><br></pre></td></tr></table></figure>
+<p><strong>注意不要使用Tab来缩进，可能会报错，这里使用空格</strong></p>
+<p>接下来，我们就可以来启动Vagrant了，惊不惊喜！</p>
+<p>Git bash中输入</p>
+<blockquote>
+<p>cd ~/Homestead</p>
+<p>vagrant up<br><img src="https://wt-box.worktile.com/public/e86cb964-7c7b-42d9-b039-f8abb7a7be1e" alt="img"></p>
+</blockquote>
+<p>过会儿，我们就能看到Vagrant已经顺利运行了，接下来我们可以通过本地的ssh工具，mysql工具来连接环境</p>
+<p>默认的SSH：</p>
+<blockquote>
+<p>Host：127.0.0.1</p>
+<p>端口：2222</p>
+<p>用户：vagrant</p>
+<p>密码：vagrant<br>默认MySqlhomestead/secret</p>
+</blockquote>
+<p>SSH连接上后，接下来按照之前配置中的路径来新建服务器上的目录</p>
+<p>例如我的配置是如此这般：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sites:</span><br><span class="line">    - map: teahouse.app</span><br><span class="line">      to: /home/vagrant/Webdev/teahouse/public</span><br></pre></td></tr></table></figure>
+<p><img src="https://wt-box.worktile.com/public/417c49c2-ce78-4655-b52a-4f672c96c078" alt="img"></p>
+<p>我于是在服务器端新建如下目录（teahouse/public 这里已经是laravel里面了）</p>
+<p>进入<code>/home/vagrant/Webdev</code>目录，接下来通过composer安装laravel</p>
+<p>出于GFW原因，我们不得不用中国镜像来安装。vagrant虚拟机中运行如下命令</p>
+<blockquote>
+<p>composer config -g repo.packagist composer <a href="https://packagist.phpcomposer.com/" target="_blank" rel="noopener">https://packagist.phpcomposer.com</a><br>接着我们通过composer来安装一个5.5版本<br>composer create-project laravel/laravel=5.5 –prefer-dist<br>下载完成后，Webdev下出现laravel目录，接着将目录名改为配置中自己的名字，这里我配置的是teahouse<br>mv laravel/ teahouse/<br>接下来本地通过配置的域名进行访问，出现laravel界面，ok，大功告成</p>
+</blockquote>
+<p><img src="https://wt-box.worktile.com/public/b38f14ec-d0ba-4dea-a503-63d1a5556546" alt="img"></p>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/cjr7jmlm200047a66ia2ij8b9.html" title= Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法 >
+                    <div class="nextTitle">Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/cjr7jmlmb000e7a66xyxjyck9.html" title= 悠悠Hosts不限期停更 >
+                    <div class="prevTitle">悠悠Hosts不限期停更</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "qcu186wrtHxBBJwgeM9TRfVC-gzGzoHsz",
+        appKey: "mnHKY5vrvHxqrmxUzwAJ7AGy",
+        placeholder: "",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:liguidong94@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/liguidong" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                  
+                  <img class="profile-qr" src="/assets/example_qr.png" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#VirtualBox-vagrant-Homestead-安装laravel环境"><span class="toc-number">1.</span> <span class="toc-text">VirtualBox+vagrant+Homestead 安装laravel环境</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#过程综述"><span class="toc-number">1.0.1.</span> <span class="toc-text">过程综述</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、安装VirtualBox"><span class="toc-number">2.</span> <span class="toc-text">一、安装VirtualBox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、安装Vagrant"><span class="toc-number">3.</span> <span class="toc-text">二、安装Vagrant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、下载Homestead-box"><span class="toc-number">4.</span> <span class="toc-text">三、下载Homestead box</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载Homestead并配置"><span class="toc-number">5.</span> <span class="toc-text">下载Homestead并配置</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 10
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2019/cjr7jmlm7000b7a66ah1wtpwx.html" >自用Chrome扩展推荐</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/2018/cjr7jmllz00027a66ppyaglg4.html" >Vagrant配置Xdebug</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/cjr7jmlm500097a66zx0m8ba7.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/2018/cjr7jmlm400067a66xpi597ab.html" >Hello World</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2018/cjr7jmlm200047a66ia2ij8b9.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/cjr7jmlm300057a66ci9txvvy.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/2018/cjr7jmlmb000e7a66xyxjyck9.html" >悠悠Hosts不限期停更</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/2017/cjr7jmlm9000d7a664qkopjly.html" >我为什么不再刷机</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/2017/cjr7jmlm6000a7a66ceo9yh88.html" >新站点起航——悠悠Hosts</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2016 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2016/cjr7jmllv00017a660jss4shm.html" >PHP操作本地中文文件注意事项</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="laravel"><span class="iconfont-archer">&#xe606;</span>laravel</span>
+    
+        <span class="sidebar-tag-name" data-tags="vagrant"><span class="iconfont-archer">&#xe606;</span>vagrant</span>
+    
+        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
+    
+        <span class="sidebar-tag-name" data-tags="uuhosts"><span class="iconfont-archer">&#xe606;</span>uuhosts</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "李不知"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
