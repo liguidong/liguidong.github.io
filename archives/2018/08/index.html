@@ -346,23 +346,21 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/cjr8y6w0e000750660jzx0z5r.html" >
+        <a class="abstract-title" href = "/cjr8y6w0400015066bmahne3g.html" >
             
-                <span>Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</span>
+                <span>Windows下Xdebug配置</span>
         </a>
         <div class="abstract-content">
-            
-背景：之前使用Hyper-v配置的CentOS，但出了些乱七八糟的问题，于是一气之下换到了VMware，在手动关闭Hyper-v后，使用VMware安装CentOS7居然弹出了此窗口，后折腾很久解决，特记录下过程
-
-VM弹窗提示
-VMware Workstation与Device/Credential Guard不兼容
-这时我们需要在基于 Itanium 的计算机上禁用 Device Guard 或 Credential Guard，执行以下操作：
-\1. 禁用用于启用 Credential Guard 的组策略设置。\1. 在主机操作系统上，单击启动&gt;运行，键入gpedit.m...
+            Windows集成环境下Xdebu配置过程
+下载安装对应版本1.http://www.xdebug.org/find-binary.php复制phpinfo提交后得到对应版本下载地址
+2.按其说明放入对应ext目录
+3.php.ini中
+1234567zend_extension = "C:\phpStudy\PHPTutorial\php\php-7.0.12-nts\ext\php_xdebug-2.6.0-7.0-vc14-nts.dll"xdebug.remote_enable =1xdebug.remote_handler = "dbgp"xdebug.remote_host ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/04</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/13</span>
             </div>
             <!-- tags  -->
             

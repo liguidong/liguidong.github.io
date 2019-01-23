@@ -346,30 +346,39 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/cjr8y6w0e000750660jzx0z5r.html" >
+        <a class="abstract-title" href = "/cjr8y6w0800035066njq76ima.html" >
             
-                <span>Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</span>
+                <span>PHP操作本地中文文件注意事项</span>
         </a>
         <div class="abstract-content">
-            
-背景：之前使用Hyper-v配置的CentOS，但出了些乱七八糟的问题，于是一气之下换到了VMware，在手动关闭Hyper-v后，使用VMware安装CentOS7居然弹出了此窗口，后折腾很久解决，特记录下过程
-
-VM弹窗提示
-VMware Workstation与Device/Credential Guard不兼容
-这时我们需要在基于 Itanium 的计算机上禁用 Device Guard 或 Credential Guard，执行以下操作：
-\1. 禁用用于启用 Credential Guard 的组策略设置。\1. 在主机操作系统上，单击启动&gt;运行，键入gpedit.m...
+            公司，某位其他部门的同事问，有几千个文件夹，里面都有个同名的文件，想要把这几千个同名文件改为与文件夹一样的名字，是否有快速解决的工具。
+等会不忙了帮你写个，我信心满满的答应下来。
+但在此中操作中文文件时，遇到了点小问题，遂记录下来与大家分享
+问题出现在遍历目录，操作中文名文件的过程中。
+其类似于此种结构：
+12345678910111213141516$dir = &apos;wj&apos;;//打开目录存入句柄if($dh = opendir($dir))&#123;    //循环遍历    while (($file = readdir($dh)) !== false)    &...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/04</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/12/25</span>
             </div>
             <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+    
+</div>
             
         </div>
     </article>
     
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    </nav>
     
 </main>
             <!-- profile -->
