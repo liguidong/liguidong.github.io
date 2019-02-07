@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">964</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">968</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -413,7 +413,11 @@ height:50vh;
 <p>其中iPic是支持匿名上传的（它有一堆微博小号的库），使用起来对隐私而言很放心，但很害怕某一天微博突然发力干掉了僵尸号及其账号下的图片，那就完了蛋了，不过私以为，暂时不用担心，从当时微博的抽奖过滤机制来看，他们是有能力来鉴别是否是僵尸号的，而且是放任其存在的（数据好看是王道），所以匿名的图片暂时而言没有问题。</p>
 <p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fzxqb2n3gej30w40oodi7.jpg" alt="image-20190207120606414"></p>
 <h3 id="二、七牛云"><a href="#二、七牛云" class="headerlink" title="二、七牛云"></a>二、七牛云</h3><p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fzxvfhv6w5j30wz0a6768.jpg" alt="image-20190207150321334"></p>
-<p>​    以上为七牛云的免费额度情况，单从存储空间及流量来看，是能满足小流量博客站的需求的，其中有一点需要注意的是，某些时候开始，七牛的对象存储不再支持使用其子域名绑定，只能绑定用户自己的已备案域名，我的博客域名 codeart.top 是没准备备案的，目前看来，得备一波了。过几天备案成功后切七牛云。</p>
+<p>​    以上为七牛云的免费额度情况，单从存储空间及流量来看，是能满足小流量博客站的需求的，其中有几点需要注意。</p>
+<p>​    一是，某些时候开始，七牛的对象存储不再支持使用其子域名绑定，只能绑定用户自己的已备案域名；</p>
+<p>​    二是，https不计入免费额度，假如你的站点上了https，那就尴尬了</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fzy6q2czddj316w09iwfz.jpg" alt="image-20190207213406272"></p>
+<p>​    三是，各项调整均不能及时生效。</p>
 <h3 id="三、腾讯COS"><a href="#三、腾讯COS" class="headerlink" title="三、腾讯COS"></a>三、腾讯COS</h3><p>​    腾讯云本是我准备切换的对象，因为其存储空间有提供可直接使用的子域名，且免费额度也不错，谁知道最近登录上去才发现对于个人用户而言最重要的免费额度居然修改了，要说之前的免费额度规则，确实良心，个人小站绰绰有余，目前来看，再见了您嘞。</p>
 <p><img src="https://cooguyan-1252810309.cos.ap-chengdu.myqcloud.com/mianfeiedugailan.png" alt="img"></p>
 <p><strong>现在的免费额度：</strong></p>
@@ -426,7 +430,7 @@ height:50vh;
 <p><strong>总结</strong>：</p>
 <p>​    形形色色的的云存储产品，大体使用上对于个人开发者来说区别不大，大家综合考量使用适合自己的就好。个人认为：</p>
 <p>​    <strong>微博图床：</strong>适合懒得折腾，不考虑真实数据是否在自己控制范围内的用户</p>
-<p>​    <strong>七牛：</strong>域名已备案，且流量不大的用户</p>
+<p>​    <strong>七牛：</strong>域名已备案，未上https，且流量不大的用户</p>
 <p>​    <strong>又拍：</strong>不介意站点加入对方友链的首选</p>
 <p>而腾讯云、SM.MS，我暂时不会考虑。</p>
 
