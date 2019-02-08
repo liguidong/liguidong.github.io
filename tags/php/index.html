@@ -346,35 +346,37 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/cjrubv4dv0004kp667ma8a7gu.html" >
+        <a class="abstract-title" href = "/cjrubv4e7000ekp66o8o047s7.html" >
             
-                <span>VirtualBox+vagrant+Homestead 安装laravel环境</span>
+                <span>Vagrant配置Xdebug</span>
         </a>
         <div class="abstract-content">
-            VirtualBox+vagrant+Homestead 安装laravel环境
-win上的配置，其他平台请移步本地安装配置laravel的环境多种多样
+            Vagrant环境配置Xdebug相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为
 
-常见的有win上集成环境安装使用，linux虚拟机安装使用
-而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等
-编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明
+php安装xdebug扩展，php.ini配置
+phpstorm监听，共享目录等设置
+浏览器xdebug扩展安装
 
-作者：cikenerd
-本质区别Vagrant并不提供虚拟化技术，本质上是一个虚拟机外挂，通过虚拟机的管理接口来管理虚拟机，让用户更轻松的进行一些常用配置，比如：CPU/Memory/IP/DISK等分配。并且...
+一、 根据php版本wget对应的xdebug包
+这里提供php5.4对应的包地址
+
+1wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载
+二、使用phpize安装扩展1234567wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载tar xvzf xdebu...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/02/04</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/19</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "laravel">laravel</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Vagrant">Vagrant</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "vagrant">vagrant</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Xdebug">Xdebug</a>
     
 </div>
             
@@ -387,28 +389,34 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/cjrubv4ds0002kp66frm943kc.html" >
+        <a class="abstract-title" href = "/cjrubv4eb000ikp66h3xy5xqs.html" >
             
-                <span>PHP操作本地中文文件注意事项</span>
+                <span>VirtualBox直接搭建laravel开发环境可能遇到的坑</span>
         </a>
         <div class="abstract-content">
-            公司，某位其他部门的同事问，有几千个文件夹，里面都有个同名的文件，想要把这几千个同名文件改为与文件夹一样的名字，是否有快速解决的工具。
-等会不忙了帮你写个，我信心满满的答应下来。
-但在此中操作中文文件时，遇到了点小问题，遂记录下来与大家分享
-问题出现在遍历目录，操作中文名文件的过程中。
-其类似于此种结构：
-12345678910111213141516$dir = &apos;wj&apos;;//打开目录存入句柄if($dh = opendir($dir))&#123;    //循环遍历    while (($file = readdir($dh)) !== false)    &...
+            
+另外一个产品使用的VirtualBox+Vagrant搭建的环境，未开启nfs的情况下，速度实在感人，遂此次环境未使用Vagrant，直接VirtualBox，谁知道坑爹的事情不断
+
+VirtualBox直接搭建laravel开发环境可能遇到的坑：一、共享目录的挂载与访问VirtualBox开启目录共享需要安装增强插件，一般来说都会安装失败，参考：
+https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device
+整到安装上...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/12/25</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟机">虚拟机</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "VirtualBox">VirtualBox</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Laravel">Laravel</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
     
 </div>
             
@@ -764,6 +772,28 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
         <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
     
         <span class="sidebar-tag-name" data-tags="uuhosts"><span class="iconfont-archer">&#xe606;</span>uuhosts</span>
+    
+        <span class="sidebar-tag-name" data-tags="开发环境"><span class="iconfont-archer">&#xe606;</span>开发环境</span>
+    
+        <span class="sidebar-tag-name" data-tags="Xdebug，PHP"><span class="iconfont-archer">&#xe606;</span>Xdebug，PHP</span>
+    
+        <span class="sidebar-tag-name" data-tags="虚拟机"><span class="iconfont-archer">&#xe606;</span>虚拟机</span>
+    
+        <span class="sidebar-tag-name" data-tags="VirtualBox"><span class="iconfont-archer">&#xe606;</span>VirtualBox</span>
+    
+        <span class="sidebar-tag-name" data-tags="Laravel"><span class="iconfont-archer">&#xe606;</span>Laravel</span>
+    
+        <span class="sidebar-tag-name" data-tags="PHP"><span class="iconfont-archer">&#xe606;</span>PHP</span>
+    
+        <span class="sidebar-tag-name" data-tags="博客"><span class="iconfont-archer">&#xe606;</span>博客</span>
+    
+        <span class="sidebar-tag-name" data-tags="图床"><span class="iconfont-archer">&#xe606;</span>图床</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vagrant"><span class="iconfont-archer">&#xe606;</span>Vagrant</span>
+    
+        <span class="sidebar-tag-name" data-tags="Xdebug"><span class="iconfont-archer">&#xe606;</span>Xdebug</span>
+    
+        <span class="sidebar-tag-name" data-tags="Chrome"><span class="iconfont-archer">&#xe606;</span>Chrome</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
