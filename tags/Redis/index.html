@@ -346,27 +346,37 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/cjs5ubi0x000b7e66ypwtwxsw.html" >
+        <a class="abstract-title" href = "/cjs5ubi0o00037e66wg1unlle.html" >
             
-                <span>Vagrant配置Xdebug</span>
+                <span>Redis笔记—数据类型、事务、持久化</span>
         </a>
         <div class="abstract-content">
-            Vagrant环境配置Xdebug相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为
+            Redis笔记—数据类型、事务、持久化五种数据类型
 
-php安装xdebug扩展，php.ini配置
-phpstorm监听，共享目录等设置
-浏览器xdebug扩展安装
+String（字符串）
 
-一、 根据php版本wget对应的xdebug包
-这里提供php5.4对应的包地址
+Redis最基本的数据类型，一个key对应一个value；
+string 类型是二进制安全的。它 可以包含任何数据。比如jpg图片或者序列化的对象；
 
-1wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载
-二、使用phpize安装扩展1234567wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载tar xvzf xdebu...
+例如PHP存储对象或数组时，可以通过serialize()进行序列化，取出时unserialize()反序列化
+
+string 类型的值最大能存储 512MB。
+
+Hash（哈希）
+
+键值对集合,即编程语言中的Map类型。（PHP中的关联数组，Python中的dict）。
+
+适用场景：存储用户属性等
+
+
+List（列表）
+
+字符串列表，按照插入顺序排序。可以添...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/19</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/15</span>
             </div>
             <!-- tags  -->
             
@@ -374,9 +384,7 @@ phpstorm监听，共享目录等设置
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Xdebug">Xdebug</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Vagrant">Vagrant</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Redis">Redis</a>
     
 </div>
             
@@ -843,17 +851,6 @@ jsonContent:
     <!-- busuanzi  -->
     
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-    <!-- CNZZ  -->
-    
-    </div>
-    <!-- async load share.js -->
-     
-    </body>
-</html>
-
-
-ipt async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     <!-- CNZZ  -->
     
