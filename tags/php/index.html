@@ -346,45 +346,35 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/cjs5ubi0o00037e66wg1unlle.html" >
+        <a class="abstract-title" href = "/cjs5ubi0u00077e66fa0k06cy.html" >
             
-                <span>Redis笔记—数据类型、事务、持久化</span>
+                <span>VirtualBox+vagrant+Homestead 安装laravel环境</span>
         </a>
         <div class="abstract-content">
-            Redis笔记—数据类型、事务、持久化五种数据类型
+            VirtualBox+vagrant+Homestead 安装laravel环境
+win上的配置，其他平台请移步本地安装配置laravel的环境多种多样
 
-String（字符串）
+常见的有win上集成环境安装使用，linux虚拟机安装使用
+而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等
+编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明
 
-Redis最基本的数据类型，一个key对应一个value；
-string 类型是二进制安全的。它 可以包含任何数据。比如jpg图片或者序列化的对象；
-
-例如PHP存储对象或数组时，可以通过serialize()进行序列化，取出时unserialize()反序列化
-
-string 类型的值最大能存储 512MB。
-
-Hash（哈希）
-
-键值对集合,即编程语言中的Map类型。（PHP中的关联数组，Python中的dict）。
-
-适用场景：存储用户属性等
-
-
-List（列表）
-
-字符串列表，按照插入顺序排序。可以添...
+作者：cikenerd
+本质区别Vagrant并不提供虚拟化技术，本质上是一个虚拟机外挂，通过虚拟机的管理接口来管理虚拟机，让用户更轻松的进行一些常用配置，比如：CPU/Memory/IP/DISK等分配。并且...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/15</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/02/04</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Redis">Redis</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "laravel">laravel</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "vagrant">vagrant</a>
     
 </div>
             
@@ -397,114 +387,28 @@ List（列表）
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/cjs5ubi0x000b7e66ypwtwxsw.html" >
+        <a class="abstract-title" href = "/cjs5ubi0r00057e66g4fcll9j.html" >
             
-                <span>Vagrant配置Xdebug</span>
+                <span>PHP操作本地中文文件注意事项</span>
         </a>
         <div class="abstract-content">
-            Vagrant环境配置Xdebug相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为
-
-php安装xdebug扩展，php.ini配置
-phpstorm监听，共享目录等设置
-浏览器xdebug扩展安装
-
-一、 根据php版本wget对应的xdebug包
-这里提供php5.4对应的包地址
-
-1wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载
-二、使用phpize安装扩展1234567wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载tar xvzf xdebu...
+            公司，某位其他部门的同事问，有几千个文件夹，里面都有个同名的文件，想要把这几千个同名文件改为与文件夹一样的名字，是否有快速解决的工具。
+等会不忙了帮你写个，我信心满满的答应下来。
+但在此中操作中文文件时，遇到了点小问题，遂记录下来与大家分享
+问题出现在遍历目录，操作中文名文件的过程中。
+其类似于此种结构：
+12345678910111213141516$dir = &apos;wj&apos;;//打开目录存入句柄if($dh = opendir($dir))&#123;    //循环遍历    while (($file = readdir($dh)) !== false)    &...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/19</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/12/25</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Xdebug">Xdebug</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Vagrant">Vagrant</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/cjs5ubi12000g7e66vx9114cr.html" >
-            
-                <span>VirtualBox直接搭建laravel开发环境可能遇到的坑</span>
-        </a>
-        <div class="abstract-content">
-            
-另外一个产品使用的VirtualBox+Vagrant搭建的环境，未开启nfs的情况下，速度实在感人，遂此次环境未使用Vagrant，直接VirtualBox，谁知道坑爹的事情不断
-
-VirtualBox直接搭建laravel开发环境可能遇到的坑：一、共享目录的挂载与访问VirtualBox开启目录共享需要安装增强插件，一般来说都会安装失败，参考：
-https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device
-整到安装上...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟机">虚拟机</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "VirtualBox">VirtualBox</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Laravel">Laravel</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/cjs5ubi0t00067e66gz926tmp.html" >
-            
-                <span>Windows下Xdebug配置</span>
-        </a>
-        <div class="abstract-content">
-            Windows集成环境下Xdebu配置过程
-下载安装对应版本1.http://www.xdebug.org/find-binary.php复制phpinfo提交后得到对应版本下载地址
-2.按其说明放入对应ext目录
-3.php.ini中
-1234567zend_extension = "C:\phpStudy\PHPTutorial\php\php-7.0.12-nts\ext\php_xdebug-2.6.0-7.0-vc14-nts.dll"xdebug.remote_enable =1xdebug.remote_handler = "dbgp"xdebug.remote_host ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "开发环境">开发环境</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Xdebug">Xdebug</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
     
 </div>
             
@@ -779,7 +683,7 @@ https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-fa
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/15</span><a class="archive-post-title" href= "/cjs5ubi0o00037e66wg1unlle.html" >Redis笔记—数据类型、事务、持久化</a>
+            <span class="archive-post-date">02/15</span><a class="archive-post-title" href= "/cjs5ubi0o00037e66wg1unlle.html" >Redis—数据类型、事务、持久化</a>
         </li>
     
     
@@ -896,6 +800,92 @@ https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-fa
         <span class="sidebar-tag-name" data-tags="vagrant"><span class="iconfont-archer">&#xe606;</span>vagrant</span>
     
         <span class="sidebar-tag-name" data-tags="Vagrant"><span class="iconfont-archer">&#xe606;</span>Vagrant</span>
+    
+        <span class="sidebar-tag-name" data-tags="博客"><span class="iconfont-archer">&#xe606;</span>博客</span>
+    
+        <span class="sidebar-tag-name" data-tags="图床"><span class="iconfont-archer">&#xe606;</span>图床</span>
+    
+        <span class="sidebar-tag-name" data-tags="虚拟机"><span class="iconfont-archer">&#xe606;</span>虚拟机</span>
+    
+        <span class="sidebar-tag-name" data-tags="VirtualBox"><span class="iconfont-archer">&#xe606;</span>VirtualBox</span>
+    
+        <span class="sidebar-tag-name" data-tags="Laravel"><span class="iconfont-archer">&#xe606;</span>Laravel</span>
+    
+        <span class="sidebar-tag-name" data-tags="uuhosts"><span class="iconfont-archer">&#xe606;</span>uuhosts</span>
+    
+        <span class="sidebar-tag-name" data-tags="Chrome"><span class="iconfont-archer">&#xe606;</span>Chrome</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "李不知"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
+</html>
+
+
+ta-tags="Vagrant"><span class="iconfont-archer">&#xe606;</span>Vagrant</span>
     
         <span class="sidebar-tag-name" data-tags="博客"><span class="iconfont-archer">&#xe606;</span>博客</span>
     
