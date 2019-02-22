@@ -22,7 +22,7 @@
     <meta name="description" content="CodeArt是一个记录个人成长的博客，涵盖PHP，MySQL，虚拟化技术，效率工具等内容">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>CodeArt-编码艺术</title>
+    <title>日常使用的图床选择 · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >CodeArt-编码艺术</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">日常使用的图床选择</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>CodeArt-编码艺术</a>
 </header>
@@ -220,24 +231,76 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(https://img.codeart.top/img/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            日常使用的图床选择
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "博客">博客</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "图床">图床</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">968</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/02/07</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,59 +401,98 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/cjsg6ychv000mqh666utmj5gi.html" >
-            
-                <span>自用Chrome扩展推荐</span>
-        </a>
-        <div class="abstract-content">
-            自用Chrome扩展推荐
-上不去Google商店也是可以下扩展的，推荐个镜像站
-https://www.crx4chrome.com/
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>平时的MD文档及博客都需要一个稳定且最好还免费的图床😂，这里就讲讲我选图床的心路历程</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">日常使用工具：</span><br><span class="line">Typora+ipic/PicGo</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>开篇先说结论：还没有得出结论，还在探索哪个更适合自己（废话）</p>
+</blockquote>
+<h3 id="一、微博图床"><a href="#一、微博图床" class="headerlink" title="一、微博图床"></a>一、微博图床</h3><p>​    多数人的第一选择（也是我目前的选择），太多太多的工具可以直接通过新浪图床的api进行上传，常用的有：</p>
+<ul>
+<li>iPic</li>
+<li>PicGo</li>
+<li>微博图床（chrome插件）</li>
+</ul>
+<p>这里涉及到一个坑点，大部分工具是需要自己配置微博的登录信息或者cookie的，也就是说他们是通过你的账号来进行图片的上传 ，这样就导致通过图片可反查出博主个人信息，如果你介意隐私泄露，那请当心。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fzxq3yvbk6j31cv0u0gt1.jpg" alt=""></p>
+<p>其中iPic是支持匿名上传的（它有一堆微博小号的库），使用起来对隐私而言很放心，但很害怕某一天微博突然发力干掉了僵尸号及其账号下的图片，那就完了蛋了，不过私以为，暂时不用担心，从当时微博的抽奖过滤机制来看，他们是有能力来鉴别是否是僵尸号的，而且是放任其存在的（数据好看是王道），所以匿名的图片暂时而言没有问题。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fzxqb2n3gej30w40oodi7.jpg" alt="image-20190207120606414"></p>
+<h3 id="二、七牛云"><a href="#二、七牛云" class="headerlink" title="二、七牛云"></a>二、七牛云</h3><p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fzxvfhv6w5j30wz0a6768.jpg" alt="image-20190207150321334"></p>
+<p>​    以上为七牛云的免费额度情况，单从存储空间及流量来看，是能满足小流量博客站的需求的，其中有几点需要注意。</p>
+<p>​    一是，某些时候开始，七牛的对象存储不再支持使用其子域名绑定，只能绑定用户自己的已备案域名；</p>
+<p>​    二是，https不计入免费额度，假如你的站点上了https，那就尴尬了</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fzy6q2czddj316w09iwfz.jpg" alt="image-20190207213406272"></p>
+<p>​    三是，各项调整均不能及时生效。</p>
+<h3 id="三、腾讯COS"><a href="#三、腾讯COS" class="headerlink" title="三、腾讯COS"></a>三、腾讯COS</h3><p>​    腾讯云本是我准备切换的对象，因为其存储空间有提供可直接使用的子域名，且免费额度也不错，谁知道最近登录上去才发现对于个人用户而言最重要的免费额度居然修改了，要说之前的免费额度规则，确实良心，个人小站绰绰有余，目前来看，再见了您嘞。</p>
+<p><img src="https://cooguyan-1252810309.cos.ap-chengdu.myqcloud.com/mianfeiedugailan.png" alt="img"></p>
+<p><strong>现在的免费额度：</strong></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fzxqnas85uj31fg0ra0yz.jpg" alt="image-20190207121751740"></p>
+<h3 id="四、SM-MS"><a href="#四、SM-MS" class="headerlink" title="四、SM.MS"></a>四、SM.MS</h3><p>​    一个V2EX的大佬做的图床站，15年至今近4年了，一直免费，但对于个人提供的产品，我始终是不太放心，并非害怕隐私等，而是怕因为各种情况直接停掉了。我以前维护过一个Hosts分享站，没推广的情况下2个多月日PV到了3k多，新IP 60%以上，但迫于各种情况，最后直接关站了。所以对于个人的非盈利性产品，个人认为还是谨慎选择，平台停了是个麻烦事儿。</p>
+<h3 id="五、又拍云"><a href="#五、又拍云" class="headerlink" title="五、又拍云"></a>五、又拍云</h3><p>​    又拍也是云存储届的大佬了，七牛这个中间商有部分资源就是来自于又拍，其对于普通开发者的权益如下：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fzxwnqtevej30qj0e7abm.jpg" alt="image-20190207154551795"></p>
+<p>​    还是挺美好的，网上对于又拍的风评也比较好，但有一点，你需要在自己的网站中加入又拍云的logo及链接，才可进行申请。</p>
+<hr>
+<p><strong>总结</strong>：</p>
+<p>​    形形色色的的云存储产品，大体使用上对于个人开发者来说区别不大，大家综合考量使用适合自己的就好。个人认为：</p>
+<p>​    <strong>微博图床：</strong>适合懒得折腾，不考虑真实数据是否在自己控制范围内的用户</p>
+<p>​    <strong>七牛：</strong>域名已备案，未上https，且流量不大的用户</p>
+<p>​    <strong>又拍：</strong>不介意站点加入对方友链的首选</p>
+<p>而腾讯云、SM.MS，我暂时不会考虑。</p>
 
-
-
-
-在浏览过各式Chrome插件推荐文章后，精选下来的最适合自己的一部分，是否适合于你，需要你自己的斟酌
-
-1.JSON-handle——JSON格式化-开发者必备
-无须过多解释
-
-
-2.油猴-Tamermonkey
-常年霸占Chrome神级插件列表，简而言之一个管理各类脚本的工具，通过这些脚本我们不仅可以定制各个网站的样式，还可以定制其功能
-
-它可以且不限于：（搬一段少数派文章的话语）
-
-直接下载百度网盘文件
-重新定制繁杂的微博页面
-去掉视频播放广...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Chrome">Chrome</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/cjsg6ychk0006qh66gjv7z0qz.html" title= "Redis—数据类型、事务、持久化">
+                    <div class="nextTitle">Redis—数据类型、事务、持久化</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/cjsg6ychd0002qh66340q7pgh.html" title= "2019新年快乐">
+                    <div class="prevTitle">2019新年快乐</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80Mjc5Ni8xOTM0Mw>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -468,6 +570,24 @@ https://www.crx4chrome.com/
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、微博图床"><span class="toc-number">1.</span> <span class="toc-text">一、微博图床</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、七牛云"><span class="toc-number">2.</span> <span class="toc-text">二、七牛云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、腾讯COS"><span class="toc-number">3.</span> <span class="toc-text">三、腾讯COS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、SM-MS"><span class="toc-number">4.</span> <span class="toc-text">四、SM.MS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、又拍云"><span class="toc-number">5.</span> <span class="toc-text">五、又拍云</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -864,6 +984,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
