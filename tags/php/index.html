@@ -346,35 +346,31 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/cjsg6ychr000fqh66b0390jwr.html" >
+        <a class="abstract-title" href = "/cjsvk5ayl000njg66dqi5stbz.html" >
             
-                <span>VirtualBox+vagrant+Homestead 安装laravel环境</span>
+                <span>支付宝红包：红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容</span>
         </a>
         <div class="abstract-content">
-            VirtualBox+vagrant+Homestead 安装laravel环境
-win上的配置，其他平台请移步本地安装配置laravel的环境多种多样
+            对接支付宝，创建红包时报如下错误：
+1234&#123;    "code": 400,    "message": "Business Failed: 红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容."&#125;
 
-常见的有win上集成环境安装使用，linux虚拟机安装使用
-而linux虚拟机上安装根据环境又有多种方式：编译安装，vagrant，docker 等
-编译安装不赘述，vagrant及docker的区别，引用知乎的一段话来说明
 
-作者：cikenerd
-本质区别Vagrant并不提供虚拟化技术，本质上是一个虚拟机外挂，通过虚拟机的管理接口来管理虚拟机，让用户更轻松的进行一些常用配置，比如：CPU/Memory/IP/DISK等分配。并且...
+1小时人肉测试发现，merchant_link 回调地址不可包含「alipay」！
+文档完全没提！
+merchant_link包含alipay 在官方的在线调试也可以通过！😠
+
+
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/02/04</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/05</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "laravel">laravel</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "vagrant">vagrant</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
     
 </div>
             
@@ -387,28 +383,165 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/cjsg6ychg0003qh66b93u9ntb.html" >
+        <a class="abstract-title" href = "/cjsvk5ayi000gjg66zw33jpbg.html" >
             
-                <span>PHP操作本地中文文件注意事项</span>
+                <span>Redis—数据类型、事务、持久化</span>
         </a>
         <div class="abstract-content">
-            公司，某位其他部门的同事问，有几千个文件夹，里面都有个同名的文件，想要把这几千个同名文件改为与文件夹一样的名字，是否有快速解决的工具。
-等会不忙了帮你写个，我信心满满的答应下来。
-但在此中操作中文文件时，遇到了点小问题，遂记录下来与大家分享
-问题出现在遍历目录，操作中文名文件的过程中。
-其类似于此种结构：
-12345678910111213141516$dir = &apos;wj&apos;;//打开目录存入句柄if($dh = opendir($dir))&#123;    //循环遍历    while (($file = readdir($dh)) !== false)    &...
+            Redis—数据类型、事务、持久化五种数据类型
+
+String（字符串）
+
+Redis最基本的数据类型，一个key对应一个value；
+string 类型是二进制安全的。它 可以包含任何数据。比如jpg图片或者序列化的对象；
+
+例如PHP存储对象或数组时，可以通过serialize()进行序列化，取出时unserialize()反序列化
+
+string 类型的值最大能存储 512MB。
+
+Hash（哈希）
+
+键值对集合,即编程语言中的Map类型。（PHP中的关联数组，Python中的dict）。
+
+适用场景：存储用户属性等
+
+
+List（列表）
+
+字符串列表，按照插入顺序排序。可以添加一...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2016/12/25</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/15</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Redis">Redis</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/cjsvk5ayj000ijg66xx79ynjy.html" >
+            
+                <span>Vagrant配置Xdebug</span>
+        </a>
+        <div class="abstract-content">
+            Vagrant环境配置Xdebug相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为
+
+php安装xdebug扩展，php.ini配置
+phpstorm监听，共享目录等设置
+浏览器xdebug扩展安装
+
+一、 根据php版本wget对应的xdebug包
+这里提供php5.4对应的包地址
+
+1wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载
+二、使用phpize安装扩展1234567wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载tar xvzf xdebu...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Xdebug">Xdebug</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Vagrant">Vagrant</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/cjsvk5ayk000ljg66upa6zm3g.html" >
+            
+                <span>VirtualBox直接搭建laravel开发环境可能遇到的坑</span>
+        </a>
+        <div class="abstract-content">
+            
+另外一个产品使用的VirtualBox+Vagrant搭建的环境，未开启nfs的情况下，速度实在感人，遂此次环境未使用Vagrant，直接VirtualBox，谁知道坑爹的事情不断
+
+VirtualBox直接搭建laravel开发环境可能遇到的坑：一、共享目录的挂载与访问VirtualBox开启目录共享需要安装增强插件，一般来说都会安装失败，参考：
+https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device
+整到安装上...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟机">虚拟机</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "VirtualBox">VirtualBox</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Laravel">Laravel</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/cjsvk5ayb000ajg66ma236uax.html" >
+            
+                <span>Windows下Xdebug配置</span>
+        </a>
+        <div class="abstract-content">
+            Windows集成环境下Xdebu配置过程
+下载安装对应版本1.http://www.xdebug.org/find-binary.php复制phpinfo提交后得到对应版本下载地址
+2.按其说明放入对应ext目录
+3.php.ini中
+1234567zend_extension = "C:\phpStudy\PHPTutorial\php\php-7.0.12-nts\ext\php_xdebug-2.6.0-7.0-vc14-nts.dll"xdebug.remote_enable =1xdebug.remote_handler = "dbgp"xdebug.remote_host ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/13</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "开发环境">开发环境</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Xdebug">Xdebug</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
     
 </div>
             
@@ -675,9 +808,20 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 14
+        Total : 15
         </div>
         <!-- search  -->
         
@@ -693,22 +837,27 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/15</span><a class="archive-post-title" href= "/cjsg6ychk0006qh66gjv7z0qz.html" >Redis—数据类型、事务、持久化</a>
+            <span class="archive-post-date">03/05</span><a class="archive-post-title" href= "/cjsvk5ayl000njg66dqi5stbz.html" >支付宝红包：红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/07</span><a class="archive-post-title" href= "/cjsg6ychw000oqh66qkhkrvdo.html" >日常使用的图床选择</a>
+            <span class="archive-post-date">02/15</span><a class="archive-post-title" href= "/cjsvk5ayi000gjg66zw33jpbg.html" >Redis—数据类型、事务、持久化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/05</span><a class="archive-post-title" href= "/cjsg6ychd0002qh66340q7pgh.html" >2019新年快乐</a>
+            <span class="archive-post-date">02/07</span><a class="archive-post-title" href= "/cjsvk5ayo000sjg66922rs40r.html" >日常使用的图床选择</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/cjsg6ychv000mqh666utmj5gi.html" >自用Chrome扩展推荐</a>
+            <span class="archive-post-date">02/05</span><a class="archive-post-title" href= "/cjsvk5ay80006jg66vzo517qv.html" >2019新年快乐</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/cjsvk5ayn000qjg66n8i0zytb.html" >自用Chrome扩展推荐</a>
         </li>
     
     
@@ -722,37 +871,37 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/cjsg6ychp000dqh66anox4801.html" >Vagrant配置Xdebug</a>
+            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/cjsvk5ayj000ijg66xx79ynjy.html" >Vagrant配置Xdebug</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/cjsg6ycho000bqh661798km14.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/cjsvk5ayk000ljg66upa6zm3g.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/13</span><a class="archive-post-title" href= "/cjsg6ychj0005qh66tj5jb96l.html" >Windows下Xdebug配置</a>
+            <span class="archive-post-date">08/13</span><a class="archive-post-title" href= "/cjsvk5ayb000ajg66ma236uax.html" >Windows下Xdebug配置</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/cjsg6ychm000aqh665d3i895l.html" >Hello World</a>
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/cjsvk5ay90007jg6652hquaf9.html" >Hello World</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/cjsg6ychl0007qh66ff57rfz4.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/cjsvk5ayd000bjg661eccxtmb.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/cjsg6ychr000fqh66b0390jwr.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/cjsvk5ay10002jg665o8dzlse.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/cjsg6ycht000iqh66gv95b509.html" >悠悠Hosts不限期停更</a>
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/cjsvk5aya0008jg660k4zdld4.html" >悠悠Hosts不限期停更</a>
         </li>
     
     
@@ -766,12 +915,12 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/cjsg6ychu000kqh66dy0c60uz.html" >我为什么不再刷机</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/cjsvk5ayf000ejg66tl0nrd13.html" >我为什么不再刷机</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/cjsg6ychs000hqh66uw0jqrje.html" >新站点起航——悠悠Hosts</a>
+            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/cjsvk5aye000djg66ohvvv8oe.html" >新站点起航——悠悠Hosts</a>
         </li>
     
     
@@ -785,7 +934,7 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/cjsg6ychg0003qh66b93u9ntb.html" >PHP操作本地中文文件注意事项</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/cjsvk5ay50004jg6642ishkjx.html" >PHP操作本地中文文件注意事项</a>
         </li>
     
     </div>
@@ -793,9 +942,13 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
-    
         <span class="sidebar-tag-name" data-tags="php"><span class="iconfont-archer">&#xe606;</span>php</span>
+    
+        <span class="sidebar-tag-name" data-tags="laravel"><span class="iconfont-archer">&#xe606;</span>laravel</span>
+    
+        <span class="sidebar-tag-name" data-tags="vagrant"><span class="iconfont-archer">&#xe606;</span>vagrant</span>
+    
+        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
     
         <span class="sidebar-tag-name" data-tags="开发环境"><span class="iconfont-archer">&#xe606;</span>开发环境</span>
     
@@ -803,107 +956,17 @@ win上的配置，其他平台请移步本地安装配置laravel的环境多种�
     
         <span class="sidebar-tag-name" data-tags="PHP"><span class="iconfont-archer">&#xe606;</span>PHP</span>
     
+        <span class="sidebar-tag-name" data-tags="uuhosts"><span class="iconfont-archer">&#xe606;</span>uuhosts</span>
+    
         <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vagrant"><span class="iconfont-archer">&#xe606;</span>Vagrant</span>
     
         <span class="sidebar-tag-name" data-tags="虚拟机"><span class="iconfont-archer">&#xe606;</span>虚拟机</span>
     
         <span class="sidebar-tag-name" data-tags="VirtualBox"><span class="iconfont-archer">&#xe606;</span>VirtualBox</span>
     
         <span class="sidebar-tag-name" data-tags="Laravel"><span class="iconfont-archer">&#xe606;</span>Laravel</span>
-    
-        <span class="sidebar-tag-name" data-tags="Vagrant"><span class="iconfont-archer">&#xe606;</span>Vagrant</span>
-    
-        <span class="sidebar-tag-name" data-tags="laravel"><span class="iconfont-archer">&#xe606;</span>laravel</span>
-    
-        <span class="sidebar-tag-name" data-tags="vagrant"><span class="iconfont-archer">&#xe606;</span>vagrant</span>
-    
-        <span class="sidebar-tag-name" data-tags="uuhosts"><span class="iconfont-archer">&#xe606;</span>uuhosts</span>
-    
-        <span class="sidebar-tag-name" data-tags="Chrome"><span class="iconfont-archer">&#xe606;</span>Chrome</span>
-    
-        <span class="sidebar-tag-name" data-tags="博客"><span class="iconfont-archer">&#xe606;</span>博客</span>
-    
-        <span class="sidebar-tag-name" data-tags="图床"><span class="iconfont-archer">&#xe606;</span>图床</span>
-    
-    </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
-    3、在根目录_config.yml里添加配置：
-    <pre style="color: #787878; font-size: 0.6rem;">
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: false
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: true
-    tags: true</pre>
-    </div> 
-    <div class="sidebar-tags-list"></div>
-</div>
-        <div class="sidebar-panel-categories">
-    <div class="sidebar-categories-name">
-    
-    </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
-    <div class="sidebar-categories-list"></div>
-</div>
-    </div>
-</div> 
-    <script>
-    var siteMeta = {
-        root: "/",
-        author: "李不知"
-    }
-</script>
-    <!-- CDN failover -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-    <script type="text/javascript">
-        if (typeof window.$ === 'undefined')
-        {
-            console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
-        }
-    </script>
-    <script src="/scripts/main.js"></script>
-    <!-- algolia -->
-    
-    <!-- busuanzi  -->
-    
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-    <!-- CNZZ  -->
-    
-    </div>
-    <!-- async load share.js -->
-     
-    </body>
-</html>
-
-
-g-name" data-tags="Laravel"><span class="iconfont-archer">&#xe606;</span>Laravel</span>
-    
-        <span class="sidebar-tag-name" data-tags="Vagrant"><span class="iconfont-archer">&#xe606;</span>Vagrant</span>
-    
-        <span class="sidebar-tag-name" data-tags="laravel"><span class="iconfont-archer">&#xe606;</span>laravel</span>
-    
-        <span class="sidebar-tag-name" data-tags="vagrant"><span class="iconfont-archer">&#xe606;</span>vagrant</span>
-    
-        <span class="sidebar-tag-name" data-tags="uuhosts"><span class="iconfont-archer">&#xe606;</span>uuhosts</span>
     
         <span class="sidebar-tag-name" data-tags="Chrome"><span class="iconfont-archer">&#xe606;</span>Chrome</span>
     
