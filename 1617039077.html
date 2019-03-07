@@ -22,7 +22,7 @@
     <meta name="description" content="CodeArt是一个记录个人成长的博客，涵盖PHP，MySQL，虚拟化技术，效率工具等内容">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>CodeArt-编码艺术</title>
+    <title>新站点起航——悠悠Hosts · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >CodeArt-编码艺术</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">新站点起航——悠悠Hosts</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>CodeArt-编码艺术</a>
 </header>
@@ -220,24 +231,76 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(https://img.codeart.top/img/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            新站点起航——悠悠Hosts
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "随笔">随笔</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "uuhosts">uuhosts</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">220</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2017/02/09</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,93 +401,65 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/1382226738.html" >
-            
-                <span>Vagrant配置Xdebug</span>
-        </a>
-        <div class="abstract-content">
-            Vagrant环境配置Xdebug相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为
+            <main class="main post-page">
+    <article class="article-entry">
+        <p><em>想法得以实现-笔芯</em><img src="http://www.codeart.top/wp-content/uploads/2017/02/97aa98d8449357f21be35d040f8666fa-1.png" alt="img"></p>
+<p>一直以来，博主上Google都依赖Hosts，经(wan)济(quan)实(mian)惠(fei)且全局不影响国内服务的特性，深得我心，用老D所提供的Hosts我使用了近一年，在此表示感谢，谢谢！</p>
+<p>后来找到了更优质的源，速度不错，且YouTube支持良好，就想着希望能把此Hosts分享给需要的人，同时，国内也未看到专门做此类分享的站点（可能是TG限制吧），所以立马着手来做这个站点。</p>
+<p>期间页面，后台，服务器，域名，备案等等等等，出现了几次波折，但最终，顺利上线。</p>
+<p>2017年2月8日，悠悠Hosts的生日，希望2018年的这天，站点还存在，希望TG下手轻一点，希望新的一年，大家心想事成，工作顺利。[手动滑稽]</p>
 
-php安装xdebug扩展，php.ini配置
-phpstorm监听，共享目录等设置
-浏览器xdebug扩展安装
-
-一、 根据php版本wget对应的xdebug包
-这里提供php5.4对应的包地址
-
-1wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载
-二、使用phpize安装扩展1234567wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载tar xvzf xdebu...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Xdebug">Xdebug</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Vagrant">Vagrant</a>
-    
-</div>
-            
-        </div>
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/842285627.html" >
-            
-                <span>VirtualBox直接搭建laravel开发环境可能遇到的坑</span>
-        </a>
-        <div class="abstract-content">
-            
-另外一个产品使用的VirtualBox+Vagrant搭建的环境，未开启nfs的情况下，速度实在感人，遂此次环境未使用Vagrant，直接VirtualBox，谁知道坑爹的事情不断
-
-VirtualBox直接搭建laravel开发环境可能遇到的坑：一、共享目录的挂载与访问VirtualBox开启目录共享需要安装增强插件，一般来说都会安装失败，参考：
-https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device
-整到安装上...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟机">虚拟机</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "VirtualBox">VirtualBox</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Laravel">Laravel</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2654905755.html" title= "我为什么不再刷机">
+                    <div class="nextTitle">我为什么不再刷机</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/undefined.html" title= "PHP操作本地中文文件注意事项">
+                    <div class="prevTitle">PHP操作本地中文文件注意事项</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80Mjc5Ni8xOTM0Mw>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -502,6 +537,24 @@ https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-fa
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -908,6 +961,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

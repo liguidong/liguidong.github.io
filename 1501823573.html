@@ -22,7 +22,7 @@
     <meta name="description" content="CodeArt是一个记录个人成长的博客，涵盖PHP，MySQL，虚拟化技术，效率工具等内容">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>CodeArt-编码艺术</title>
+    <title>【FixErrors】- 支付宝红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容 · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >CodeArt-编码艺术</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">【FixErrors】- 支付宝红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>CodeArt-编码艺术</a>
 </header>
@@ -220,24 +231,76 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(https://img.codeart.top/img/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            【FixErrors】- 支付宝红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "FixErrors">FixErrors</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">99</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/05</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,93 +401,68 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/1382226738.html" >
-            
-                <span>Vagrant配置Xdebug</span>
-        </a>
-        <div class="abstract-content">
-            Vagrant环境配置Xdebug相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为
+            <main class="main post-page">
+    <article class="article-entry">
+        <p><strong>对接支付宝，创建红包时报如下错误：</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">400</span>,</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">"Business Failed: 红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容."</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.codeart.top/img/20190305-165741.png" alt="20190305-165741"></p>
+<p><img src="https://img.codeart.top/img/20190305-170922.png" alt=""></p>
+<h4 id="1小时人肉测试发现，merchant-link-回调地址不可包含「alipay」！"><a href="#1小时人肉测试发现，merchant-link-回调地址不可包含「alipay」！" class="headerlink" title="1小时人肉测试发现，merchant_link 回调地址不可包含「alipay」！"></a>1小时人肉测试发现，merchant_link 回调地址不可包含「<strong>alipay</strong>」！</h4><blockquote>
+<p>文档完全没提！</p>
+<p>merchant_link包含alipay 在官方的在线调试也可以通过！😠</p>
+</blockquote>
 
-php安装xdebug扩展，php.ini配置
-phpstorm监听，共享目录等设置
-浏览器xdebug扩展安装
-
-一、 根据php版本wget对应的xdebug包
-这里提供php5.4对应的包地址
-
-1wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载
-二、使用phpize安装扩展1234567wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载tar xvzf xdebu...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Xdebug">Xdebug</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Vagrant">Vagrant</a>
-    
-</div>
-            
-        </div>
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/842285627.html" >
-            
-                <span>VirtualBox直接搭建laravel开发环境可能遇到的坑</span>
-        </a>
-        <div class="abstract-content">
-            
-另外一个产品使用的VirtualBox+Vagrant搭建的环境，未开启nfs的情况下，速度实在感人，遂此次环境未使用Vagrant，直接VirtualBox，谁知道坑爹的事情不断
-
-VirtualBox直接搭建laravel开发环境可能遇到的坑：一、共享目录的挂载与访问VirtualBox开启目录共享需要安装增强插件，一般来说都会安装失败，参考：
-https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device
-整到安装上...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟机">虚拟机</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "VirtualBox">VirtualBox</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Laravel">Laravel</a>
-    
-</div>
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/4191220895.html" title= "【FixErrors】- 404 Not Found [IP:91.189.95.83 80]">
+                    <div class="nextTitle">【FixErrors】- 404 Not Found [IP:91.189.95.83 80]</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/1617129302.html" title= "Redis—数据类型、事务、持久化">
+                    <div class="prevTitle">Redis—数据类型、事务、持久化</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC80Mjc5Ni8xOTM0Mw>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -502,6 +540,24 @@ https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-fa
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1小时人肉测试发现，merchant-link-回调地址不可包含「alipay」！"><span class="toc-number">1.</span> <span class="toc-text">1小时人肉测试发现，merchant_link 回调地址不可包含「alipay」！</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -908,6 +964,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
