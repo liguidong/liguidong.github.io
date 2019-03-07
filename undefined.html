@@ -22,7 +22,7 @@
     <meta name="description" content="CodeArt是一个记录个人成长的博客，涵盖PHP，MySQL，虚拟化技术，效率工具等内容">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>VirtualBox直接搭建laravel开发环境可能遇到的坑 · CodeArt-编码艺术</title>
+    <title>PHP操作本地中文文件注意事项 · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >CodeArt-编码艺术</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
+                <a href="#" class="post-name">PHP操作本地中文文件注意事项</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            VirtualBox直接搭建laravel开发环境可能遇到的坑
+            PHP操作本地中文文件注意事项
             <!-- 404 -->
             
         </h1>
@@ -266,24 +266,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "PHP">PHP</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "虚拟机">虚拟机</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "VirtualBox">VirtualBox</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Laravel">Laravel</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "php">php</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">502</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">697</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/09/09</span>
+                    <span class="post-intro-time">2016/12/25</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -407,35 +401,19 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <blockquote>
-<p>另外一个产品使用的VirtualBox+Vagrant搭建的环境，未开启nfs的情况下，速度实在感人，遂此次环境未使用Vagrant，直接VirtualBox，谁知道坑爹的事情不断</p>
-</blockquote>
-<h4 id="VirtualBox直接搭建laravel开发环境可能遇到的坑："><a href="#VirtualBox直接搭建laravel开发环境可能遇到的坑：" class="headerlink" title="VirtualBox直接搭建laravel开发环境可能遇到的坑："></a>VirtualBox直接搭建laravel开发环境可能遇到的坑：</h4><h5 id="一、共享目录的挂载与访问"><a href="#一、共享目录的挂载与访问" class="headerlink" title="一、共享目录的挂载与访问"></a>一、共享目录的挂载与访问</h5><p>VirtualBox开启目录共享需要安装增强插件，一般来说都会安装失败，参考：</p>
-<p><a href="https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device" target="_blank" rel="noopener">https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device</a></p>
-<p>整到安装上此增强插件后，就可以通过mount来管理挂载了，假设开启了VirtualBox的自动挂载，其会将目录自动挂载到media/下</p>
-<h5 id="二、共享目录php的修改权限"><a href="#二、共享目录php的修改权限" class="headerlink" title="二、共享目录php的修改权限"></a>二、共享目录php的修改权限</h5><blockquote>
-<p>建议不要尝试手动去挂载，手动挂载后的目录，所属用户和用户组都是root，且无法更改，会导致php因为权限无法修改其中的文件（无论你怎么尝试，此问题耗费4H+的人奉劝）</p>
-</blockquote>
-<p>自动挂载上的目录用户和所属组为 root:vboxsf，此时我们去修改php的启动用户和用户组</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/server/php/etc/php-fpm.d/www.conf</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#默认</span></span><br><span class="line">user = nginx</span><br><span class="line">group = nginx</span><br><span class="line"><span class="comment">#修改为</span></span><br><span class="line">user = nginx</span><br><span class="line">group = vboxsf</span><br></pre></td></tr></table></figure>
-<p>此处我还将nginx用户加入了vboxsf组，当然不知道起没起到决定性的作用，但建议你这样做</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -a -G vboxsf nginx</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：修改用户及用户组相关配置后，重启生效</p>
-</blockquote>
-<h5 id="三、laravel-cache-配置"><a href="#三、laravel-cache-配置" class="headerlink" title="三、laravel cache 配置"></a>三、laravel cache 配置</h5><blockquote>
-<p>清除缓存常常能解决很多问题</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">php artisan config:clear</span><br><span class="line">php artisan cache:clear</span><br><span class="line">php artisan config:cache</span><br></pre></td></tr></table></figure>
-<h5 id="四、npm-i"><a href="#四、npm-i" class="headerlink" title="四、npm i"></a>四、npm i</h5><blockquote>
-<p>假如你需要使用node.js ，那么NPM i 安装模块的过程中可能会遇到报软连接无法使用之类的错误</p>
-</blockquote>
-<p>VirtualBox的共享文件夹不支持软连接，所以要么</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --no-bin-links</span><br></pre></td></tr></table></figure>
-<p>告诉NPM 我用不了软连接，你给我换种玩法，或者</p>
-<p>在本机npm i来安装模块（本机装node）</p>
-
+        <p>公司，某位其他部门的同事问，有几千个文件夹，里面都有个同名的文件，想要把这几千个同名文件改为与文件夹一样的名字，是否有快速解决的工具。</p>
+<p>等会不忙了帮你写个，我信心满满的答应下来。</p>
+<p>但在此中操作中文文件时，遇到了点小问题，遂记录下来与大家分享</p>
+<p>问题出现在遍历目录，操作中文名文件的过程中。</p>
+<p>其类似于此种结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$dir = &apos;wj&apos;;</span><br><span class="line">//打开目录存入句柄</span><br><span class="line">if($dh = opendir($dir))</span><br><span class="line">&#123;</span><br><span class="line">    //循环遍历</span><br><span class="line">    while (($file = readdir($dh)) !== false)</span><br><span class="line">    &#123;</span><br><span class="line">        //匹配则进入操作</span><br><span class="line">        var_dump($file);</span><br><span class="line">        if ($file == &apos;二维码.jpg&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            //操作</span><br><span class="line">            echo &apos;操作&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但我发现始终无法进入if <img src="http://www.codeart.top/wp-content/uploads/2016/12/3be39ee07f6832558cb6e236528077e2.png" alt=""> 即使打印出的string 与文件名一毛一样，这就很尴尬啊。 我再把if条件改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$file == &apos;1.txt&apos;</span><br><span class="line"></span><br><span class="line">![](http://www.codeart.top/wp-content/uploads/2016/12/7e097021ac3f89a4f7b3990e9d8f924a.png)</span><br><span class="line">瞬间就进来了，这说明写法没问题，难道是字符编码？</span><br><span class="line">再改改编码看看效果</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$dir = &apos;wj&apos;;</span><br><span class="line">//打开目录存入句柄</span><br><span class="line">if($dh = opendir($dir))</span><br><span class="line">&#123;</span><br><span class="line">    //循环遍历</span><br><span class="line">    while (($file = readdir($dh)) !== false)</span><br><span class="line">    &#123;</span><br><span class="line">        var_dump($file);</span><br><span class="line">        //查询字符编码</span><br><span class="line">        $encode = mb_detect_encoding($file, array(&quot;ASCII&quot;,&apos;UTF-8&apos;,&quot;GB2312&quot;,&quot;GBK&quot;,&apos;BIG5&apos;));</span><br><span class="line">        //显示读取的file的字符编码</span><br><span class="line">        echo &quot;file的字符集为：&#123;$encode&#125; &lt;/br&gt;&quot;;</span><br><span class="line">        //转换字符编码</span><br><span class="line">        $file = mb_convert_encoding($file,&apos;UTF-8&apos;,$encode);</span><br><span class="line">        //匹配则进入操作</span><br><span class="line">        if ($file == &apos;二维码.jpg&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            //操作</span><br><span class="line">            echo &apos;6666666666666&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里我查询了file的字符编码，再将其转换为utf-8，看起来妥妥的，我咋这么聪明 结果… <img src="http://www.codeart.top/wp-content/uploads/2016/12/462c16154bf44d4435d482d6bdf54296.png" alt=""> 这就很尴尬了，还进不去，居然读不出来，这破PHP 一定是PHP本身设计的太烂，我这样安慰自己 既然是读取系统文件，查查系统是什么字符集吧，说干就干 <img src="http://www.codeart.top/wp-content/uploads/2016/12/9776878bcc883ee8b87ba7c36da781c1.png" alt=""> soga，GBK是也。ps：cmd框体右击属性可查 继续改改代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$dir = &apos;wj&apos;;</span><br><span class="line">//打开目录存入句柄</span><br><span class="line">if($dh = opendir($dir))</span><br><span class="line">&#123;</span><br><span class="line">    //循环遍历</span><br><span class="line">    while (($file = readdir($dh)) !== false)</span><br><span class="line">    &#123;</span><br><span class="line">        var_dump($file);</span><br><span class="line">        //转换字符编码</span><br><span class="line">        $file = mb_convert_encoding($file,&apos;UTF-8&apos;,&apos;GBK&apos;);</span><br><span class="line">        //显示读取的file的字符编码</span><br><span class="line">        $encode = mb_detect_encoding($file, array(&quot;ASCII&quot;,&apos;UTF-8&apos;,&quot;GB2312&quot;,&quot;GBK&quot;,&apos;BIG5&apos;));</span><br><span class="line">        echo &quot;file的字符集为：&#123;$encode&#125; &lt;/br&gt;&quot;;</span><br><span class="line">        //匹配则进入操作</span><br><span class="line">        if ($file == &apos;二维码.jpg&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            //操作</span><br><span class="line">            echo &apos;6666666666666&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.codeart.top/wp-content/uploads/2016/12/72124d72f75cdcd3522ec1fb3de5406e.png" alt=""> 成功进去，妥妥的。 至此，此小问题解决 操作中文文件定要注意字符编码问题（windows默认GBK） 另：此段代码后期操作了系统中的文件，在操作过程中，也定要记得转换字符编码 例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename(iconv(&apos;UTF-8&apos;,&apos;GBK&apos;,$oldname), iconv(&apos;UTF-8&apos;,&apos;GBK&apos;,$newname));</span><br></pre></td></tr></table></figure>
     </article>
     <!-- license  -->
     
@@ -444,17 +422,12 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/cjsws6bms000ddn66pi4ocbyj.html" title= "Vagrant配置Xdebug">
-                    <div class="nextTitle">Vagrant配置Xdebug</div>
+                <a href= "/undefined.html" title= "新站点起航——悠悠Hosts">
+                    <div class="nextTitle">新站点起航——悠悠Hosts</div>
                 </a>
             
         </li>
         <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/cjsws6bmm0007dn662v72tbsu.html" title= "Windows下Xdebug配置">
-                    <div class="prevTitle">Windows下Xdebug配置</div>
-                </a>
             
         </li>
     </ul>
@@ -549,9 +522,9 @@ height:50vh;
     
     <!-- powered by Hexo  -->
     <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Creator <a href="https://github.com/liguidong" target="_blank">李不知</a></span>
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Creator <a href="https://github.com/liguidong" target="_blank">李不知</a></span>
     </div>
-    <div class="copyright"><span><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><!----><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAjCAMAAABVYV+yAAAAe1BMVEUAAAB3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3daoazaAAAAKHRSTlMAmk4dkjGjYlvOiQtTQwQ/+erIuWvz2DjkaYB5K0ckEcCwc6iObhndoDPG2QAAAtdJREFUSMfV1tmWmkAUBdADAjKLIIMjKmqf///CaFEDoCZ50KyVvfrFaq0rd6gS/97MXnl5sfFdfEu0PlLJ8R3nhsYGm26GT3NzDjiwyWyOz7I5FKDlw+WLMdjih8IJn7PjyB4nSiH+Uir+fmdQ8mXR+VhRS0zValerW/SCRmy958NRtelCq3XkDZWTKz9igkKqaZgnJCPxz+rB0vsNs9JrKWX3ldgqcg6t1Jx6RqCDNMSz2jLUHGwpHXAuOdXgmc+zKKUdl/Tt9nC9rh6u1+sBb/zo9FscUMsLSPtzhJ7FxeCD2zm16x9aq8CaRnOAncnBlAqd4JKinnF4yeiEuzMtO34o+G5+fZ2saSlOo57BXMXbmbUlATh05VZvgzgUyvFEekBU9WnTo8BSZSs2QSIgVK/PjyC32VgL/X15FNGMi3rE7AbJ66cmYoZJENsEqTmFu6M6QQqO6Cc7mOqJGyDkBpN01SqhcxzyIAjyiiyDXtHXU8hVoU2Q6ZMgf+x2YxbJElhWRs9yrzw6QqBr4rKMXtTEHk86KzU/TQrlwAao6KNXyRY2xdRBcsbP3dWnmQNzVM+XZMgwZKFjJvuScdJuGCZCp4LYDF7OiQNcaCzVOi0MdKKljWZaE1Wq3eszOMhpZDN9EOwxEMqb7G0Ly4Oq6ytzHh7CU0Wrj5hlCi31WP3QS98FWXONuxvZynJvId04tDwWzg7wKG2hJQ1zpDmbxZsgYR/kxK3aOUvH/TW8cNcNpTLVIQryIlPWuardSrHQv5yVnI2H1TcjlZaDxsWmyzNqMYTYWpJBAmERkMd5CndL+iJIt7pz2G+ZLrn1exvy8HzrtQhomNYieUqg+TkZYSmT6UwO+rrkq/tb3Qj2+EoxI2EnEUbqBRDPb/LHrbDQb2n96/phtV7tgUmUC1Yc8vBZi4oMsOPQGR93KaJZRqNw8RVrKqWX4EvS3fzinTprW0f47/wC/Wenyp5+gq0AAAAASUVORK5CYII="></a></span></div>
+    <div class="copyright"><span><a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="external nofollow"><!----><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAjCAMAAABVYV+yAAAAe1BMVEUAAAB3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3daoazaAAAAKHRSTlMAmk4dkjGjYlvOiQtTQwQ/+erIuWvz2DjkaYB5K0ckEcCwc6iObhndoDPG2QAAAtdJREFUSMfV1tmWmkAUBdADAjKLIIMjKmqf///CaFEDoCZ50KyVvfrFaq0rd6gS/97MXnl5sfFdfEu0PlLJ8R3nhsYGm26GT3NzDjiwyWyOz7I5FKDlw+WLMdjih8IJn7PjyB4nSiH+Uir+fmdQ8mXR+VhRS0zValerW/SCRmy958NRtelCq3XkDZWTKz9igkKqaZgnJCPxz+rB0vsNs9JrKWX3ldgqcg6t1Jx6RqCDNMSz2jLUHGwpHXAuOdXgmc+zKKUdl/Tt9nC9rh6u1+sBb/zo9FscUMsLSPtzhJ7FxeCD2zm16x9aq8CaRnOAncnBlAqd4JKinnF4yeiEuzMtO34o+G5+fZ2saSlOo57BXMXbmbUlATh05VZvgzgUyvFEekBU9WnTo8BSZSs2QSIgVK/PjyC32VgL/X15FNGMi3rE7AbJ66cmYoZJENsEqTmFu6M6QQqO6Cc7mOqJGyDkBpN01SqhcxzyIAjyiiyDXtHXU8hVoU2Q6ZMgf+x2YxbJElhWRs9yrzw6QqBr4rKMXtTEHk86KzU/TQrlwAao6KNXyRY2xdRBcsbP3dWnmQNzVM+XZMgwZKFjJvuScdJuGCZCp4LYDF7OiQNcaCzVOi0MdKKljWZaE1Wq3eszOMhpZDN9EOwxEMqb7G0Ly4Oq6ytzHh7CU0Wrj5hlCi31WP3QS98FWXONuxvZynJvId04tDwWzg7wKG2hJQ1zpDmbxZsgYR/kxK3aOUvH/TW8cNcNpTLVIQryIlPWuardSrHQv5yVnI2H1TcjlZaDxsWmyzNqMYTYWpJBAmERkMd5CndL+iJIt7pz2G+ZLrn1exvy8HzrtQhomNYieUqg+TkZYSmT6UwO+rrkq/tb3Qj2+EoxI2EnEUbqBRDPb/LHrbDQb2n96/phtV7tgUmUC1Yc8vBZi4oMsOPQGR93KaJZRqNw8RVrKqWX4EvS3fzinTprW0f47/wC/Wenyp5+gq0AAAAASUVORK5CYII="></a></span></div>
     <!-- 不蒜子  -->
     
     <div class="busuanzi-container">
@@ -580,7 +553,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#VirtualBox直接搭建laravel开发环境可能遇到的坑："><span class="toc-number">1.</span> <span class="toc-text">VirtualBox直接搭建laravel开发环境可能遇到的坑：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、共享目录的挂载与访问"><span class="toc-number">1.1.</span> <span class="toc-text">一、共享目录的挂载与访问</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、共享目录php的修改权限"><span class="toc-number">1.2.</span> <span class="toc-text">二、共享目录php的修改权限</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、laravel-cache-配置"><span class="toc-number">1.3.</span> <span class="toc-text">三、laravel cache 配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四、npm-i"><span class="toc-number">1.4.</span> <span class="toc-text">四、npm i</span></a></li></ol></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -789,32 +762,32 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/06</span><a class="archive-post-title" href= "/cjswtxop40000sm66u4gxeavg.html" >【FixErrors】- 404 Not Found [IP:91.189.95.83 80]</a>
+            <span class="archive-post-date">03/06</span><a class="archive-post-title" href= "/undefined.html" >【FixErrors】- 404 Not Found [IP:91.189.95.83 80]</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/05</span><a class="archive-post-title" href= "/cjsws6bmw000hdn66p0asww2m.html" >【FixErrors】- 支付宝红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容</a>
+            <span class="archive-post-date">03/05</span><a class="archive-post-title" href= "/undefined.html" >【FixErrors】- 支付宝红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/15</span><a class="archive-post-title" href= "/cjsws6bmi0005dn66qwsqkbmm.html" >Redis—数据类型、事务、持久化</a>
+            <span class="archive-post-date">02/15</span><a class="archive-post-title" href= "/undefined.html" >Redis—数据类型、事务、持久化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/07</span><a class="archive-post-title" href= "/cjsws6bmx000idn66rvrpzgop.html" >日常使用的图床选择</a>
+            <span class="archive-post-date">02/07</span><a class="archive-post-title" href= "/undefined.html" >日常使用的图床选择</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/05</span><a class="archive-post-title" href= "/cjsws6bmb0002dn66gek8jwcl.html" >2019新年快乐</a>
+            <span class="archive-post-date">02/05</span><a class="archive-post-title" href= "/undefined.html" >2019新年快乐</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/cjsws6bn1000pdn66qiqleqi0.html" >自用Chrome扩展推荐</a>
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/undefined.html" >自用Chrome扩展推荐</a>
         </li>
     
     
@@ -828,37 +801,37 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/cjsws6bms000ddn66pi4ocbyj.html" >Vagrant配置Xdebug</a>
+            <span class="archive-post-date">09/19</span><a class="archive-post-title" href= "/undefined.html" >Vagrant配置Xdebug</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/cjsws6bmu000fdn66vz5e79no.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/undefined.html" >VirtualBox直接搭建laravel开发环境可能遇到的坑</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">08/13</span><a class="archive-post-title" href= "/cjsws6bmm0007dn662v72tbsu.html" >Windows下Xdebug配置</a>
+            <span class="archive-post-date">08/13</span><a class="archive-post-title" href= "/undefined.html" >Windows下Xdebug配置</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/cjsws6bmo000adn66whr60okx.html" >Hello World</a>
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/undefined.html" >Hello World</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/cjsws6bmq000bdn6648tkwf5p.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/undefined.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/cjsws6bml0006dn66afsrgv55.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/undefined.html" >VirtualBox+vagrant+Homestead 安装laravel环境</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/cjsws6bmy000kdn664815wme2.html" >悠悠Hosts不限期停更</a>
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href= "/undefined.html" >悠悠Hosts不限期停更</a>
         </li>
     
     
@@ -872,12 +845,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/cjsws6bn0000mdn66lowxsx44.html" >我为什么不再刷机</a>
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href= "/undefined.html" >我为什么不再刷机</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/cjsws6bn3000rdn662rq8ir0y.html" >新站点起航——悠悠Hosts</a>
+            <span class="archive-post-date">02/09</span><a class="archive-post-title" href= "/undefined.html" >新站点起航——悠悠Hosts</a>
         </li>
     
     
@@ -891,7 +864,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/cjsws6bmf0003dn66bz0zs3e9.html" >PHP操作本地中文文件注意事项</a>
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/undefined.html" >PHP操作本地中文文件注意事项</a>
         </li>
     
     </div>
