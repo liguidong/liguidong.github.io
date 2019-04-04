@@ -276,7 +276,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">746</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">741</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -405,7 +405,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="Vagrant环境配置Xdebug"><a href="#Vagrant环境配置Xdebug" class="headerlink" title="Vagrant环境配置Xdebug"></a>Vagrant环境配置Xdebug</h3><p>相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为</p>
+        <p>相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为</p>
 <ol>
 <li>php安装xdebug扩展，php.ini配置</li>
 <li>phpstorm监听，共享目录等设置</li>
@@ -593,7 +593,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vagrant环境配置Xdebug"><span class="toc-number">1.</span> <span class="toc-text">Vagrant环境配置Xdebug</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、-根据php版本wget对应的xdebug包"><span class="toc-number">1.1.</span> <span class="toc-text">一、 根据php版本wget对应的xdebug包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、使用phpize安装扩展"><span class="toc-number">1.2.</span> <span class="toc-text">二、使用phpize安装扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、-phpinfo查看xdebug安装是否正常"><span class="toc-number">1.3.</span> <span class="toc-text">三、 phpinfo查看xdebug安装是否正常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、-修改php-ini-添加xdebug相关配置"><span class="toc-number">1.4.</span> <span class="toc-text">四、 修改php.ini 添加xdebug相关配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、修改phpstorm相关配置"><span class="toc-number">1.5.</span> <span class="toc-text">五、修改phpstorm相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1-解释器修改为远程解释器"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1 解释器修改为远程解释器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-修改为约定的端口"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2 修改为约定的端口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-配置DBGp"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3 配置DBGp</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、-chrome安装对应扩展"><span class="toc-number">1.6.</span> <span class="toc-text">六、 chrome安装对应扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写在最后"><span class="toc-number">1.7.</span> <span class="toc-text">写在最后</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、-根据php版本wget对应的xdebug包"><span class="toc-number">1.</span> <span class="toc-text">一、 根据php版本wget对应的xdebug包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、使用phpize安装扩展"><span class="toc-number">2.</span> <span class="toc-text">二、使用phpize安装扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、-phpinfo查看xdebug安装是否正常"><span class="toc-number">3.</span> <span class="toc-text">三、 phpinfo查看xdebug安装是否正常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、-修改php-ini-添加xdebug相关配置"><span class="toc-number">4.</span> <span class="toc-text">四、 修改php.ini 添加xdebug相关配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#五、修改phpstorm相关配置"><span class="toc-number">5.</span> <span class="toc-text">五、修改phpstorm相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1-解释器修改为远程解释器"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 解释器修改为远程解释器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2-修改为约定的端口"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 修改为约定的端口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-3-配置DBGp"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 配置DBGp</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#六、-chrome安装对应扩展"><span class="toc-number">6.</span> <span class="toc-text">六、 chrome安装对应扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写在最后"><span class="toc-number">7.</span> <span class="toc-text">写在最后</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
