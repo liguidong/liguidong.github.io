@@ -412,14 +412,12 @@
                 <span>【FixErrors】- 404 Not Found [IP:91.189.95.83 80]</span>
         </a>
         <div class="abstract-content">
-            本地环境：Laravel官方Homestead的box（ubuntu18.04.1）
-问题：无phpize，导致无法编译PHP扩展
-解决过程：
-1&gt; sudo apt install php7.2-dev
-报错
-1&gt; E: Failed to fetch http://ppa.launchpad.net/ondrej/php/ubuntu/pool/main/o/openssl/libssl-dev_1.1.0h-2.0+ubuntu18.04.1+deb.sury.org+1_amd64.deb  404  Not Found [IP: 91.189.95.83 80]
-
-...
+            <p>本地环境：Laravel官方Homestead的box（ubuntu18.04.1）</p>
+<p>问题：无phpize，导致无法编译PHP扩展</p>
+<p>解决过程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; sudo apt install php7.2-dev</span><br></pre></td></tr></table></figure>
+<p>报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; E: Failed to fetch http://ppa.launchpad.net/ondrej/php/ubuntu/pool/main/o/openssl/libssl-dev_1.1.0h-2.0+ubuntu18.04.1+deb.sury.org+1_amd64.deb  404  Not Found [IP: 91.189.95.83 80]</span><br></pre></td></tr></table></figure>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -450,15 +448,8 @@
                 <span>【FixErrors】- 支付宝红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容</span>
         </a>
         <div class="abstract-content">
-            对接支付宝，创建红包时报如下错误：
-1234&#123;    "code": 400,    "message": "Business Failed: 红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容."&#125;
-
-
-1小时人肉测试发现，merchant_link 回调地址不可包含「alipay」！
-文档完全没提！
-merchant_link包含alipay 在官方的在线调试也可以通过！😠
-
-
+            <p><strong>对接支付宝，创建红包时报如下错误：</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">400</span>,</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">"Business Failed: 红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容."</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->

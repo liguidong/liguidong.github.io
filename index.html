@@ -425,14 +425,12 @@ height:50vh;
                 <span>【FixErrors】- 404 Not Found [IP:91.189.95.83 80]</span>
         </a>
         <div class="abstract-content">
-            本地环境：Laravel官方Homestead的box（ubuntu18.04.1）
-问题：无phpize，导致无法编译PHP扩展
-解决过程：
-1&gt; sudo apt install php7.2-dev
-报错
-1&gt; E: Failed to fetch http://ppa.launchpad.net/ondrej/php/ubuntu/pool/main/o/openssl/libssl-dev_1.1.0h-2.0+ubuntu18.04.1+deb.sury.org+1_amd64.deb  404  Not Found [IP: 91.189.95.83 80]
-
-...
+            <p>本地环境：Laravel官方Homestead的box（ubuntu18.04.1）</p>
+<p>问题：无phpize，导致无法编译PHP扩展</p>
+<p>解决过程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; sudo apt install php7.2-dev</span><br></pre></td></tr></table></figure>
+<p>报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; E: Failed to fetch http://ppa.launchpad.net/ondrej/php/ubuntu/pool/main/o/openssl/libssl-dev_1.1.0h-2.0+ubuntu18.04.1+deb.sury.org+1_amd64.deb  404  Not Found [IP: 91.189.95.83 80]</span><br></pre></td></tr></table></figure>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -463,15 +461,8 @@ height:50vh;
                 <span>【FixErrors】- 支付宝红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容</span>
         </a>
         <div class="abstract-content">
-            对接支付宝，创建红包时报如下错误：
-1234&#123;    "code": 400,    "message": "Business Failed: 红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容."&#125;
-
-
-1小时人肉测试发现，merchant_link 回调地址不可包含「alipay」！
-文档完全没提！
-merchant_link包含alipay 在官方的在线调试也可以通过！😠
-
-
+            <p><strong>对接支付宝，创建红包时报如下错误：</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">400</span>,</span><br><span class="line">    <span class="attr">"message"</span>: <span class="string">"Business Failed: 红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容."</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -502,27 +493,16 @@ merchant_link包含alipay 在官方的在线调试也可以通过！😠
                 <span>Redis—数据类型、事务、持久化</span>
         </a>
         <div class="abstract-content">
-            Redis—数据类型、事务、持久化五种数据类型
-
-String（字符串）
-
-Redis最基本的数据类型，一个key对应一个value；
-string 类型是二进制安全的。它 可以包含任何数据。比如jpg图片或者序列化的对象；
-
-例如PHP存储对象或数组时，可以通过serialize()进行序列化，取出时unserialize()反序列化
-
-string 类型的值最大能存储 512MB。
-
-Hash（哈希）
-
-键值对集合,即编程语言中的Map类型。（PHP中的关联数组，Python中的dict）。
-
-适用场景：存储用户属性等
-
-
-List（列表）
-
-字符串列表，按照插入顺序排序。可以添加一...
+            <h4 id="五种数据类型"><a href="#五种数据类型" class="headerlink" title="五种数据类型"></a>五种数据类型</h4><hr>
+<ul>
+<li><strong>String（字符串）</strong></li>
+</ul>
+<p>Redis最基本的数据类型，一个key对应一个value；</p>
+<p>string 类型是二进制安全的。它 可以包含任何数据。比如jpg图片或者序列化的对象；</p>
+<blockquote>
+<p>例如PHP存储对象或数组时，可以通过serialize()进行序列化，取出时unserialize()反序列化</p>
+</blockquote>
+<p>string 类型的值最大能存储 512MB。</p>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -553,21 +533,14 @@ List（列表）
                 <span>日常使用的图床选择</span>
         </a>
         <div class="abstract-content">
-            
-平时的MD文档及博客都需要一个稳定且最好还免费的图床😂，这里就讲讲我选图床的心路历程
-
-12日常使用工具：Typora+iPic/PicGo
-
-开篇先说结论：还没有得出结论，还在探索哪个更适合自己（废话）
-update：已开始使用又拍云——Mar 5, 2019
-
-一、微博图床​    多数人的第一选择（也是我目前的选择），太多太多的工具可以直接通过新浪图床的api进行上传，常用的有：
-
-iPic
-PicGo
-微博图床（chrome插件）
-
-这里涉及到一个坑点，大部分工具是需要自己配置微博的登录信息或者cookie的，即通过你的账号来进行图片的上传 ，这样就导致通过图片可反查出博主个...
+            <blockquote>
+<p>平时的MD文档及博客都需要一个稳定且最好还免费的图床😂，这里就讲讲我选图床的心路历程</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">日常使用工具：</span><br><span class="line">Typora+iPic/PicGo</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>开篇先说结论：还没有得出结论，还在探索哪个更适合自己（废话）</p>
+<p>update：已开始使用又拍云——Mar 5, 2019</p>
+</blockquote>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -598,11 +571,9 @@ PicGo
                 <span>2019新年快乐</span>
         </a>
         <div class="abstract-content">
-            新年快乐！！！
-昨晚阿里爸爸集福2块，百度爸爸点到手软十一块，之前还吐槽人家是不是送莆田医院10000-50优惠券来着，结果‘真香’~
-人类的本质果然是真香
-
-
+            <h2 id="新年快乐！！！"><a href="#新年快乐！！！" class="headerlink" title="新年快乐！！！"></a>新年快乐！！！</h2><p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fzxmdtyb28j30m80m8q7b.jpg" alt="新年快乐"></p>
+<p>昨晚阿里爸爸集福2块，百度爸爸点到手软十一块，之前还吐槽人家是不是送莆田医院10000-50优惠券来着，结果‘真香’~</p>
+<p>人类的本质果然是真香</p>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -631,27 +602,11 @@ PicGo
                 <span>自用Chrome扩展推荐</span>
         </a>
         <div class="abstract-content">
-            自用Chrome扩展推荐
-上不去Google商店也是可以下扩展的，推荐个镜像站
-https://www.crx4chrome.com/
-
-
-
-
-在浏览过各式Chrome插件推荐文章后，精选下来的最适合自己的一部分，是否适合于你，需要你自己的斟酌
-
-1.JSON-handle——JSON格式化-开发者必备
-无须过多解释
-
-
-2.油猴-Tamermonkey
-常年霸占Chrome神级插件列表，简而言之一个管理各类脚本的工具，通过这些脚本我们不仅可以定制各个网站的样式，还可以定制其功能
-
-它可以且不限于：（搬一段少数派文章的话语）
-
-直接下载百度网盘文件
-重新定制繁杂的微博页面
-去掉视频播放广...
+            <p>### </p>
+<blockquote>
+<p>上不去Google商店也是可以下扩展的，推荐个镜像站</p>
+<p><a href="https://www.crx4chrome.com/" target="_blank" rel="noopener">https://www.crx4chrome.com/</a></p>
+</blockquote>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -680,17 +635,12 @@ https://www.crx4chrome.com/
                 <span>Vagrant配置Xdebug</span>
         </a>
         <div class="abstract-content">
-            Vagrant环境配置Xdebug相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为
-
-php安装xdebug扩展，php.ini配置
-phpstorm监听，共享目录等设置
-浏览器xdebug扩展安装
-
-一、 根据php版本wget对应的xdebug包
-这里提供php5.4对应的包地址
-
-1wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载
-二、使用phpize安装扩展1234567wget https://xdebug.org/files/xdebug-2.4.1.tgz//下载tar xvzf xdebu...
+            <h3 id="Vagrant环境配置Xdebug"><a href="#Vagrant环境配置Xdebug" class="headerlink" title="Vagrant环境配置Xdebug"></a>Vagrant环境配置Xdebug</h3><p>相对于windows本地环境的配置，略微有些不同，也稍蛋疼一些，整个步骤大体分为</p>
+<ol>
+<li>php安装xdebug扩展，php.ini配置</li>
+<li>phpstorm监听，共享目录等设置</li>
+<li>浏览器xdebug扩展安装</li>
+</ol>
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
