@@ -421,31 +421,31 @@ height:50vh;
 <h4 id="三、-phpinfo查看Xdebug安装是否正常"><a href="#三、-phpinfo查看Xdebug安装是否正常" class="headerlink" title="三、 phpinfo查看Xdebug安装是否正常"></a>三、 phpinfo查看Xdebug安装是否正常</h4><blockquote>
 <p>部分环境因为安全需要禁用了phpinfo，需要修改php.ini开启</p>
 </blockquote>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fuwdsh0popj30o90fs409.jpg" alt="image"></p>
+<p><img src="https://img.codeart.top/img/006tNbRwgy1fuwdsh0popj30o90fs409.jpg" alt="image"></p>
 <h4 id="四、-修改php-ini-添加Xdebug相关配置"><a href="#四、-修改php-ini-添加Xdebug相关配置" class="headerlink" title="四、 修改php.ini 添加Xdebug相关配置"></a>四、 修改php.ini 添加Xdebug相关配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Xdebug]</span><br><span class="line">zend_extension = /usr/local/server/php/lib/php/extensions/no-debug-non-zts-20100525/xdebug.so</span><br><span class="line">xdebug.remote_enable =1</span><br><span class="line">xdebug.remote_handler = dbgp</span><br><span class="line">xdebug.remote_host = 10.0.2.2 </span><br><span class="line">xdebug.remote_mode = req</span><br><span class="line">xdebug.remote_port = 9001</span><br><span class="line">xdebug.idekey = PHPSTORM</span><br><span class="line">xdebug.remote_autostart = 1</span><br><span class="line">xdebug.remote_log = /tmp/xdebug.log</span><br></pre></td></tr></table></figure>
 <p>xdebug.remote_host 为<strong>客户端ip</strong>，此处客户端的概念指phpstorm所在的机器</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fuwdx9b7qsj30ft05rwex.jpg" alt="image"></p>
+<p><img src="https://img.codeart.top/img/006tNbRwgy1fuwdx9b7qsj30ft05rwex.jpg" alt="image"></p>
 <p>一般多数服务是我们本机通过对应的端口去请求它，xdebug却相反，是服务器端来请求客户端，phpstorm配置对应的端口来进行监听，phpstorm所在的机器即为客户端，所以此处xdebug.remote_host 所填的地址可通过<code>$_SERVER[&#39;REMOTE_ADDR&#39;]</code>来获取，这里划重点，网上众说纷纭，此处<strong>请填客户端ip</strong>，勿填成了虚拟机ip</p>
 <p>xdebug.remote_port 为约定的端口，默认为9000，有人说fastcgi会占用这个端口，所以我换成了9001</p>
 <p>xdebug.remote_log 为日志选项，调试正常，可以使用之后，可以将其去掉</p>
 <p>此处再提一点：<strong>约定的端口（9001）不用转发</strong>，本人便吃了自作聪明的亏</p>
 <h4 id="五、修改PhpStorm相关配置"><a href="#五、修改PhpStorm相关配置" class="headerlink" title="五、修改PhpStorm相关配置"></a>五、修改PhpStorm相关配置</h4><h5 id="5-1-解释器修改为远程解释器"><a href="#5-1-解释器修改为远程解释器" class="headerlink" title="5.1 解释器修改为远程解释器"></a>5.1 解释器修改为远程解释器</h5><p>例如配置为vagrant 虚拟机中的php</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuweb7l98uj31kw0y1453.jpg" alt="image"></p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuwecykg58j319s11kwjb.jpg" alt="image"></p>
-<h5 id="5-2-修改为约定的端口"><a href="#5-2-修改为约定的端口" class="headerlink" title="5.2 修改为约定的端口"></a>5.2 修改为约定的端口</h5><p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuwedwawk0j316g0rgq9j.jpg" alt="image"></p>
-<h5 id="5-3-配置DBGp"><a href="#5-3-配置DBGp" class="headerlink" title="5.3 配置DBGp"></a>5.3 配置DBGp</h5><p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fuweffj694j316o0mu77i.jpg" alt="image"></p>
+<p><img src="https://img.codeart.top/img/006tNbRwgy1fuweb7l98uj31kw0y1453.jpg" alt="image"></p>
+<p><img src="https://img.codeart.top/img/006tNbRwgy1fuwecykg58j319s11kwjb.jpg" alt="image"></p>
+<h5 id="5-2-修改为约定的端口"><a href="#5-2-修改为约定的端口" class="headerlink" title="5.2 修改为约定的端口"></a>5.2 修改为约定的端口</h5><p><img src="https://img.codeart.top/img/006tNbRwgy1fuwedwawk0j316g0rgq9j.jpg" alt="image"></p>
+<h5 id="5-3-配置DBGp"><a href="#5-3-配置DBGp" class="headerlink" title="5.3 配置DBGp"></a>5.3 配置DBGp</h5><p><img src="https://img.codeart.top/img/006tNbRwgy1fuweffj694j316o0mu77i.jpg" alt="image"></p>
 <p>按理来说，配置到此处PHPStorm的配置就告一段落了，但网上很多文章提到需要配置这个Servers，让请求找到本地正确的目录</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fzglz489v8j312a0j2tc6.jpg" alt="image-20190123164134995"></p>
+<p><img src="https://img.codeart.top/img/006tNc79gy1fzglz489v8j312a0j2tc6.jpg" alt="image-20190123164134995"></p>
 <p>其实这里是不用配置的，当开始调试，服务端与客户端正常通信后会自动创建，假如未检测到对应目录时则会要求你来进行配置</p>
 <p>配置好后，开启phpstorm的监听</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzgm081kuvj30dh03vdfr.jpg" alt="image-20190123164241506"></p>
+<p><img src="https://img.codeart.top/img/006tNc79gy1fzgm081kuvj30dh03vdfr.jpg" alt="image-20190123164241506"></p>
 <h4 id="六、-chrome安装对应扩展"><a href="#六、-chrome安装对应扩展" class="headerlink" title="六、 chrome安装对应扩展"></a>六、 chrome安装对应扩展</h4><p><a href="https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc" target="_blank" rel="noopener">https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc</a></p>
 <p>当然如果你没梯子，就这里下吧</p>
 <p><a href="https://www.crx4chrome.com/extensions/eadndfjplgieldjbigjakmdgkmoaaaoc/" target="_blank" rel="noopener">https://www.crx4chrome.com/extensions/eadndfjplgieldjbigjakmdgkmoaaaoc/</a></p>
 <p>装好后，右击-&gt;选项，配置key</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuwety8estj30fq03a74d.jpg" alt="image"></p>
+<p><img src="https://img.codeart.top/img/006tNbRwgy1fuwety8estj30fq03a74d.jpg" alt="image"></p>
 <p>接着在需要调试的页面，将他点成原谅色即启用啦</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fuweuoxofgj308502x0st.jpg" alt="image"></p>
+<p><img src="https://img.codeart.top/img/006tNbRwgy1fuweuoxofgj308502x0st.jpg" alt="image"></p>
 <p>接下来ide中打断点，刷新页面测试吧</p>
 <h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>大体上就是这样，有问题就根据xdebug.log来google一下，或留言交流</p>
 
@@ -826,6 +826,12 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 18
@@ -841,6 +847,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/1243066710.html" >Hello World</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -908,11 +919,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/1243066710.html" >Hello World</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2321820789.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
         </li>
     
@@ -964,9 +970,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
-    
         <span class="sidebar-tag-name" data-tags="PHP"><span class="iconfont-archer">&#xe606;</span>PHP</span>
+    
+        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
     
         <span class="sidebar-tag-name" data-tags="FixErrors"><span class="iconfont-archer">&#xe606;</span>FixErrors</span>
     
@@ -978,21 +984,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
     
+        <span class="sidebar-tag-name" data-tags="开发环境"><span class="iconfont-archer">&#xe606;</span>开发环境</span>
+    
         <span class="sidebar-tag-name" data-tags="Xdebug"><span class="iconfont-archer">&#xe606;</span>Xdebug</span>
     
         <span class="sidebar-tag-name" data-tags="虚拟机"><span class="iconfont-archer">&#xe606;</span>虚拟机</span>
     
         <span class="sidebar-tag-name" data-tags="VirtualBox"><span class="iconfont-archer">&#xe606;</span>VirtualBox</span>
     
-        <span class="sidebar-tag-name" data-tags="开发环境"><span class="iconfont-archer">&#xe606;</span>开发环境</span>
-    
         <span class="sidebar-tag-name" data-tags="博客"><span class="iconfont-archer">&#xe606;</span>博客</span>
     
         <span class="sidebar-tag-name" data-tags="图床"><span class="iconfont-archer">&#xe606;</span>图床</span>
     
-        <span class="sidebar-tag-name" data-tags="Chrome"><span class="iconfont-archer">&#xe606;</span>Chrome</span>
-    
         <span class="sidebar-tag-name" data-tags="uuhosts"><span class="iconfont-archer">&#xe606;</span>uuhosts</span>
+    
+        <span class="sidebar-tag-name" data-tags="Chrome"><span class="iconfont-archer">&#xe606;</span>Chrome</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

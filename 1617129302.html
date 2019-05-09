@@ -510,7 +510,7 @@ height:50vh;
 <h4 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h4><hr>
 <p>Redis的事务处理比较简单。只能保证client发起的事务中的命令可以连续的执行，而且不会插入其他的client命令，当一个client在连接中发出multi命令时，这个连接就进入一个事务的上下文，该连接后续的命令不会执行，而是存放到一个队列中，当执行exec命令时，redis会顺序的执行队列中的所有命令。</p>
 <p>如果其中执行出现错误，执行正确的不会回滚，不同于关系型数据库的事务。</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxutsb3z9ij307y065dg3.jpg" alt="image"></p>
+<p><img src="https://img.codeart.top/img/006tNbRwgy1fxutsb3z9ij307y065dg3.jpg" alt="image"></p>
 <h4 id="持久化机制"><a href="#持久化机制" class="headerlink" title="持久化机制"></a>持久化机制</h4><hr>
 <p><strong>Redis支持两种持久化方式：</strong></p>
 <blockquote>
@@ -929,6 +929,12 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 18
@@ -944,6 +950,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span><a class="archive-post-title" href= "/1243066710.html" >Hello World</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1011,11 +1022,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/06</span><a class="archive-post-title" href= "/1243066710.html" >Hello World</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">03/04</span><a class="archive-post-title" href= "/2321820789.html" >Win10-VMware Workstation与DeviceCredential Guard不兼容 解决方法</a>
         </li>
     
@@ -1067,9 +1073,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
-    
         <span class="sidebar-tag-name" data-tags="PHP"><span class="iconfont-archer">&#xe606;</span>PHP</span>
+    
+        <span class="sidebar-tag-name" data-tags="随笔"><span class="iconfont-archer">&#xe606;</span>随笔</span>
     
         <span class="sidebar-tag-name" data-tags="FixErrors"><span class="iconfont-archer">&#xe606;</span>FixErrors</span>
     
@@ -1081,21 +1087,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
     
+        <span class="sidebar-tag-name" data-tags="开发环境"><span class="iconfont-archer">&#xe606;</span>开发环境</span>
+    
         <span class="sidebar-tag-name" data-tags="Xdebug"><span class="iconfont-archer">&#xe606;</span>Xdebug</span>
     
         <span class="sidebar-tag-name" data-tags="虚拟机"><span class="iconfont-archer">&#xe606;</span>虚拟机</span>
     
         <span class="sidebar-tag-name" data-tags="VirtualBox"><span class="iconfont-archer">&#xe606;</span>VirtualBox</span>
     
-        <span class="sidebar-tag-name" data-tags="开发环境"><span class="iconfont-archer">&#xe606;</span>开发环境</span>
-    
         <span class="sidebar-tag-name" data-tags="博客"><span class="iconfont-archer">&#xe606;</span>博客</span>
     
         <span class="sidebar-tag-name" data-tags="图床"><span class="iconfont-archer">&#xe606;</span>图床</span>
     
-        <span class="sidebar-tag-name" data-tags="Chrome"><span class="iconfont-archer">&#xe606;</span>Chrome</span>
-    
         <span class="sidebar-tag-name" data-tags="uuhosts"><span class="iconfont-archer">&#xe606;</span>uuhosts</span>
+    
+        <span class="sidebar-tag-name" data-tags="Chrome"><span class="iconfont-archer">&#xe606;</span>Chrome</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
