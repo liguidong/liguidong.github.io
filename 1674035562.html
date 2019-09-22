@@ -22,7 +22,7 @@
     <meta name="description" content="CodeArt是一个记录个人成长的博客，涵盖PHP，MySQL，虚拟化技术，效率工具等内容">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>【FixErrors】- 404 Not Found [IP:91.189.95.83 80] · CodeArt-编码艺术</title>
+    <title>Python初上手：多线程爬取豆瓣top250 · CodeArt-编码艺术</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >CodeArt-编码艺术</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">【FixErrors】- 404 Not Found [IP:91.189.95.83 80]</a>
+                <a href="#" class="post-name">Python初上手：多线程爬取豆瓣top250</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            【FixErrors】- 404 Not Found [IP:91.189.95.83 80]
+            Python初上手：多线程爬取豆瓣top250
             <!-- 404 -->
             
         </h1>
@@ -266,20 +266,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "FixErrors">FixErrors</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Linux">Linux</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">314</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">519</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/03/06</span>
+                    <span class="post-intro-time">2019/09/22</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -403,28 +401,18 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>本地环境：Laravel官方Homestead的box（ubuntu18.04.1）</p>
-<p>问题：无phpize，导致无法编译PHP扩展</p>
-<p>解决过程：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; sudo apt install php7.2-dev</span><br></pre></td></tr></table></figure>
-<p>报错</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; E: Failed to fetch http://ppa.launchpad.net/ondrej/php/ubuntu/pool/main/o/openssl/libssl-dev_1.1.0h-2.0+ubuntu18.04.1+deb.sury.org+1_amd64.deb  404  Not Found [IP: 91.189.95.83 80]</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<blockquote>
-<p>由PPA引起</p>
-</blockquote>
-<p>解决报错：</p>
-<p>新建名为<code>ppa-remove</code>脚本，内容如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">sudo rm /tmp/update.txt; tput setaf 6; <span class="built_in">echo</span> <span class="string">"Initializing.. Please Wait"</span> </span><br><span class="line">sudo apt-get update &gt;&gt; /tmp/update.txt 2&gt;&amp;1; awk <span class="string">'( /W:/ &amp;&amp; /launchpad/ &amp;&amp; /404/ ) &#123; print substr($5,26) &#125;'</span> /tmp/update.txt &gt; /tmp/awk.txt; awk -F <span class="string">'/'</span> <span class="string">'&#123; print $1"/"$2 &#125;'</span> /tmp/awk.txt &gt; /tmp/awk1.txt; sort -u /tmp/awk1.txt &gt; /tmp/awk2.txt</span><br><span class="line">tput sgr0</span><br><span class="line"><span class="keyword">if</span> [ -s /tmp/awk2.txt ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  tput setaf 1</span><br><span class="line">  <span class="built_in">printf</span> <span class="string">"PPA's going to be removed\n%s\n"</span> <span class="string">"<span class="variable">$(cat /tmp/awk2.txt)</span>"</span></span><br><span class="line">  tput sgr0</span><br><span class="line">  <span class="keyword">while</span> <span class="built_in">read</span> -r line; <span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">"sudo add-apt-repository -r ppa:<span class="variable">$line</span>"</span>; <span class="keyword">done</span> &lt; /tmp/awk2.txt &gt; out</span><br><span class="line">  bash out</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  tput setaf 1</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"No PPA's to be removed"</span></span><br><span class="line">  tput sgr0</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-<p>授予脚本执行权限：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x ppa-remove</span><br></pre></td></tr></table></figure>
-<p>将<code>ppa-remove</code>文件复制到<code>/usr/bin</code>目录，这样就可以从任何地方访问它。</p>
-<p>执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ppa-remove</span><br></pre></td></tr></table></figure>
-<p>这样即可消除报错，继续你的填坑之旅吧。</p>
-<blockquote>
-<p>参考：<a href="https://askubuntu.com/questions/65911/how-can-i-fix-a-404-error-when-using-a-ppa-or-updating-my-package-lists" target="_blank" rel="noopener">https://askubuntu.com/questions/65911/how-can-i-fix-a-404-error-when-using-a-ppa-or-updating-my-package-lists</a></p>
-</blockquote>
+        <h3 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h3><p>分析豆瓣Top250页面可得知页面URL规律如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第二页：</span><br><span class="line">https://movie.douban.com/top250?start=25&amp;filter=</span><br><span class="line">第三页：</span><br><span class="line">https://movie.douban.com/top250?start=50&amp;filter=</span><br></pre></td></tr></table></figure>
+<p>主要依靠start参数，默认每页25条，所以start是25从0开始到9的倍数 {0,25,50…}，filter参数可忽略</p>
+<p>那么获取信息的主要思路就是循环拼接url，get获取到页面HTML，解析出需要的数据即可。假如顺序执行，代码很容易实现，用“世界上最好的语言”也能搞定，为何还要用Python呢，要来就来点不一样的，多线程来抓取。那么此处的思路则为：</p>
+<p>1.循环拼接页面url</p>
+<p>2.根据线程数量配置，新建线程或等待进行中的线程，启动线程进行抓取，解析</p>
+<p>3.结束（最后写库还是输出随君意）</p>
+<h3 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h3><p>使用 requests 模块来发起请求</p>
+<p>使用 lxml.etree 模块来解析HTML内容</p>
+<p>使用 threading 模块来处理多线程</p>
+<p><strong>完整代码如下：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Douban</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="comment"># 基础url</span></span><br><span class="line">	base_url = <span class="string">'https://movie.douban.com/top250?start='</span></span><br><span class="line">	<span class="comment"># 请求头</span></span><br><span class="line">	headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"</span>&#125;</span><br><span class="line">	<span class="comment"># 最大线程数量&gt;=1</span></span><br><span class="line">	max_thread = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">	<span class="string">"""docstring for Douban"""</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">		super(Douban, self).__init__()</span><br><span class="line"></span><br><span class="line">	<span class="comment">#调度</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">schedule</span><span class="params">(self,i)</span>:</span></span><br><span class="line">		<span class="comment"># 使用动态变量名，动态的配置线程</span></span><br><span class="line">		<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,self.max_thread+<span class="number">1</span>):</span><br><span class="line">			<span class="keyword">if</span> <span class="string">'t'</span>+str(x) <span class="keyword">not</span> <span class="keyword">in</span> dir():</span><br><span class="line">				locals()[<span class="string">'t'</span>+str(x)] = threading.Thread(target=self.get,name=i)</span><br><span class="line">				locals()[<span class="string">'t'</span>+str(x)].start()</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">#开始获取</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self)</span>:</span></span><br><span class="line">		i=threading.current_thread().name</span><br><span class="line">		url = self.base_url+str(i)</span><br><span class="line">		res = requests.get(url,headers=self.headers)</span><br><span class="line">		<span class="keyword">if</span> res.status_code==<span class="number">200</span>:</span><br><span class="line">			self.block(res.text)</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">block</span><span class="params">(self,res)</span>:</span></span><br><span class="line">		html = etree.HTML(res)</span><br><span class="line">		lis = html.xpath(<span class="string">'//ol[@class="grid_view"]/li'</span>)</span><br><span class="line">		<span class="keyword">for</span> li <span class="keyword">in</span> lis:</span><br><span class="line">			title=li.xpath(<span class="string">'div/div[2]/div/a/span[1]/text()'</span>)</span><br><span class="line">			info = li.xpath(<span class="string">'div/div[2]/div[2]/p/text()'</span>)</span><br><span class="line">			print(title)</span><br><span class="line">			<span class="comment"># print(info)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">douban = Douban()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">250</span>,<span class="number">25</span>):</span><br><span class="line">	douban.schedule(i)</span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- license  -->
@@ -433,17 +421,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2465956288.html" title= "折腾来折腾去最后还是用WiKi">
-                    <div class="nextTitle">折腾来折腾去最后还是用WiKi</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/1501823573.html" title= "【FixErrors】- 支付宝红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容">
-                    <div class="prevTitle">【FixErrors】- 支付宝红包内容含有违反法律法规、公序良俗、社会公德以及侵犯第三人合法权益的内容</div>
+                <a href= "/3383457205.html" title= "《ModernPHP》一本值得PHP开发者阅读的书">
+                    <div class="prevTitle">《ModernPHP》一本值得PHP开发者阅读的书</div>
                 </a>
             
         </li>
@@ -570,7 +553,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、思路"><span class="toc-number">1.</span> <span class="toc-text">一、思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、实现"><span class="toc-number">2.</span> <span class="toc-text">二、实现</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
